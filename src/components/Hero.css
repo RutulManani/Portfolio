@@ -1,0 +1,214 @@
+/* ------------------ HERO SECTION ---------------- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 0.3s;
+}
+
+.hero h1 span {
+    color: var(--accent);
+    position: relative;
+    margin-right: 0.5rem; /* Added this line */
+}
+
+.hero h1 span:last-child {
+    margin-right: 0; /* Remove margin from last word */
+}
+
+.hero h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+}
+
+.hero h1:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 0.5s;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 0.7s;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1s;
+}
+
+.scroll-text {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.scroll-icon {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 15px;
+    position: relative;
+}
+
+.scroll-icon::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: scrollDown 2s infinite;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--secondary);
+    z-index: 1;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.hero-bg-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-image: radial-gradient(circle at center, rgba(255, 77, 77, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 2;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* ------------------ KINETIC TYPOGRAPHY ---------- */
+.kinetic-text {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.kinetic-word {
+    display: inline-block;
+    position: relative;
+    margin: 0 0.25rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.kinetic-word:hover {
+    color: var(--accent);
+    transform: rotateY(10deg) scale(1.05);
+}
+
+.kinetic-word::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+}
+
+.kinetic-word:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+@media (max-width: 768px) {
+
+    .hero-bg,
+    .hero-bg-pattern {
+        width: 100%;
+        clip-path: none;
+        opacity: 0.2;
+    }
+
+    .hero-content {
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}

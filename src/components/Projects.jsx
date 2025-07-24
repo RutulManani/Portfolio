@@ -1,77 +1,107 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import './Projects.css';
 import AirbnbImage from '../assets/images/Airbnb.png';
 import PrimeVideoImage from '../assets/images/PrimeVideo.png';
 import ByblosImage from '../assets/images/Byblos.png';
 import DocmigoImage from '../assets/images/Docmigo.png';
-import './Projects.css';
 
 const Projects = () => {
-  const containerRef = useRef(null);
-  const [activeProject, setActiveProject] = useState(0);
-
-  const staticProjects = [
+  const projects = [
     {
       id: '1',
       title: "Airbnb UX Research",
-      description: "Conducted comprehensive UX research to improve Airbnb's booking experience through competitive analysis and user interviews.",
-      tags: ["UX Research", "Competitive Analysis", "User Interviews"],
-      image: AirbnbImage
+      description: "Improved booking experience through comprehensive UX research",
+      tags: ["UX Research", "User Interviews", "Journey Mapping"],
+      image: AirbnbImage,
+      imagePosition: "right center"
     },
     {
       id: '2',
       title: "Prime Video Usability",
-      description: "Performed usability testing and heuristic evaluation to enhance content discovery and watchlist management features.",
-      tags: ["Usability Testing", "Heuristic Evaluation", "Affinity Mapping"],
-      image: PrimeVideoImage
+      description: "Enhanced content discovery and watchlist management",
+      tags: ["Usability Testing", "Heuristic Evaluation"],
+      image: PrimeVideoImage,
+      imagePosition: "left top"
     },
     {
       id: '3',
       title: "Byblos Restaurant",
-      description: "Redesigned the ordering experience for Byblos restaurant, implementing a seamless online ordering system.",
-      tags: ["UI/UX Design", "User Flows", "Wireframing"],
-      image: ByblosImage
+      description: "Redesigned ordering experience with seamless online system",
+      tags: ["UI/UX Design", "User Flows"],
+      image: ByblosImage,
+      imagePosition: "center center"
     },
     {
       id: '4',
       title: "Docmigo Hospital App",
-      description: "Designed a comprehensive communication and management app for doctors and receptionists to streamline hospital operations.",
-      tags: ["UX Research", "UI Design", "Stakeholder Interviews"],
-      image: DocmigoImage
+      description: "Streamlined hospital operations with communication app",
+      tags: ["UX Research", "Stakeholder Interviews"],
+      image: DocmigoImage,
+      imagePosition: "right bottom"
     }
   ];
 
-  const handleCardHover = (index) => {
-    setActiveProject(index);
-    if (containerRef.current) {
-      const card = containerRef.current.children[index];
-      const container = containerRef.current;
-      const cardLeft = card.offsetLeft;
-      const cardWidth = card.offsetWidth;
-      const containerWidth = container.offsetWidth;
-      container.scrollTo({
-        left: cardLeft - (containerWidth / 2) + (cardWidth / 2),
-        behavior: 'smooth'
-      });
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
     }
   };
 
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="projects-section">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
-        <div className="projects-container" ref={containerRef}>
-          {staticProjects.map((project, index) => (
-            <div
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          Featured Projects
+        </motion.h2>
+        
+        <motion.div 
+          className="projects-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {projects.map((project, index) => (
+            <motion.div 
               key={project.id}
-              className={`project-card ${activeProject === index ? 'active' : ''}`}
-              onMouseEnter={() => handleCardHover(index)}
+              className="project-card"
+              variants={itemVariants}
+              whileHover={{ y: -8 }}
             >
-              <div className="project-number">{index + 1}</div>
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-              </div>
-              <div className="project-info">
+              <div 
+                className="project-image" 
+                style={{ 
+                  backgroundImage: `url(${project.image})`,
+                  backgroundPosition: project.imagePosition
+                }}
+              />
+              <div className="project-content">
+                <div className="project-number">0{index + 1}</div>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 <div className="project-tags">
@@ -79,11 +109,19 @@ const Projects = () => {
                     <span key={i} className="project-tag">{tag}</span>
                   ))}
                 </div>
+                <Link 
+                  to={`/projects/${project.id}`} 
+                  className="project-link"
+                  aria-label={`View ${project.title} project`}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </Link>
               </div>
-              <Link to={`/projects/${project.id}`} className="project-link" />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

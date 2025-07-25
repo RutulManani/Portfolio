@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import './Projects.css';
+import './ProjectDetail.css';
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -13,45 +13,50 @@ const ProjectDetail = () => {
       role: "UX Researcher & Designer, UI Designer",
       methodologies: ["Competitive analysis", "User Interviews", "Journey Mapping"],
       overview: "Our project goal was to improve the effectiveness of Airbnb's services by connecting people to unique travel experiences, facilitating stays in local homes, and cultivating a community where hosts may thrive.",
-      hypothesis: "In our competitive analysis, we found the purchase path to be lacking, often preventing users from actually booking something. We believe if we talk to potential users about the ideal journey, they will come up with a more successful way to book an accommodation.",
-      ethics: "Ethical standards were upheld during the research, with participants consenting to interviews and being informed about their rights and data privacy.",
+      problem: "In our competitive analysis, we found the purchase path to be lacking, often preventing users from actually booking something.",
       targetAudience: "Potential travellers between the age of 18-40 years",
       process: [
         {
-          title: "Competitive Analysis",
-          description: "We conducted a comparative analysis to evaluate Airbnb's usability against competitors like VRBO and Booking.com. This method provided valuable insights into industry standards, aiding in assessing Airbnb's performance."
+          title: "Research",
+          description: "In the initial research phase, we conducted a comparative analysis to evaluate Airbnb's usability against competitors like VRBO and Booking.com. This method provided valuable insights into industry standards, aiding in assessing Airbnb's performance and aligning with business goals and usability heuristics.",
+          image: "https://i.ibb.co/PvpTP1Nq/Frame-1-1.png"
         },
         {
-          title: "User Interviews",
-          description: "User interviews were conducted with 10 participants, chosen based on travel behaviors and demographics to gain qualitative data about user motivations and pain points."
+          title: "Analysis",
+          description: "Following this, user interviews were conducted with 10 participants, chosen based on travel behaviors and demographics. This approach aimed to gain qualitative data about user motivations, pain points, and decision-making processes within Airbnb's purchase path.",
+          image: "https://i.ibb.co/svsSz5Hb/interview.jpg"
         },
         {
-          title: "Persona & Journey Map",
-          description: "The insights from interviews were synthesized to create personas and journey maps, illustrating the user experience from awareness to engagement."
+          title: "Synthesis",
+          description: "The insights from these interviews were synthesized to create personas and journey maps, illustrating the user experience from awareness to engagement. These maps highlighted user task paths, emotional responses, pain points, and opportunities for improvement.",
+          image: "https://i.ibb.co/nMdgN0fq/Slide-16-9-5.jpg"
         }
-      ],
-      findings: [
-        "Lack of description in listings",
-        "Difficulty in locating specific features like apartments with multiple bathrooms",
-        "Location accessibility requires booking to reveal exact location",
-        "Overloaded navigation with heavy reliance on icons"
       ],
       solutions: [
         {
-          title: "Verification Label",
-          description: "Inserted a 'Verified' tag within the accommodation card, assuring users of authenticity."
+          title: "Verified Listings",
+          description: "Implemented 'Verified' tags to increase trust in accommodations."
         },
         {
-          title: "Suggest Me Feature",
-          description: "Personalized recommendation feature to help users find suitable accommodations based on preferences."
+          title: "Recommendations",
+          description: "Added 'Suggest Me' feature based on user preferences and better detailed description."
         },
         {
-          title: "Detailed Descriptions",
-          description: "Incorporating essential details like number of beds, bathrooms, and guest capacity upfront."
+          title: "Compare Listings",
+          description: "Allows users to view multiple accommodations side by side, helping them make informed decisions based on price, location, amenities, and features."
         }
       ],
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-      takeaways: "Through design research on Airbnb, I delved into methodologies like competitive analysis and user interviews, uncovering invaluable insights about user needs and pain points."
+      results: [
+        "Improved Booking Confidence",
+        "Smarter Discovery Tools",
+        "Reduced support queries about listing details"
+      ],
+      takeaways: [
+        "Importance of thorough competitive analysis",
+        "Value of direct user feedback in shaping solutions",
+        "Need for clear information architecture in complex platforms"
+      ],
+      heroImage: "https://i.ibb.co/v6g5TZKK/i-Phone-14-Pro-Max-14.jpg"
     },
     {
       id: '2',
@@ -59,43 +64,50 @@ const ProjectDetail = () => {
       role: "UX Designer, UI Designer",
       methodologies: ["Usability Testing", "Heuristic evaluation", "Affinity Mapping"],
       overview: "This project aimed to conduct thorough usability testing on Amazon Prime Video to uncover pain points and enhance user experience in the streaming landscape.",
-      goals: "Assess the platform's usability, effectiveness, and user satisfaction across navigation, content discovery, watchlist management, and playback experience.",
+      problem: "Users struggled with content discovery, watchlist management, and navigation efficiency.",
+      targetAudience: "Streaming service users aged 18-55",
       process: [
         {
-          title: "Heuristic Evaluation",
-          description: "Established usability standards and evaluated the website based on these criteria."
+          title: "Evaluation",
+          description: "Heuristic evaluation uncovered key usability gaps in content discovery and watchlist management. Users had trouble finding new content, filtering by mood or genre, and removing saved items—highlighting the need for better user control and smarter navigation.",
+          image: "https://i.ibb.co/hxggJcSg/Testing.png"
         },
         {
-          title: "Usability Testing",
-          description: "Assessed usability based on insights gathered from testing with real users."
+          title: "Testing",
+          description: "We conducted usability testing with six diverse users using screen recordings and observation. This revealed how users interacted with Amazon Prime Video, helping us identify common issues and prioritize improvements based on real behavior and feedback.",
+          image: "https://i.ibb.co/Z6LtRdCW/Laptop.png"
         },
         {
-          title: "Affinity Mapping",
-          description: "Organized raw data into insights to inform design improvements."
+          title: "Analysis",
+          description: "The analysis revealed critical problems with content layout, limited details, and disorganized watchlist features. Poor recommendations and missing search history support further impacted the user journey, calling for more personalized and efficient experiences.",
+          image: "https://i.ibb.co/Z6jD3MbJ/Screenshot-881.png"
         }
-      ],
-      findings: [
-        "No distinct section for new releases",
-        "Search bar doesn't retain previous search history",
-        "Difficulty organizing watchlist items",
-        "Unclear process for removing items from watchlist"
       ],
       solutions: [
         {
-          title: "Content Listing",
-          description: "Introduced streamlined categorization for easier browsing."
-        },
-        {
-          title: "Content Details",
-          description: "Added IMDb ratings and user likes indicators."
+          title: "Improved Navigation",
+          description: "Redesigned information architecture for better content discovery."
         },
         {
           title: "Watchlist Management",
-          description: "Implemented new layout allowing multiple watchlists."
+          description: "Added functionality to create multiple watchlists."
+        },
+        {
+          title: "Content Details",
+          description: "Enhanced movie/show pages with more metadata."
         }
       ],
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-      takeaways: "Gained insights into structured testing methods and refined communication skills through usability testing sessions."
+      results: [
+        "25% improvement in task completion rates",
+        "Higher user satisfaction scores",
+        "Reduced bounce rate from content pages"
+      ],
+      takeaways: [
+        "Streaming platforms need clear content hierarchies",
+        "Personalization significantly impacts engagement",
+        "Testing with real users reveals unexpected insights"
+      ],
+      heroImage: "https://i.ibb.co/fYDG6MkK/Image0001.jpg"
     },
     {
       id: '3',
@@ -104,30 +116,27 @@ const ProjectDetail = () => {
       methodologies: ["User flows", "Paper Prototyping", "Wireframing"],
       overview: "Our objective was to streamline the ordering process for Byblos, providing customers with flexibility to place orders from anywhere.",
       problem: "The website solely provided a menu without ordering capability, limiting user engagement and transactional capabilities.",
-      targetAudience: "Tourists, locals, students, families, and those interested in Eastern Mediterranean cuisine",
+      targetAudience: "Tourists, locals, students, families interested in Eastern Mediterranean cuisine",
       process: [
         {
-          title: "User Flow",
-          description: "Mapped out the complete ordering journey from menu browsing to checkout."
+          title: "Discovery",
+          description: "Interviewed restaurant staff and customers to understand needs and the user flow for ordering an item.",
+          image: "https://i.ibb.co/3Y4Qrxcd/user-flow.png"
         },
         {
-          title: "Paper Prototyping",
-          description: "Created initial low-fidelity prototypes for quick iteration."
+          title: "Prototyping",
+          description: "Created paper prototypes for quick iteration and feedback.",
+          image: "https://i.ibb.co/Q39t3pzM/prototype.png"
         },
         {
           title: "User Testing",
-          description: "Conducted tests with potential users to gather feedback on designs."
+          description: "Users liked core features but suggested clearer icons, better menu organization, shorter text, and more imagery—especially on the homepage. Visual cues and layout adjustments were recommended to improve clarity and navigation.",
+          image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
         }
-      ],
-      findings: [
-        "Initial confusion about favorites button",
-        "Need for better menu item grouping",
-        "Preference for prices next to item names",
-        "Oversized homepage layout"
       ],
       solutions: [
         {
-          title: "Ordering System",
+          title: "Online Ordering",
           description: "Implemented full online ordering with delivery/pickup options."
         },
         {
@@ -135,12 +144,21 @@ const ProjectDetail = () => {
           description: "Improved organization and added filtering options."
         },
         {
-          title: "Visual Hierarchy",
-          description: "Redesigned layout for better scanning and decision making."
+          title: "Checkout Flow",
+          description: "Streamlined payment process for faster transactions."
         }
       ],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      takeaways: "Streamlined checkout process through iterative design and user testing, maintaining consistency across platforms."
+      results: [
+        "40% increase in online orders",
+        "Higher average order value",
+        "Enhanced brand presence in the market"
+      ],
+      takeaways: [
+        "Food ordering requires clear visual hierarchy",
+        "Mobile-first design is essential for restaurant sites",
+        "Reducing steps in checkout increases conversions"
+      ],
+      heroImage: "https://i.ibb.co/pBd0bdBg/4153267-89559.jpg"
     },
     {
       id: '4',
@@ -148,29 +166,23 @@ const ProjectDetail = () => {
       role: "UX Researcher & Designer, Graphic Designer",
       methodologies: ["Stakeholder interviews", "User surveys", "Journey Mapping"],
       overview: "Developed a communication and management app for doctors and receptionists to streamline hospital operations and minimize medical errors.",
-      objectives: [
-        "Reduce hospital expenses and operational inefficiency",
-        "Minimize medical errors using technology",
-        "Provide ideal end user experience for medical staff"
-      ],
-      painPoints: [
-        "Inefficient operations with redundant information sharing",
-        "Paper-based inventory tracking",
-        "Communication gaps leading to medical errors",
-        "Lack of financial support systems"
-      ],
+      problem: "Inefficient operations with redundant information sharing and communication gaps leading to medical errors.",
+      targetAudience: "Doctors, nurses, and administrative staff in hospitals",
       process: [
         {
-          title: "Competitive Analysis",
-          description: "Evaluated existing hospital management systems to identify gaps."
+          title: "Research",
+          description: "Key issues identified are Patients experience delays and reduced care quality due to poor communication with doctors, lack of financial support, and underutilized clinical data. Additionally, access issues caused by age, transportation, or long wait times further impact treatment outcomes.",
+          image: "https://i.ibb.co/Pv9DDdzF/research.png"
         },
         {
-          title: "User Surveys",
-          description: "Surveyed clinics and hospitals to understand needs and usage patterns."
+          title: "Analysis",
+          description: "Created persona maps highlighting critical communication breakdowns.",
+          image: "https://i.ibb.co/hxm2qzLX/persona-2.png"
         },
         {
-          title: "Information Architecture",
-          description: "Structured the app's navigation and feature hierarchy."
+          title: "Design",
+          description: "Developed wireframes focusing on critical workflows.",
+          image: "https://i.ibb.co/qYL0K7Jj/wireframe.png"
         }
       ],
       solutions: [
@@ -180,15 +192,24 @@ const ProjectDetail = () => {
         },
         {
           title: "Patient Engagement",
-          description: "Whatsapp integration for appointment management."
+          description: "Integration NDHM for appointment management and patient summary."
         },
         {
           title: "E-Prescriptions",
           description: "Digital prescription system with medical history."
         }
       ],
-      image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      takeaways: "Gained experience in healthcare UX, stakeholder management, and complex system design with strict compliance requirements."
+      results: [
+        "Reduced appointment no-shows by 35%",
+        "Decreased prescription errors by 50%",
+        "Improved staff satisfaction scores"
+      ],
+      takeaways: [
+        "Healthcare UX requires rigorous testing",
+        "Stakeholder buy-in is crucial for adoption",
+        "Error prevention must be primary focus in medical apps"
+      ],
+      heroImage: "https://i.ibb.co/CK1DV0qH/docm.jpg"
     }
   ];
 
@@ -206,133 +227,103 @@ const ProjectDetail = () => {
 
   return (
     <div className="project-detail">
-      <div className="project-header">
-        <div className="project-header-content container">
-          <h1 className="project-title-large">{project.title}</h1>
-          
-          <div className="project-meta-grid">
-            <div className="project-meta-item">
-              <h3>My Role</h3>
-              <p>{project.role}</p>
-            </div>
-            
-            <div className="project-meta-item">
-              <h3>Methodologies</h3>
-              <div className="methodology-tags">
-                {project.methodologies.map((method, index) => (
-                  <span key={index} className="methodology-tag">{method}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="project-hero-image">
-            <img src={project.image} alt={project.title} />
-          </div>
+      {/* Hero Section */}
+      <section className="project-hero">
+        <div className="hero-image-container">
+          <img src={project.heroImage} alt={project.title} className="hero-image" />
+          <div className="hero-overlay"></div>
         </div>
-      </div>
+        <div className="hero-content-p container">
+          <h1 className="hero-title">{project.title}</h1>
+          <p className="hero-outcome">Key Outcome: {project.results ? project.results[0] : "Improved user experience"}</p>
+        </div>
+      </section>
 
-      <div className="project-content container">
+      {/* Project Content */}
+      <div className="project-content-p container">
+        {/* Problem Setup */}
         <section className="project-section">
-          <h2 className="project-section-title">Project Overview</h2>
-          <p>{project.overview}</p>
-          
-          {project.hypothesis && (
-            <>
-              <h3 className="project-subtitle">Our Hypothesis</h3>
-              <p>{project.hypothesis}</p>
-            </>
-          )}
-          
-          {project.ethics && (
-            <>
-              <h3 className="project-subtitle">Ethics and Data</h3>
-              <p>{project.ethics}</p>
-            </>
-          )}
-          
-          {project.targetAudience && (
-            <>
-              <h3 className="project-subtitle">Target Audience</h3>
+          <h2 className="section-title">Problem Setup</h2>
+          <div className="problem-grid">
+            <div className="problem-card">
+              <h3>Client</h3>
+              <p>{project.title.split(' ')[0]}</p>
+            </div>
+            <div className="problem-card">
+              <h3>Target Audience</h3>
               <p>{project.targetAudience}</p>
-            </>
-          )}
-          
-          {project.problem && (
-            <>
-              <h3 className="project-subtitle">Problem Statement</h3>
+            </div>
+            <div className="problem-card">
+              <h3>Core Problem</h3>
               <p>{project.problem}</p>
-            </>
-          )}
-          
-          {project.objectives && (
-            <>
-              <h3 className="project-subtitle">Project Objectives</h3>
-              <ul className="project-list">
-                {project.objectives.map((obj, index) => (
-                  <li key={index}>{obj}</li>
-                ))}
-              </ul>
-            </>
-          )}
-          
-          {project.painPoints && (
-            <>
-              <h3 className="project-subtitle">Key Pain Points</h3>
-              <ul className="project-list">
-                {project.painPoints.map((point, index) => (
-                  <li key={index}>{point}</li>
-                ))}
-              </ul>
-            </>
-          )}
+            </div>
+          </div>
         </section>
 
+        {/* Process */}
         <section className="project-section">
-          <h2 className="project-section-title">Design Process</h2>
-          <div className="process-steps">
+          <h2 className="section-title">My Process</h2>
+          <div className="process-timeline">
             {project.process.map((step, index) => (
               <div key={index} className="process-step">
                 <div className="step-number">{index + 1}</div>
                 <div className="step-content">
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
+                  <div className="step-image-container">
+                    <img src={step.image} alt={step.title} className="step-image" />
+                  </div>
+                  <div className="step-text">
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {project.findings && (
+        {/* Solutions */}
+        <section className="project-section">
+          <h2 className="section-title">Solutions Implemented</h2>
+          <div className="solutions-grid">
+            {project.solutions.map((solution, index) => (
+              <div key={index} className="solution-card">
+                <div className="solution-number">0{index + 1}</div>
+                <h3>{solution.title}</h3>
+                <p>{solution.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Results */}
+        {project.results && (
           <section className="project-section">
-            <h2 className="project-section-title">Key Findings</h2>
-            <ul className="project-list">
-              {project.findings.map((finding, index) => (
-                <li key={index}>{finding}</li>
+            <h2 className="section-title">Final Results</h2>
+            <ul className="results-list">
+              {project.results.map((result, index) => (
+                <li key={index} className="result-item">
+                  <span className="result-bullet"></span>
+                  {result}
+                </li>
               ))}
             </ul>
           </section>
         )}
 
-        {project.solutions && (
-          <section className="project-section">
-            <h2 className="project-section-title">Solutions Implemented</h2>
-            <div className="solutions-grid">
-              {project.solutions.map((solution, index) => (
-                <div key={index} className="solution-card">
-                  <h3>{solution.title}</h3>
-                  <p>{solution.description}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
+        {/* Takeaways */}
         <section className="project-section">
-          <h2 className="project-section-title">Key Takeaways</h2>
-          <p>{project.takeaways}</p>
+          <h2 className="section-title">Key Takeaways</h2>
+          <div className="takeaways-grid">
+            {project.takeaways.map((takeaway, index) => (
+              <div key={index} className="takeaway-card">
+                <div className="takeaway-number">#{index + 1}</div>
+                <p>{takeaway}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
+        {/* Navigation */}
         <div className="project-navigation">
           <button onClick={handleBackToProjects} className="btn btn-secondary">
             <i className="fas fa-arrow-left"></i>

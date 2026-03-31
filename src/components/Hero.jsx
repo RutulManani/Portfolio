@@ -8,12 +8,14 @@ import Aurora from './Aurora';
 import CompanyLogo1 from '../assets/images/company1.png';
 import CompanyLogo2 from '../assets/images/company2.png';
 import CompanyLogo3 from '../assets/images/company3.png';
+import CompanyLogo4 from '../assets/images/company4.png';
 
 const Hero = () => {
   const companies = [
     { logo: CompanyLogo1, name: 'Company 1' },
     { logo: CompanyLogo2, name: 'Company 2' },
-    { logo: CompanyLogo3, name: 'Company 3' }
+    { logo: CompanyLogo3, name: 'Company 3' },
+    { logo: CompanyLogo4, name: 'Company 4' }
   ];
 
   return (
@@ -79,7 +81,7 @@ const Hero = () => {
           style={{ marginBottom: '2.5rem' }}
         >
           <ShinyText 
-            text="UI/UX designer blending product thinking, research, and front-end execution"
+            text="I turn complex problems into human-centered digital experiences - where research meets craft, and design meets code."
             disabled={false} 
             speed={4} 
           />
@@ -114,7 +116,7 @@ const Hero = () => {
                 </motion.div>
               ))}
             </div>
-            <p className="experience-text">3+ years of experience in insurance to AI-driven platforms</p>
+            <p className="experience-text">4+ years in insurance, healthcare & AI-driven platforms</p>
           </div>
         </motion.div>
       </div>

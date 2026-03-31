@@ -180,9 +180,9 @@
 .logos-experience-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1.5rem;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .logos-container {
@@ -201,6 +201,7 @@
     position: relative;
     width: 34px;
     height: 34px;
+    flex-shrink: 0;
 }
 
 .company-logo {
@@ -231,9 +232,12 @@
 
 .experience-text {
     color: var(--accent);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
+    max-width: 320px;
+    line-height: 1.5;
 }
 
 /* ------------------ MEDIA QUERIES ----------------- */
@@ -249,6 +253,11 @@
     .kinetic-text {
         margin-bottom: 2rem;
     }
+    
+    .experience-text {
+        font-size: 0.9rem;
+        max-width: 280px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -262,6 +271,7 @@
     
     .logos-experience-wrapper {
         gap: 1rem;
+        flex-direction: column;
     }
     
     .logos-container {
@@ -274,9 +284,9 @@
     }
     
     .experience-text {
-        font-size: 0.9rem;
-        white-space: normal;
-        text-align: center;
+        font-size: 0.85rem;
+        max-width: 260px;
+        line-height: 1.4;
     }
 }
 
@@ -322,6 +332,7 @@
     
     .experience-text {
         font-size: 0.8rem;
+        max-width: 240px;
         line-height: 1.4;
     }
     

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './Projects.css';
 import AirbnbImage from '../assets/images/Airbnb.png';
-import PrimeVideoImage from '../assets/images/PrimeVideo.png';
 import ByblosImage from '../assets/images/Byblos.png';
 import DocmigoImage from '../assets/images/Docmigo.png';
+import SpendSmartImage from '../assets/images/SpendSmart.png';
 
 const Projects = () => {
   const projects = [
@@ -13,33 +13,33 @@ const Projects = () => {
       id: '1',
       title: "Airbnb UX Research",
       description: "Improved booking experience through comprehensive UX research",
-      tags: ["UX Research", "User Interviews", "Journey Mapping"],
+      tags: ["User Interviews", "Journey Mapping"],
       image: AirbnbImage,
       imagePosition: "right center"
     },
     {
       id: '2',
-      title: "Prime Video Usability",
-      description: "Enhanced content discovery and watchlist management",
-      tags: ["Usability Testing", "Heuristic Evaluation"],
-      image: PrimeVideoImage,
-      imagePosition: "left top"
-    },
-    {
-      id: '3',
       title: "Byblos Restaurant",
       description: "Redesigned ordering experience with seamless online system",
-      tags: ["UI/UX Design", "User Flows"],
+      tags: ["Wireframing", "Rapid Prototyping"],
       image: ByblosImage,
       imagePosition: "center center"
     },
     {
-      id: '4',
+      id: '3',
       title: "Docmigo Hospital App",
       description: "Streamlined hospital operations with communication app",
       tags: ["UX Research", "Stakeholder Interviews"],
       image: DocmigoImage,
       imagePosition: "right bottom"
+    },
+    {
+      id: '4',
+      title: "SpendSmart",
+      description: "Mood-aware gamified expense tracker for students",
+      tags: ["Full Stack", "MERN", "Gamification"],
+      image: SpendSmartImage,
+      imagePosition: "center center"
     }
   ];
 
@@ -76,7 +76,7 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-         Designs That Matter
+          Designs That Matter
         </motion.h2>
         
         <motion.div 
@@ -101,7 +101,6 @@ const Projects = () => {
                 }}
               />
               <div className="project-content">
-                <div className="project-number">0{index + 1}</div>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 <div className="project-tags">

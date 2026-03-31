@@ -44,6 +44,12 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  const openResume = () => {
+    // Opens resume PDF in a new tab
+    window.open('/resume.pdf', '_blank');
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={scrolled ? 'scrolled' : ''}>
       <Link 
@@ -63,15 +69,6 @@ const Navbar = () => {
       </Link>
       <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
         <Link 
-          to="/#about" 
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('#about');
-          }}
-        >
-          About
-        </Link>
-        <Link 
           to="/#projects" 
           onClick={(e) => {
             e.preventDefault();
@@ -79,6 +76,15 @@ const Navbar = () => {
           }}
         >
           Projects
+        </Link>
+        <Link 
+          to="/#about" 
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('#about');
+          }}
+        >
+          About
         </Link>
         <Link 
           to="/#contact" 
@@ -89,6 +95,13 @@ const Navbar = () => {
         >
           Contact
         </Link>
+        <button 
+          className="resume-btn"
+          onClick={openResume}
+          aria-label="Open Resume"
+        >
+          Resume
+        </button>
       </div>
       <div 
         className="menu-toggle" 

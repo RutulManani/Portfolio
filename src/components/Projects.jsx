@@ -10,6 +10,22 @@ import SpendSmartImage from '../assets/images/SpendSmart.png';
 const Projects = () => {
   const projects = [
     {
+      id: '4',
+      title: "SpendSmart",
+      description: "Mood-aware gamified expense tracker for students",
+      tags: ["Full Stack", "MERN", "Gamification"],
+      image: SpendSmartImage,
+      imagePosition: "center center"
+    },
+    {
+      id: '3',
+      title: "Docmigo Hospital App",
+      description: "Streamlined hospital operations with communication app",
+      tags: ["UX Research", "Stakeholder Interviews"],
+      image: DocmigoImage,
+      imagePosition: "right bottom"
+    },
+    {
       id: '1',
       title: "Airbnb UX Research",
       description: "Improved booking experience through comprehensive UX research",
@@ -23,22 +39,6 @@ const Projects = () => {
       description: "Redesigned ordering experience with seamless online system",
       tags: ["Wireframing", "Rapid Prototyping"],
       image: ByblosImage,
-      imagePosition: "center center"
-    },
-    {
-      id: '3',
-      title: "Docmigo Hospital App",
-      description: "Streamlined hospital operations with communication app",
-      tags: ["UX Research", "Stakeholder Interviews"],
-      image: DocmigoImage,
-      imagePosition: "right bottom"
-    },
-    {
-      id: '4',
-      title: "SpendSmart",
-      description: "Mood-aware gamified expense tracker for students",
-      tags: ["Full Stack", "MERN", "Gamification"],
-      image: SpendSmartImage,
       imagePosition: "center center"
     }
   ];

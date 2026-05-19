@@ -39,11 +39,11 @@ const AirbnbProject = () => {
 
   const interviewLinks = [
     {
-      name: "User Interview 1 - Sarah, 28",
+      name: "User Interview 1 - Mahak, 26",
       url: "https://drive.google.com/file/d/1Vl1GN-76x2HKyPoRKb_-2PUIJqCKB2Cy/view"
     },
     {
-      name: "User Interview 2 - Michael, 35",
+      name: "User Interview 2 - Priyank, 24",
       url: "https://drive.google.com/file/d/1QhBB0tsgS0Px0YA0V-ZTvkF2e-d48IOC/view"
     }
   ];

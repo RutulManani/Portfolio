@@ -76,7 +76,7 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          Designs That Matter
+          Featured Projects
         </motion.h2>
         
         <motion.div 

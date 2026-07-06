@@ -116,7 +116,7 @@ const Hero = () => {
                 </motion.div>
               ))}
             </div>
-            <p className="experience-text">4+ years in insurance, healthcare & AI-driven platforms</p>
+            <p className="experience-text">3+ years in insurance, healthcare & AI-driven platforms</p>
           </div>
         </motion.div>
       </div>

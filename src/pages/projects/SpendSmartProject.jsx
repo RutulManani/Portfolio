@@ -821,6 +821,45 @@ const SpendSmartProject = () => {
         </div>
       </div>
 
+            {/* User Personas Section */}
+      <div className="section-full-custom fade-section" data-section="personas" style={visibleSections.personas ? { opacity: 1, transform: 'translateY(0)' } : {}}>
+        <div className="inner">
+          <div className="section-label">
+            <span className="step-num">User Personas</span>
+          </div>
+          <h2 className="section-heading">Designing for real people</h2>
+          <p className="body-text">Understanding our users meant creating detailed personas that captured their goals, frustrations, and motivations. These stories guided every design decision.</p>
+
+          <div className="persona-grid-custom">
+            <div className="persona-card-custom">
+              <div className="persona-header">
+                <span className="persona-icon">👩‍🎓</span>
+                <div>
+                  <h3>Amira</h3>
+                  <div className="persona-role">Student</div>
+                </div>
+              </div>
+              <div className="persona-details">
+                <p>{userPersonas[0].description}</p>
+              </div>
+            </div>
+
+            <div className="persona-card-custom">
+              <div className="persona-header">
+                <span className="persona-icon">👨‍🏫</span>
+                <div>
+                  <h3>Sam</h3>
+                  <div className="persona-role">Admin</div>
+                </div>
+              </div>
+              <div className="persona-details">
+                <p>{userPersonas[1].description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Features Section - UPDATED */}
       <section className="section-custom fade-section" data-section="features" style={visibleSections.features ? { opacity: 1, transform: 'translateY(0)' } : {}}>
         <div className="section-label">
@@ -936,44 +975,6 @@ const SpendSmartProject = () => {
         </div>
       </section>
 
-      {/* User Personas Section */}
-      <div className="section-full-custom fade-section" data-section="personas" style={visibleSections.personas ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="inner">
-          <div className="section-label">
-            <span className="step-num">User Personas</span>
-          </div>
-          <h2 className="section-heading">Designing for real people</h2>
-          <p className="body-text">Understanding our users meant creating detailed personas that captured their goals, frustrations, and motivations. These stories guided every design decision.</p>
-
-          <div className="persona-grid-custom">
-            <div className="persona-card-custom">
-              <div className="persona-header">
-                <span className="persona-icon">👩‍🎓</span>
-                <div>
-                  <h3>Amira</h3>
-                  <div className="persona-role">Student</div>
-                </div>
-              </div>
-              <div className="persona-details">
-                <p>{userPersonas[0].description}</p>
-              </div>
-            </div>
-
-            <div className="persona-card-custom">
-              <div className="persona-header">
-                <span className="persona-icon">👨‍🏫</span>
-                <div>
-                  <h3>Sam</h3>
-                  <div className="persona-role">Admin</div>
-                </div>
-              </div>
-              <div className="persona-details">
-                <p>{userPersonas[1].description}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Design Screens Section */}
       <section className="section-custom fade-section" data-section="design" style={visibleSections.design ? { opacity: 1, transform: 'translateY(0)' } : {}}>

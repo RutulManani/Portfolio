@@ -97,6 +97,133 @@ const DocmigoProject = () => {
   return (
     <div className='docmigo-project'>
       <style jsx='true'>{`
+      /* Light mode support for Docmigo project */
+[data-theme="light"] .docmigo-project {
+  --project-bg: #f5f5f5;
+  --project-bg-secondary: #ffffff;
+  --project-text: #1a1a1a;
+  --project-text-secondary: #4a4a4a;
+  --project-border: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .docmigo-project .body-text {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .body-text strong {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .docmigo-project .hero-sub {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .meta-item p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .project-hero-custom h1 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .docmigo-project .stat-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .stat-label-custom {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .problem-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .problem-card-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .persona-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .persona-details p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .mvp-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .mvp-card-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .survey-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .survey-insight {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .ia-branch-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .ia-branch-custom li {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .ds-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .ds-card-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .takeaway-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .takeaway-custom h4 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .docmigo-project .takeaway-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .pull-quote-custom {
+  color: #1a1a1a;
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .hypothesis-box {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .hypothesis-box p {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .docmigo-project .solution-card-custom:not(.accent) {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .solution-card-custom:not(.accent) p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .docmigo-project .process-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .docmigo-project .process-card-custom p {
+  color: #4a4a4a;
+}
+
+
         .docmigo-project {
           --project-accent: #3c66c0;
           --project-accent-dim: rgba(60, 102, 192, 0.1);

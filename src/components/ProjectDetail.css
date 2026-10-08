@@ -438,3 +438,243 @@
     justify-content: center;
   }
 }
+
+/* Light mode support for project details */
+[data-theme="light"] .project-detail {
+  --project-bg: #f5f5f5;
+  --project-bg-secondary: #ffffff;
+  --project-text: #1a1a1a;
+  --project-text-secondary: #4a4a4a;
+  --project-border: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .project-detail .project-hero {
+  background: var(--project-bg);
+}
+
+[data-theme="light"] .project-detail .hero-title {
+  color: var(--project-text);
+}
+
+[data-theme="light"] .project-detail .hero-outcome {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .section-title {
+  color: var(--project-text);
+}
+
+[data-theme="light"] .project-detail .problem-card {
+  background: var(--project-bg-secondary);
+  border: 1px solid var(--project-border);
+}
+
+[data-theme="light"] .project-detail .problem-card p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .step-content {
+  background: var(--project-bg);
+}
+
+[data-theme="light"] .project-detail .step-text p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .solution-card {
+  background: var(--project-bg-secondary);
+  border: 1px solid var(--project-border);
+}
+
+[data-theme="light"] .project-detail .solution-card p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .takeaway-card {
+  background: var(--project-bg-secondary);
+  border: 1px solid var(--project-border);
+}
+
+[data-theme="light"] .project-detail .takeaway-card p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .result-item {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .mockup-item {
+  border: 1px solid var(--project-border);
+}
+
+[data-theme="light"] .project-detail .btn-secondary {
+  border-color: var(--project-text);
+  color: var(--project-text);
+}
+
+[data-theme="light"] .project-detail .btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Light mode support for project sections */
+[data-theme="light"] .project-detail .section-full-custom {
+  background: var(--project-bg-secondary);
+}
+
+[data-theme="light"] .project-detail .section-custom {
+  background: var(--project-bg);
+}
+
+[data-theme="light"] .project-detail .artifact-box-simple {
+  background: var(--project-bg-secondary);
+  border-color: var(--project-border);
+}
+
+[data-theme="light"] .project-detail .artifact-header {
+  background: var(--project-bg);
+  border-color: var(--project-border);
+}
+
+[data-theme="light"] .project-detail .artifact-title {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .pull-quote-custom {
+  background: var(--project-bg-secondary);
+  color: var(--project-text);
+}
+
+[data-theme="light"] .project-detail .hypothesis-box {
+  background: var(--project-bg-secondary);
+}
+
+[data-theme="light"] .project-detail .hypothesis-box p {
+  color: var(--project-text);
+}
+
+[data-theme="light"] .project-detail .process-grid-custom {
+  background: var(--project-border);
+}
+
+[data-theme="light"] .project-detail .process-card-custom {
+  background: var(--project-bg);
+}
+
+[data-theme="light"] .project-detail .process-card-custom p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .findings-grid-custom .finding-card-custom {
+  background: var(--project-bg-secondary);
+}
+
+[data-theme="light"] .project-detail .findings-grid-custom .finding-card-custom p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .solutions-grid-custom {
+  background: var(--project-border);
+}
+
+[data-theme="light"] .project-detail .solution-card-custom {
+  background: var(--project-bg);
+}
+
+[data-theme="light"] .project-detail .solution-card-custom p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .solution-card-custom.accent p {
+  color: #ffffff;
+}
+
+[data-theme="light"] .project-detail .takeaways-custom {
+  background: var(--project-border);
+}
+
+[data-theme="light"] .project-detail .takeaway-custom {
+  background: var(--project-bg-secondary);
+}
+
+[data-theme="light"] .project-detail .takeaway-custom p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .research-documents-box {
+  background: var(--project-bg-secondary);
+  border-color: var(--project-border);
+}
+
+[data-theme="light"] .project-detail .research-documents-header {
+  background: var(--project-bg);
+}
+
+[data-theme="light"] .project-detail .research-document-caption {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .recommendation-card {
+  background: var(--project-bg-secondary);
+}
+
+[data-theme="light"] .project-detail .recommendation-card p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .results-table {
+  background: var(--project-bg-secondary);
+}
+
+[data-theme="light"] .project-detail .results-table td {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .results-table th {
+  background: var(--project-bg);
+}
+
+[data-theme="light"] .project-detail .persona-card-custom {
+  background: var(--project-bg-secondary);
+  border-color: var(--project-border);
+}
+
+[data-theme="light"] .project-detail .persona-details p {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .persona-subtitle {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .hero-banner-custom {
+  background: var(--project-bg-secondary);
+  border-color: var(--project-border);
+}
+
+[data-theme="light"] .project-detail .hero-banner-text {
+  color: var(--project-text);
+}
+
+[data-theme="light"] .project-detail .interview-link {
+  background: var(--project-bg-secondary);
+  border-color: var(--project-border);
+  color: var(--project-text);
+}
+
+[data-theme="light"] .project-detail .interview-link-subtitle {
+  color: var(--project-text-secondary);
+}
+
+[data-theme="light"] .project-detail .interview-link:hover {
+  background: var(--project-bg);
+  border-color: var(--accent);
+}
+
+[data-theme="light"] .project-detail .research-document-item {
+  background: var(--project-bg);
+}
+
+[data-theme="light"] .project-detail .persona-header {
+  border-color: var(--project-border);
+}

@@ -17,18 +17,15 @@
 
 .footer-logo {
   display: inline-block;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 50%;
 }
 
 .logo-image {
   width: clamp(48px, 5vw, 60px);
+  border-radius: 50%;
   height: auto;
   object-fit: contain;
   transition: filter 0.3s ease;
-}
-
-.footer-logo:hover {
-  transform: scale(1.1);
 }
 
 .social-links {
@@ -101,4 +98,32 @@
   .copyright {
     font-size: 0.8rem;
   }
+}
+
+
+
+/* Theme support for Footer */
+.footer {
+  background: var(--secondary);
+  border-top: 1px solid var(--border);
+}
+
+.social-link {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.social-link:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+[data-theme="light"] .social-link {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .social-link:hover {
+  background: var(--accent);
+  color: white;
 }

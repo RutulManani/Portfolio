@@ -1,0 +1,282 @@
+/* ============================================================
+   NAV — sticky, blurred header + scroll progress bar
+   Works in both dark (default) and [data-theme="light"].
+   ============================================================ */
+
+/* ---- Scroll progress bar (sits above the header) ---- */
+.nav-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+  height: 3px;
+  width: 100%;
+  background: transparent;
+  pointer-events: none;
+}
+
+.nav-progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--accent), var(--accent-light));
+  transition: width 0.1s linear;
+}
+
+/* ---- Sticky header shell ---- */
+.nav-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9996;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+
+  background: transparent;
+  border-bottom: 1px solid transparent;
+
+  transition: background-color 0.35s ease, border-color 0.35s ease,
+    backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease,
+    padding 0.35s ease;
+}
+
+@media (min-width: 640px) {
+  .nav-header {
+    padding: 1.25rem 2.5rem;
+  }
+}
+
+/* The "scrolled" state — applied by JS once user moves past ~12px */
+.nav-header.scrolled {
+  background: color-mix(in srgb, var(--primary) 78%, transparent);
+  border-bottom-color: var(--border);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+[data-theme="light"] .nav-header.scrolled {
+  background: color-mix(in srgb, var(--primary) 82%, transparent);
+}
+
+/* Fallback for browsers without color-mix */
+@supports not (background: color-mix(in srgb, red 50%, transparent)) {
+  .nav-header.scrolled {
+    background: rgba(15, 15, 15, 0.78);
+  }
+  [data-theme="light"] .nav-header.scrolled {
+    background: rgba(245, 245, 245, 0.82);
+  }
+}
+
+/* ============================================================
+   LOGO — text wordmark: "Rutul Manani" + accent dot
+   ============================================================ */
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  /* Slight tap target padding without shifting visual position */
+  margin: -4px 0;
+}
+
+.nav-logo-word {
+  /* Matches the reference: Outfit 600, tight tracking.
+     Falls back to the portfolio heading font (Syne) if Outfit
+     isn't loaded — both are clean geometric sans. */
+  font-family: 'Outfit', var(--font-heading), sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem; /* ≈17px — reads like a modest wordmark */
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--text);
+  transition: color 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (min-width: 640px) {
+  .nav-logo-word {
+    font-size: 1.15rem;
+  }
+}
+
+.nav-logo:hover .nav-logo-word {
+  color: var(--text);
+}
+
+/* The dot — inherits font metrics but takes the accent color */
+.nav-logo-dot {
+  color: var(--accent);
+  font-size: 1.5em;      /* relative to the parent's font-size */
+  line-height: 0;        /* collapse the line box so it doesn't push layout */
+  margin-left: 2px;      /* a touch more, since the dot is bigger */
+  transition: color 0.3s ease;
+}
+
+/* Optional: dark-mode tweak — accent already flips via --accent,
+   but this keeps the ink text crisp against the dark blur */
+[data-theme="dark"] .nav-logo-word,
+.dark .nav-logo-word {
+  color: var(--text);
+}
+
+/* ---- Desktop nav links ---- */
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-link-underline {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 0.75rem;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.4s;
+}
+
+/* ---- Theme toggle ---- */
+.nav-theme-toggle {
+  position: relative;
+  margin-left: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.nav-theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+.nav-theme-icon {
+  position: absolute;
+  transition: all 0.5s;
+}
+
+/* ---- Mobile controls ---- */
+.nav-mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .nav-mobile-controls {
+    display: none;
+  }
+}
+
+.nav-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: none;
+  cursor: pointer;
+}
+
+/* ---- Mobile fullscreen menu ---- */
+.nav-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 9995;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  background: color-mix(in srgb, var(--primary) 92%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+@supports not (background: color-mix(in srgb, red 50%, transparent)) {
+  .nav-mobile-menu {
+    background: rgba(15, 15, 15, 0.92);
+  }
+  [data-theme="light"] .nav-mobile-menu {
+    background: rgba(245, 245, 245, 0.94);
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-mobile-menu {
+    display: none;
+  }
+}
+
+.nav-mobile-link {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: mobileLinkIn 0.5s ease forwards;
+}
+
+@keyframes mobileLinkIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .nav-header,
+  .nav-progress-fill,
+  .nav-theme-icon,
+  .nav-link-underline {
+    transition: none !important;
+  }
+  .nav-mobile-link {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

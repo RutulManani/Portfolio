@@ -1,59 +1,170 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import '../../components/ProjectDetail.css';
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import '../../components/ProjectDetail.css'
 
 // Import all images
-import competitiveAnalysisImg from '../../assets/images/competitive-nalysis.png';
-import journeyMapImg from '../../assets/images/User-journeymap.png';
-import airbnbHeroImg from '../../assets/images/Airbnb.png';
-import screenerImg from '../../assets/images/airbnb-screener.png';
-import discussionGuide1Img from '../../assets/images/airbnb-discussion-guide-1.jpg';
-import discussionGuide2Img from '../../assets/images/airbnb-discussion-guide-2.jpg';
-import airbnbMockupAllImg from '../../assets/images/airbnb-mockup.png';
+import competitiveAnalysisImg from '../../assets/images/competitive-nalysis.png'
+import journeyMapImg from '../../assets/images/User-journeymap.png'
+import airbnbHeroImg from '../../assets/images/Airbnb.png'
+import screenerImg from '../../assets/images/airbnb-screener.png'
+import discussionGuide1Img from '../../assets/images/airbnb-discussion-guide-1.jpg'
+import discussionGuide2Img from '../../assets/images/airbnb-discussion-guide-2.jpg'
+import airbnbMockupAllImg from '../../assets/images/airbnb-mockup.png'
 
 const AirbnbProject = () => {
-  const navigate = useNavigate();
-  const [visibleSections, setVisibleSections] = useState({});
+  const navigate = useNavigate()
+  const [visibleSections, setVisibleSections] = useState({})
 
   useEffect(() => {
     // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-    
+    window.scrollTo(0, 0)
+
     // Intersection Observer for fade-in effects
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setVisibleSections(prev => ({ ...prev, [entry.target.dataset.section]: true }));
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setVisibleSections(prev => ({
+              ...prev,
+              [entry.target.dataset.section]: true
+            }))
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
 
-    document.querySelectorAll('[data-section]').forEach(el => observer.observe(el));
+    document
+      .querySelectorAll('[data-section]')
+      .forEach(el => observer.observe(el))
 
-    return () => observer.disconnect();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
   const handleBackToProjects = () => {
-    navigate('/', { state: { scrollToProjects: true } });
-  };
+    navigate('/', { state: { scrollToProjects: true } })
+  }
 
   const interviewLinks = [
     {
-      name: "User Interview 1 - Mahak, 26",
-      url: "https://drive.google.com/file/d/1Vl1GN-76x2HKyPoRKb_-2PUIJqCKB2Cy/view"
+      name: 'User Interview 1 - Sarah, 28',
+      url: 'https://drive.google.com/file/d/1Vl1GN-76x2HKyPoRKb_-2PUIJqCKB2Cy/view'
     },
     {
-      name: "User Interview 2 - Priyank, 24",
-      url: "https://drive.google.com/file/d/1QhBB0tsgS0Px0YA0V-ZTvkF2e-d48IOC/view"
+      name: 'User Interview 2 - Michael, 35',
+      url: 'https://drive.google.com/file/d/1QhBB0tsgS0Px0YA0V-ZTvkF2e-d48IOC/view'
     }
-  ];
+  ]
 
   return (
-    <div className="airbnb-project">
+    <div className='airbnb-project'>
       {/* Custom styles specific to Airbnb project */}
-      <style jsx="true">{`
+      <style jsx='true'>{`
+      
+      /* Light mode support for Airbnb project */
+[data-theme="light"] .airbnb-project {
+  --project-bg: #f5f5f5;
+  --project-bg-secondary: #ffffff;
+  --project-text: #1a1a1a;
+  --project-text-secondary: #4a4a4a;
+  --project-border: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .airbnb-project .body-text {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .body-text strong {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .hero-sub {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .meta-item p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .project-hero-custom h1 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .process-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .process-card-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .solution-card-custom:not(.accent) {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .solution-card-custom:not(.accent) p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .finding-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .finding-card-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .phase {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .phase-name {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .phase-pain {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .takeaway-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .takeaway-custom h4 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .takeaway-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .pull-quote-custom {
+  color: #1a1a1a;
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .hypothesis-box {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .hypothesis-box p {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .artifact-header {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .artifact-title {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .research-document-caption {
+  color: #4a4a4a;
+}
+
         .airbnb-project {
-          --project-accent: #FF385C;
+          --project-accent: #ff385c;
           --project-accent-dim: rgba(255, 77, 77, 0.1);
           --project-text: #f0f0f0;
           --project-text-secondary: #b3b3b3;
@@ -139,12 +250,12 @@ const AirbnbProject = () => {
           .hero-content-wrapper {
             padding: 2rem 5% 1.5rem;
           }
-          
+
           .project-hero-custom h1 {
             font-size: 2.2rem;
             margin-bottom: 1rem;
           }
-          
+
           .hero-sub {
             font-size: 1rem;
             margin-bottom: 1.5rem;
@@ -439,9 +550,17 @@ const AirbnbProject = () => {
           background: var(--project-border);
         }
 
-        .artifact-dot:nth-child(1) { background: var(--project-accent); }
-        .artifact-dot:nth-child(2) { background: var(--project-accent); opacity: 0.6; }
-        .artifact-dot:nth-child(3) { background: var(--project-accent); opacity: 0.3; }
+        .artifact-dot:nth-child(1) {
+          background: var(--project-accent);
+        }
+        .artifact-dot:nth-child(2) {
+          background: var(--project-accent);
+          opacity: 0.6;
+        }
+        .artifact-dot:nth-child(3) {
+          background: var(--project-accent);
+          opacity: 0.3;
+        }
 
         .artifact-title {
           font-size: 0.8rem;
@@ -625,11 +744,21 @@ const AirbnbProject = () => {
           line-height: 1.5;
         }
 
-        .phase.awareness .phase-feeling { color: #ff4d4d; }
-        .phase.exploration .phase-feeling { color: #ff8080; }
-        .phase.decision .phase-feeling { color: #ff3333; }
-        .phase.booking .phase-feeling { color: #ff6666; }
-        .phase.experience .phase-feeling { color: #ff4d4d; }
+        .phase.awareness .phase-feeling {
+          color: #ff4d4d;
+        }
+        .phase.exploration .phase-feeling {
+          color: #ff8080;
+        }
+        .phase.decision .phase-feeling {
+          color: #ff3333;
+        }
+        .phase.booking .phase-feeling {
+          color: #ff6666;
+        }
+        .phase.experience .phase-feeling {
+          color: #ff4d4d;
+        }
 
         /* Solutions Grid */
         .solutions-grid-custom {
@@ -805,29 +934,29 @@ const AirbnbProject = () => {
           .process-grid-custom {
             grid-template-columns: 1fr;
           }
-          
+
           .solutions-grid-custom {
             grid-template-columns: 1fr;
           }
-          
+
           .journey-phases-custom {
             grid-template-columns: 1fr;
           }
-          
+
           .phase {
             border-right: none;
             border-bottom: 1px solid var(--project-border);
           }
-          
+
           .phase:last-child {
             border-bottom: none;
           }
-          
+
           .hero-banner-inner {
             flex-direction: column;
             text-align: center;
           }
-          
+
           .takeaway-custom {
             grid-template-columns: 1fr;
             gap: 0.5rem;
@@ -842,11 +971,11 @@ const AirbnbProject = () => {
           .project-hero-custom h1 {
             font-size: 2rem;
           }
-          
+
           .hero-sub {
             font-size: 1rem;
           }
-          
+
           .solution-card-custom {
             padding: 1.8rem 1.5rem;
           }
@@ -854,32 +983,53 @@ const AirbnbProject = () => {
       `}</style>
 
       {/* Hero Section - Image Only */}
-      <section className="fade-section" data-section="hero" style={visibleSections.hero ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="hero-image-full">
-          <img src={airbnbHeroImg} alt="Airbnb Project" />
+      <section
+        className='fade-section'
+        data-section='hero'
+        style={
+          visibleSections.hero ? { opacity: 1, transform: 'translateY(0)' } : {}
+        }
+      >
+        <div className='hero-image-full'>
+          <img src={airbnbHeroImg} alt='Airbnb Project' />
         </div>
       </section>
 
       {/* Hero Content - Below Image */}
-      <section className="project-hero-custom fade-section" data-section="hero-content" style={visibleSections['hero-content'] ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="hero-content-wrapper">
-          <h1>Rebuilding trust in <em>Airbnb's</em> booking journey</h1>
-          <p className="hero-sub">New travellers were dropping off before booking - not because they didn't want to, but because the platform couldn't answer the questions that mattered most. This is how I found that out, and what I designed to fix it.</p>
-          
-          <div className="hero-meta">
-            <div className="meta-item">
+      <section
+        className='project-hero-custom fade-section'
+        data-section='hero-content'
+        style={
+          visibleSections['hero-content']
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='hero-content-wrapper'>
+          <h1>
+            Rebuilding trust in <em>Airbnb's</em> booking journey
+          </h1>
+          <p className='hero-sub'>
+            New travellers were dropping off before booking - not because they
+            didn't want to, but because the platform couldn't answer the
+            questions that mattered most. This is how I found that out, and what
+            I designed to fix it.
+          </p>
+
+          <div className='hero-meta'>
+            <div className='meta-item'>
               <label>My Role</label>
               <p>UX Researcher & Designer, UI Designer</p>
             </div>
-            <div className="meta-item">
+            <div className='meta-item'>
               <label>Methods</label>
               <p>Competitive Analysis · User Interviews · Journey Mapping</p>
             </div>
-            <div className="meta-item">
+            <div className='meta-item'>
               <label>Team</label>
               <p>Academic project, 5-person team</p>
             </div>
-            <div className="meta-item">
+            <div className='meta-item'>
               <label>Target Users</label>
               <p>Travellers aged 18-40, booking groups or first trips</p>
             </div>
@@ -888,380 +1038,734 @@ const AirbnbProject = () => {
       </section>
 
       {/* Hero Banner */}
-      <div className="hero-banner-custom fade-section" data-section="banner" style={visibleSections.banner ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="hero-banner-inner">
-          <div className="airbnb-logo-wrap">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 1C9.37 1 4 6.37 4 13c0 9 12 20 12 20s12-11 12-20c0-6.63-5.37-12-12-12zm0 16.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"/>
+      <div
+        className='hero-banner-custom fade-section'
+        data-section='banner'
+        style={
+          visibleSections.banner
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='hero-banner-inner'>
+          <div className='airbnb-logo-wrap'>
+            <svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'>
+              <path d='M16 1C9.37 1 4 6.37 4 13c0 9 12 20 12 20s12-11 12-20c0-6.63-5.37-12-12-12zm0 16.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9z' />
             </svg>
           </div>
-          <p className="hero-banner-text">"New users faced the most challenges in the purchase path. They weren't failing because Airbnb was hard to use - they were failing because <strong>they couldn't trust what they were seeing.</strong>"</p>
+          <p className='hero-banner-text'>
+            "New users faced the most challenges in the purchase path. They
+            weren't failing because Airbnb was hard to use - they were failing
+            because <strong>they couldn't trust what they were seeing.</strong>"
+          </p>
         </div>
       </div>
 
       {/* Context Section */}
-      <section className="section-custom fade-section" data-section="context" style={visibleSections.context ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="section-label">
-          <span className="step-num">Context</span>
+      <section
+        className='section-custom fade-section'
+        data-section='context'
+        style={
+          visibleSections.context
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='section-label'>
+          <span className='step-num'>Context</span>
         </div>
-        <h2 className="section-heading">The brief: make Airbnb the preferred choice for authentic travel</h2>
-        <p className="body-text">Airbnb had a goal: connect more people to unique, local travel experiences. But our early competitive review suggested something was getting in the way - users were exploring, but not booking. The question wasn't "how do we make the product look better?" It was: <strong>what is actually stopping people from completing a booking, and who is most affected?</strong></p>
-        <p className="body-text">We scoped the project around the purchase path - from discovering a listing to confirming a stay - and decided to treat it as a trust and confidence problem, not a navigation problem.</p>
+        <h2 className='section-heading'>
+          The brief: make Airbnb the preferred choice for authentic travel
+        </h2>
+        <p className='body-text'>
+          Airbnb had a goal: connect more people to unique, local travel
+          experiences. But our early competitive review suggested something was
+          getting in the way - users were exploring, but not booking. The
+          question wasn't "how do we make the product look better?" It was:{' '}
+          <strong>
+            what is actually stopping people from completing a booking, and who
+            is most affected?
+          </strong>
+        </p>
+        <p className='body-text'>
+          We scoped the project around the purchase path - from discovering a
+          listing to confirming a stay - and decided to treat it as a trust and
+          confidence problem, not a navigation problem.
+        </p>
 
-        <div className="hypothesis-box">
-          <p>If we understand <strong>what gives a new traveller enough confidence to book</strong>, we can design interventions that don't just look reassuring - they actually are.</p>
+        <div className='hypothesis-box'>
+          <p>
+            If we understand{' '}
+            <strong>
+              what gives a new traveller enough confidence to book
+            </strong>
+            , we can design interventions that don't just look reassuring - they
+            actually are.
+          </p>
         </div>
       </section>
 
       {/* Process Section */}
-      <div className="section-full-custom fade-section" data-section="process" style={visibleSections.process ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="inner">
-          <div className="section-label">
-            <span className="step-num">Process</span>
+      <div
+        className='section-full-custom fade-section'
+        data-section='process'
+        style={
+          visibleSections.process
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='inner'>
+          <div className='section-label'>
+            <span className='step-num'>Process</span>
           </div>
-          <h2 className="section-heading">A three-phase research sprint</h2>
-          <p className="body-text">Rather than jumping to solutions, the team committed to understanding the problem space first. Every method was chosen to answer a specific question.</p>
+          <h2 className='section-heading'>A three-phase research sprint</h2>
+          <p className='body-text'>
+            Rather than jumping to solutions, the team committed to
+            understanding the problem space first. Every method was chosen to
+            answer a specific question.
+          </p>
 
-          <div className="process-grid-custom">
-            <div className="process-card-custom">
-              <div className="process-num">01</div>
+          <div className='process-grid-custom'>
+            <div className='process-card-custom'>
+              <div className='process-num'>01</div>
               <h3>Competitive Analysis</h3>
-              <p>Benchmarked Airbnb against VRBO and Booking.com across business goals, usability heuristics, tasks to be done, and a SWOT analysis. <strong>Goal:</strong> understand what the industry considers table stakes, and where Airbnb is under-investing.</p>
+              <p>
+                Benchmarked Airbnb against VRBO and Booking.com across business
+                goals, usability heuristics, tasks to be done, and a SWOT
+                analysis. <strong>Goal:</strong> understand what the industry
+                considers table stakes, and where Airbnb is under-investing.
+              </p>
             </div>
-            <div className="process-card-custom">
-              <div className="process-num">02</div>
+            <div className='process-card-custom'>
+              <div className='process-num'>02</div>
               <h3>User Interviews</h3>
-              <p>Recruited and interviewed 10 participants using a screener and structured discussion guide. Participants were asked to sketch their ideal booking process. <strong>Goal:</strong> hear directly from users about where their confidence breaks down - and why.</p>
+              <p>
+                Recruited and interviewed 10 participants using a screener and
+                structured discussion guide. Participants were asked to sketch
+                their ideal booking process. <strong>Goal:</strong> hear
+                directly from users about where their confidence breaks down -
+                and why.
+              </p>
             </div>
-            <div className="process-card-custom">
-              <div className="process-num">03</div>
+            <div className='process-card-custom'>
+              <div className='process-num'>03</div>
               <h3>Persona & Journey Mapping</h3>
-              <p>Synthesised interview findings into personas and a full journey map spanning Awareness → Exploration → Decision → Booking → Experience. <strong>Goal:</strong> make emotional pain points visible, so design solutions could target the real moments of friction.</p>
+              <p>
+                Synthesised interview findings into personas and a full journey
+                map spanning Awareness → Exploration → Decision → Booking →
+                Experience. <strong>Goal:</strong> make emotional pain points
+                visible, so design solutions could target the real moments of
+                friction.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Competitive Analysis Section */}
-      <section className="section-custom fade-section" data-section="competitive" style={visibleSections.competitive ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="section-label">
-          <span className="step-num">Competitive Analysis</span>
+      <section
+        className='section-custom fade-section'
+        data-section='competitive'
+        style={
+          visibleSections.competitive
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='section-label'>
+          <span className='step-num'>Competitive Analysis</span>
         </div>
-        <h2 className="section-heading">What competitors are doing that Airbnb isn't</h2>
-        <p className="body-text">We evaluated Airbnb, VRBO, and Booking.com across four dimensions: value proposition, business goals, tasks-to-be-done, and Nielsen's usability heuristics. One pattern stood out immediately.</p>
+        <h2 className='section-heading'>
+          What competitors are doing that Airbnb isn't
+        </h2>
+        <p className='body-text'>
+          We evaluated Airbnb, VRBO, and Booking.com across four dimensions:
+          value proposition, business goals, tasks-to-be-done, and Nielsen's
+          usability heuristics. One pattern stood out immediately.
+        </p>
 
-        <blockquote className="pull-quote-custom">
-          Booking.com scored 4.5/5 on usability heuristics. Airbnb scored 3/5. The gap wasn't in design polish - it was in <em>error prevention, feedback, and flexibility</em>.
+        <blockquote className='pull-quote-custom'>
+          Booking.com scored 4.5/5 on usability heuristics. Airbnb scored 3/5.
+          The gap wasn't in design polish - it was in{' '}
+          <em>error prevention, feedback, and flexibility</em>.
         </blockquote>
 
-        <div className="artifact-box-simple">
-          <div className="artifact-header">
-            <div className="artifact-dot"></div>
-            <div className="artifact-dot"></div>
-            <div className="artifact-dot"></div>
-            <span className="artifact-title">Competitive Analysis - Airbnb vs VRBO vs Booking.com</span>
+        <div className='artifact-box-simple'>
+          <div className='artifact-header'>
+            <div className='artifact-dot'></div>
+            <div className='artifact-dot'></div>
+            <div className='artifact-dot'></div>
+            <span className='artifact-title'>
+              Competitive Analysis - Airbnb vs VRBO vs Booking.com
+            </span>
           </div>
-          <div className="artifact-body">
-            <img src={competitiveAnalysisImg} alt="Competitive Analysis - 3-column table comparing Airbnb, VRBO and Booking.com" />
+          <div className='artifact-body'>
+            <img
+              src={competitiveAnalysisImg}
+              alt='Competitive Analysis - 3-column table comparing Airbnb, VRBO and Booking.com'
+            />
           </div>
         </div>
 
-        <div className="findings-grid-custom">
-          <div className="finding-card-custom">
-            <span className="finding-icon">🔍</span>
+        <div className='findings-grid-custom'>
+          <div className='finding-card-custom'>
+            <span className='finding-icon'>🔍</span>
             <h4>No search history</h4>
-            <p>Airbnb doesn't save or surface prior search sessions, forcing users to re-enter context every visit. Competitors handle this natively.</p>
+            <p>
+              Airbnb doesn't save or surface prior search sessions, forcing
+              users to re-enter context every visit. Competitors handle this
+              natively.
+            </p>
           </div>
-          <div className="finding-card-custom">
-            <span className="finding-icon">🗺️</span>
+          <div className='finding-card-custom'>
+            <span className='finding-icon'>🗺️</span>
             <h4>Location gated behind booking</h4>
-            <p>Exact location only revealed after booking - a meaningful trust barrier that VRBO and Booking.com don't impose.</p>
+            <p>
+              Exact location only revealed after booking - a meaningful trust
+              barrier that VRBO and Booking.com don't impose.
+            </p>
           </div>
-          <div className="finding-card-custom">
-            <span className="finding-icon">⚖️</span>
+          <div className='finding-card-custom'>
+            <span className='finding-icon'>⚖️</span>
             <h4>No comparison feature</h4>
-            <p>Users can't compare two or more listings side by side. This is table stakes in hotel booking - absent entirely in Airbnb.</p>
+            <p>
+              Users can't compare two or more listings side by side. This is
+              table stakes in hotel booking - absent entirely in Airbnb.
+            </p>
           </div>
-          <div className="finding-card-custom">
-            <span className="finding-icon">🏷️</span>
+          <div className='finding-card-custom'>
+            <span className='finding-icon'>🏷️</span>
             <h4>No loyalty or incentive system</h4>
-            <p>Both competitors run loyalty programmes. Airbnb offers no comparable structure for repeat or first-time bookers.</p>
+            <p>
+              Both competitors run loyalty programmes. Airbnb offers no
+              comparable structure for repeat or first-time bookers.
+            </p>
           </div>
-          <div className="finding-card-custom">
-            <span className="finding-icon">📋</span>
+          <div className='finding-card-custom'>
+            <span className='finding-icon'>📋</span>
             <h4>Overloaded navigation</h4>
-            <p>Heavy reliance on icons with inconsistent labelling leads to navigation confusion, particularly for new users unfamiliar with the platform's layout.</p>
+            <p>
+              Heavy reliance on icons with inconsistent labelling leads to
+              navigation confusion, particularly for new users unfamiliar with
+              the platform's layout.
+            </p>
           </div>
-          <div className="finding-card-custom">
-            <span className="finding-icon">🛁</span>
+          <div className='finding-card-custom'>
+            <span className='finding-icon'>🛁</span>
             <h4>Sparse listing information</h4>
-            <p>Basic details like number of bathrooms or room configuration often require clicking into individual listings - slowing comparison significantly.</p>
+            <p>
+              Basic details like number of bathrooms or room configuration often
+              require clicking into individual listings - slowing comparison
+              significantly.
+            </p>
           </div>
         </div>
       </section>
 
       {/* User Research Section */}
-      <div className="section-full-custom fade-section" data-section="research" style={visibleSections.research ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="inner">
-          <div className="section-label">
-            <span className="step-num">User Interviews</span>
+      <div
+        className='section-full-custom fade-section'
+        data-section='research'
+        style={
+          visibleSections.research
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='inner'>
+          <div className='section-label'>
+            <span className='step-num'>User Interviews</span>
           </div>
-          <h2 className="section-heading">Ten interviews, one recurring pattern</h2>
-          <p className="body-text">We screened participants for frequent online accommodation booking behaviour across a range of demographics. Each team member conducted individual interviews using a shared discussion guide, and asked participants to sketch their ideal booking process - a technique that revealed process gaps users couldn't articulate verbally.</p>
-          <p className="body-text"><strong>Primary finding:</strong> New users and group bookers experienced the most friction. Not in the mechanics of booking, but in the moment of deciding - when they needed enough confidence to commit.</p>
+          <h2 className='section-heading'>
+            Ten interviews, one recurring pattern
+          </h2>
+          <p className='body-text'>
+            We screened participants for frequent online accommodation booking
+            behaviour across a range of demographics. Each team member conducted
+            individual interviews using a shared discussion guide, and asked
+            participants to sketch their ideal booking process - a technique
+            that revealed process gaps users couldn't articulate verbally.
+          </p>
+          <p className='body-text'>
+            <strong>Primary finding:</strong> New users and group bookers
+            experienced the most friction. Not in the mechanics of booking, but
+            in the moment of deciding - when they needed enough confidence to
+            commit.
+          </p>
 
           {/* Research Documents - Single Combined Box */}
-          <div className="research-documents-box">
-            <div className="research-documents-header">
+          <div className='research-documents-box'>
+            <div className='research-documents-header'>
               <h3>Research Artifacts: Screener & Discussion Guides</h3>
             </div>
-            <div className="research-documents-grid">
-              <div className="research-document-item">
-                <img src={screenerImg} alt="Participant Screener" className="research-document-image" />
-                <div className="research-document-caption">Participant Screener</div>
+            <div className='research-documents-grid'>
+              <div className='research-document-item'>
+                <img
+                  src={screenerImg}
+                  alt='Participant Screener'
+                  className='research-document-image'
+                />
+                <div className='research-document-caption'>
+                  Participant Screener
+                </div>
               </div>
-              <div className="research-document-item">
-                <img src={discussionGuide1Img} alt="Discussion Guide - Part 1" className="research-document-image" />
-                <div className="research-document-caption">Discussion Guide (Part 1)</div>
+              <div className='research-document-item'>
+                <img
+                  src={discussionGuide1Img}
+                  alt='Discussion Guide - Part 1'
+                  className='research-document-image'
+                />
+                <div className='research-document-caption'>
+                  Discussion Guide (Part 1)
+                </div>
               </div>
-              <div className="research-document-item">
-                <img src={discussionGuide2Img} alt="Discussion Guide - Part 2" className="research-document-image" />
-                <div className="research-document-caption">Discussion Guide (Part 2)</div>
+              <div className='research-document-item'>
+                <img
+                  src={discussionGuide2Img}
+                  alt='Discussion Guide - Part 2'
+                  className='research-document-image'
+                />
+                <div className='research-document-caption'>
+                  Discussion Guide (Part 2)
+                </div>
               </div>
             </div>
           </div>
 
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 600, letterSpacing: '-0.02em', margin: '2.5rem 0 1.5rem', color: 'var(--project-text)' }}>
+          <h3
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '1.3rem',
+              fontWeight: 600,
+              letterSpacing: '-0.02em',
+              margin: '2.5rem 0 1.5rem',
+              color: 'var(--project-text)'
+            }}
+          >
             Listen to the interviews
           </h3>
-          
-          <div className="interview-links">
+
+          <div className='interview-links'>
             {interviewLinks.map((link, index) => (
-              <a 
+              <a
                 key={index}
                 href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="interview-link"
+                target='_blank'
+                rel='noopener noreferrer'
+                className='interview-link'
               >
-                <span className="interview-link-icon">🎧</span>
-                <div className="interview-link-content">
-                  <div className="interview-link-title">{link.name}</div>
-                  <div className="interview-link-subtitle">Click to listen (opens in new tab)</div>
+                <span className='interview-link-icon'>🎧</span>
+                <div className='interview-link-content'>
+                  <div className='interview-link-title'>{link.name}</div>
+                  <div className='interview-link-subtitle'>
+                    Click to listen (opens in new tab)
+                  </div>
                 </div>
-                <span className="interview-link-arrow">↗</span>
+                <span className='interview-link-arrow'>↗</span>
               </a>
             ))}
           </div>
 
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 600, letterSpacing: '-0.02em', margin: '3rem 0 1.5rem', color: 'var(--project-text)' }}>
+          <h3
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '1.3rem',
+              fontWeight: 600,
+              letterSpacing: '-0.02em',
+              margin: '3rem 0 1.5rem',
+              color: 'var(--project-text)'
+            }}
+          >
             What users told us they actually needed
           </h3>
-          <div className="findings-grid-custom">
-            <div className="finding-card-custom">
-              <span className="finding-icon">✅</span>
+          <div className='findings-grid-custom'>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>✅</span>
               <h4>Verification they could trust</h4>
-              <p>Multiple users stopped short of booking because a property had no verified label. They couldn't tell if photos were current, accurate, or staged.</p>
+              <p>
+                Multiple users stopped short of booking because a property had
+                no verified label. They couldn't tell if photos were current,
+                accurate, or staged.
+              </p>
             </div>
-            <div className="finding-card-custom">
-              <span className="finding-icon">💬</span>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>💬</span>
               <h4>Real reviews, not curated ones</h4>
-              <p>"I don't trust a 4.9 from 12 reviews." Users wanted photo evidence from guests - not just star ratings - to feel confident.</p>
+              <p>
+                "I don't trust a 4.9 from 12 reviews." Users wanted photo
+                evidence from guests - not just star ratings - to feel
+                confident.
+              </p>
             </div>
-            <div className="finding-card-custom">
-              <span className="finding-icon">💰</span>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>💰</span>
               <h4>Price transparency and comparison</h4>
-              <p>Pricing inconsistencies between the listing preview and checkout total caused users to abandon mid-flow to check competitors.</p>
+              <p>
+                Pricing inconsistencies between the listing preview and checkout
+                total caused users to abandon mid-flow to check competitors.
+              </p>
             </div>
-            <div className="finding-card-custom">
-              <span className="finding-icon">👥</span>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>👥</span>
               <h4>Group booking clarity</h4>
-              <p>Planning for groups was "a nightmare" - users couldn't easily see bed/bathroom configurations upfront, or coordinate booking decisions with others.</p>
+              <p>
+                Planning for groups was "a nightmare" - users couldn't easily
+                see bed/bathroom configurations upfront, or coordinate booking
+                decisions with others.
+              </p>
             </div>
-            <div className="finding-card-custom">
-              <span className="finding-icon">📍</span>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>📍</span>
               <h4>Location confidence before committing</h4>
-              <p>Not knowing the exact address until after booking made it impossible to assess neighbourhood suitability - a dealbreaker for safety-conscious travellers.</p>
+              <p>
+                Not knowing the exact address until after booking made it
+                impossible to assess neighbourhood suitability - a dealbreaker
+                for safety-conscious travellers.
+              </p>
             </div>
-            <div className="finding-card-custom">
-              <span className="finding-icon">🤝</span>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>🤝</span>
               <h4>Reachable hosts</h4>
-              <p>Several users had urgent pre-booking questions that went unanswered. An unresponsive host before booking killed trust in the stay itself.</p>
+              <p>
+                Several users had urgent pre-booking questions that went
+                unanswered. An unresponsive host before booking killed trust in
+                the stay itself.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Journey Map Section */}
-      <section className="section-custom fade-section" data-section="journey" style={visibleSections.journey ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="section-label">
-          <span className="step-num">Journey Mapping</span>
+      <section
+        className='section-custom fade-section'
+        data-section='journey'
+        style={
+          visibleSections.journey
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='section-label'>
+          <span className='step-num'>Journey Mapping</span>
         </div>
-        <h2 className="section-heading">Where the emotional journey breaks down</h2>
-        <p className="body-text">The journey map synthesised interview data across five phases of the Airbnb booking experience. It made one thing clear: <strong>users don't drop off at random - they drop off at the Decision phase</strong>, where confidence requirements are highest and platform support is lowest.</p>
+        <h2 className='section-heading'>
+          Where the emotional journey breaks down
+        </h2>
+        <p className='body-text'>
+          The journey map synthesised interview data across five phases of the
+          Airbnb booking experience. It made one thing clear:{' '}
+          <strong>
+            users don't drop off at random - they drop off at the Decision phase
+          </strong>
+          , where confidence requirements are highest and platform support is
+          lowest.
+        </p>
 
-        <div className="journey-phases-custom">
-          <div className="phase awareness">
-            <div className="phase-name">Awareness</div>
-            <div className="phase-emotion">😄</div>
-            <div className="phase-feeling">Excited</div>
-            <div className="phase-pain">Motivated to plan, beginning to explore options across platforms.</div>
+        <div className='journey-phases-custom'>
+          <div className='phase awareness'>
+            <div className='phase-name'>Awareness</div>
+            <div className='phase-emotion'>😄</div>
+            <div className='phase-feeling'>Excited</div>
+            <div className='phase-pain'>
+              Motivated to plan, beginning to explore options across platforms.
+            </div>
           </div>
-          <div className="phase exploration">
-            <div className="phase-name">Exploration</div>
-            <div className="phase-emotion">😊</div>
-            <div className="phase-feeling">Happy</div>
-            <div className="phase-pain">Delighted by range of options - but inaccurate pricing and no comparison tool start causing friction.</div>
+          <div className='phase exploration'>
+            <div className='phase-name'>Exploration</div>
+            <div className='phase-emotion'>😊</div>
+            <div className='phase-feeling'>Happy</div>
+            <div className='phase-pain'>
+              Delighted by range of options - but inaccurate pricing and no
+              comparison tool start causing friction.
+            </div>
           </div>
-          <div className="phase decision">
-            <div className="phase-name">Decision</div>
-            <div className="phase-emotion">😞</div>
-            <div className="phase-feeling">Disappointed</div>
-            <div className="phase-pain">Discouraged by unverified listings, unreliable reviews, and incomplete descriptions. <strong>This is where users leave.</strong></div>
+          <div className='phase decision'>
+            <div className='phase-name'>Decision</div>
+            <div className='phase-emotion'>😞</div>
+            <div className='phase-feeling'>Disappointed</div>
+            <div className='phase-pain'>
+              Discouraged by unverified listings, unreliable reviews, and
+              incomplete descriptions.{' '}
+              <strong>This is where users leave.</strong>
+            </div>
           </div>
-          <div className="phase booking">
-            <div className="phase-name">Booking</div>
-            <div className="phase-emotion">🤔</div>
-            <div className="phase-feeling">Curious</div>
-            <div className="phase-pain">Satisfied with checkout flow, but concerns about security and hidden terms remain.</div>
+          <div className='phase booking'>
+            <div className='phase-name'>Booking</div>
+            <div className='phase-emotion'>🤔</div>
+            <div className='phase-feeling'>Curious</div>
+            <div className='phase-pain'>
+              Satisfied with checkout flow, but concerns about security and
+              hidden terms remain.
+            </div>
           </div>
-          <div className="phase experience">
-            <div className="phase-name">Experience</div>
-            <div className="phase-emotion">😤</div>
-            <div className="phase-feeling">Annoyed</div>
-            <div className="phase-pain">Disappointed when the property doesn't match featured images. Trust in platform eroded post-stay.</div>
+          <div className='phase experience'>
+            <div className='phase-name'>Experience</div>
+            <div className='phase-emotion'>😤</div>
+            <div className='phase-feeling'>Annoyed</div>
+            <div className='phase-pain'>
+              Disappointed when the property doesn't match featured images.
+              Trust in platform eroded post-stay.
+            </div>
           </div>
         </div>
 
-        <div className="artifact-box-simple">
-          <div className="artifact-header">
-            <div className="artifact-dot"></div>
-            <div className="artifact-dot"></div>
-            <div className="artifact-dot"></div>
-            <span className="artifact-title">Full Journey Map - Airbnb Purchase Path</span>
+        <div className='artifact-box-simple'>
+          <div className='artifact-header'>
+            <div className='artifact-dot'></div>
+            <div className='artifact-dot'></div>
+            <div className='artifact-dot'></div>
+            <span className='artifact-title'>
+              Full Journey Map - Airbnb Purchase Path
+            </span>
           </div>
-          <div className="artifact-body">
-            <img src={journeyMapImg} alt="Journey Map - 5-phase journey map with task paths, emotions, pain points, and opportunities" />
+          <div className='artifact-body'>
+            <img
+              src={journeyMapImg}
+              alt='Journey Map - 5-phase journey map with task paths, emotions, pain points, and opportunities'
+            />
           </div>
         </div>
 
-        <blockquote className="pull-quote-custom">
-          The journey map didn't reveal a usability problem - it revealed a <em>trust architecture</em> problem. The platform asks for commitment before it's earned it.
+        <blockquote className='pull-quote-custom'>
+          The journey map didn't reveal a usability problem - it revealed a{' '}
+          <em>trust architecture</em> problem. The platform asks for commitment
+          before it's earned it.
         </blockquote>
       </section>
 
       {/* Design Solutions Section */}
-      <div className="section-full-custom fade-section" data-section="solutions" style={visibleSections.solutions ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="inner">
-          <div className="section-label">
-            <span className="step-num">Design Solutions</span>
+      <div
+        className='section-full-custom fade-section'
+        data-section='solutions'
+        style={
+          visibleSections.solutions
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='inner'>
+          <div className='section-label'>
+            <span className='step-num'>Design Solutions</span>
           </div>
-          <h2 className="section-heading">Four interventions, each rooted in a finding</h2>
-          <p className="body-text">Every solution maps directly to an insight from the research. No feature was added speculatively - each addresses a specific moment of breakdown identified in the journey map.</p>
+          <h2 className='section-heading'>
+            Four interventions, each rooted in a finding
+          </h2>
+          <p className='body-text'>
+            Every solution maps directly to an insight from the research. No
+            feature was added speculatively - each addresses a specific moment
+            of breakdown identified in the journey map.
+          </p>
 
-          <div className="solutions-grid-custom">
-            <div className="solution-card-custom accent">
-              <div className="solution-num">Solution 01</div>
+          <div className='solutions-grid-custom'>
+            <div className='solution-card-custom accent'>
+              <div className='solution-num'>Solution 01</div>
               <h3>Side-by-side listing comparison</h3>
-              <p>A compare feature allowing up to three listings to be evaluated simultaneously across price, location, amenities, and guest reviews. Competitive analysis showed this is standard in hotel booking; Airbnb's absence of it was driving users to third-party comparison sites mid-flow.</p>
-              <span className="solution-tag">Insight → "I always check multiple platforms before deciding"</span>
+              <p>
+                A compare feature allowing up to three listings to be evaluated
+                simultaneously across price, location, amenities, and guest
+                reviews. Competitive analysis showed this is standard in hotel
+                booking; Airbnb's absence of it was driving users to third-party
+                comparison sites mid-flow.
+              </p>
+              <span className='solution-tag'>
+                Insight → "I always check multiple platforms before deciding"
+              </span>
             </div>
 
-            <div className="solution-card-custom">
-              <div className="solution-num">Solution 02</div>
+            <div className='solution-card-custom'>
+              <div className='solution-num'>Solution 02</div>
               <h3>Suggest Me - preference-based matching</h3>
-              <p>"Suggest Me" is a guided onboarding flow that asks users about their trip type, budget, guest count, and accommodation preference - and returns listings tailored to those inputs. This directly addresses decision paralysis in the Exploration phase, when too many choices led to no choice.</p>
-              <span className="solution-tag">Insight → "I don't know where to start looking"</span>
+              <p>
+                "Suggest Me" is a guided onboarding flow that asks users about
+                their trip type, budget, guest count, and accommodation
+                preference - and returns listings tailored to those inputs. This
+                directly addresses decision paralysis in the Exploration phase,
+                when too many choices led to no choice.
+              </p>
+              <span className='solution-tag'>
+                Insight → "I don't know where to start looking"
+              </span>
             </div>
 
-            <div className="solution-card-custom">
-              <div className="solution-num">Solution 03</div>
+            <div className='solution-card-custom'>
+              <div className='solution-num'>Solution 03</div>
               <h3>Detailed listing cards</h3>
-              <p>Key specs - beds, bathrooms, bedrooms, guest capacity - surfaced directly on the listing card, eliminating the need to open individual pages just to gather basic criteria. Group bookers and multi-room travellers cited this as critical for shortlisting efficiently.</p>
-              <span className="solution-tag">Insight → "I have to open 15 listings just to compare basics"</span>
+              <p>
+                Key specs - beds, bathrooms, bedrooms, guest capacity - surfaced
+                directly on the listing card, eliminating the need to open
+                individual pages just to gather basic criteria. Group bookers
+                and multi-room travellers cited this as critical for
+                shortlisting efficiently.
+              </p>
+              <span className='solution-tag'>
+                Insight → "I have to open 15 listings just to compare basics"
+              </span>
             </div>
 
-            <div className="solution-card-custom">
-              <div className="solution-num">Solution 04</div>
+            <div className='solution-card-custom'>
+              <div className='solution-num'>Solution 04</div>
               <h3>Verified listing badge</h3>
-              <p>A "Verified" tag on the accommodation card, visible before clicking in, signals that the property's images and description have been authenticated. This targets the #1 trust barrier identified in interviews: users couldn't tell whether what they were seeing was real.</p>
-              <span className="solution-tag">Insight → "I don't book listings without verified labels"</span>
+              <p>
+                A "Verified" tag on the accommodation card, visible before
+                clicking in, signals that the property's images and description
+                have been authenticated. This targets the #1 trust barrier
+                identified in interviews: users couldn't tell whether what they
+                were seeing was real.
+              </p>
+              <span className='solution-tag'>
+                Insight → "I don't book listings without verified labels"
+              </span>
             </div>
           </div>
 
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 600, letterSpacing: '-0.02em', margin: '2.5rem 0 1.5rem', color: 'var(--project-text)' }}>
+          <h3
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '1.4rem',
+              fontWeight: 600,
+              letterSpacing: '-0.02em',
+              margin: '2.5rem 0 1.5rem',
+              color: 'var(--project-text)'
+            }}
+          >
             Supporting feature updates
           </h3>
-          <div className="findings-grid-custom">
-            <div className="finding-card-custom">
-              <span className="finding-icon">📸</span>
+          <div className='findings-grid-custom'>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>📸</span>
               <h4>Guest-uploaded photos</h4>
-              <p>Past guests can upload photos taken during their stay. This addresses the recurring complaint about staged or outdated listing images - authentic guest photos carry more trust than host-curated ones.</p>
+              <p>
+                Past guests can upload photos taken during their stay. This
+                addresses the recurring complaint about staged or outdated
+                listing images - authentic guest photos carry more trust than
+                host-curated ones.
+              </p>
             </div>
-            <div className="finding-card-custom">
-              <span className="finding-icon">📅</span>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>📅</span>
               <h4>Image capture date</h4>
-              <p>Listing photos now include the date they were taken. This simple addition immediately signals whether images are recent - a significant trust signal for users who'd been misled by outdated photography.</p>
+              <p>
+                Listing photos now include the date they were taken. This simple
+                addition immediately signals whether images are recent - a
+                significant trust signal for users who'd been misled by outdated
+                photography.
+              </p>
             </div>
-            <div className="finding-card-custom">
-              <span className="finding-icon">🗺️</span>
+            <div className='finding-card-custom'>
+              <span className='finding-icon'>🗺️</span>
               <h4>Nearby attractions preview</h4>
-              <p>An "Explore Nearby" button on the map view lets users assess neighbourhood context without booking. This directly addresses the pain point of location being gated behind commitment.</p>
+              <p>
+                An "Explore Nearby" button on the map view lets users assess
+                neighbourhood context without booking. This directly addresses
+                the pain point of location being gated behind commitment.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-
       {/* Design Mockups Section - Full Width Image */}
-      <div className="section-full-custom fade-section" data-section="mockups" style={visibleSections.mockups ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="inner wide">
-          <div className="section-label" style={{ padding: '0 5%' }}>
-            <span className="step-num">Design Mockups</span>
+      <div
+        className='section-full-custom fade-section'
+        data-section='mockups'
+        style={
+          visibleSections.mockups
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='inner wide'>
+          <div className='section-label' style={{ padding: '0 5%' }}>
+            <span className='step-num'>Design Mockups</span>
           </div>
-          <h2 className="section-heading" style={{ padding: '0 5%' }}>Visualizing the solutions</h2>
-          <p className="body-text" style={{ padding: '0 5%' }}>These mockups show how the research findings translated into concrete design interventions - from verified badges to comparison features and enhanced listing cards.</p>
+          <h2 className='section-heading' style={{ padding: '0 5%' }}>
+            Visualizing the solutions
+          </h2>
+          <p className='body-text' style={{ padding: '0 5%' }}>
+            These mockups show how the research findings translated into
+            concrete design interventions - from verified badges to comparison
+            features and enhanced listing cards.
+          </p>
 
-          <div className="mockup-full-container">
-            <img src={airbnbMockupAllImg} alt="Airbnb Design Mockups Collection" className="mockup-full-image" />
+          <div className='mockup-full-container'>
+            <img
+              src={airbnbMockupAllImg}
+              alt='Airbnb Design Mockups Collection'
+              className='mockup-full-image'
+            />
           </div>
         </div>
       </div>
 
       {/* Reflections Section */}
-      <section className="section-custom fade-section" data-section="reflections" style={visibleSections.reflections ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="section-label">
-          <span className="step-num">Reflections</span>
+      <section
+        className='section-custom fade-section'
+        data-section='reflections'
+        style={
+          visibleSections.reflections
+            ? { opacity: 1, transform: 'translateY(0)' }
+            : {}
+        }
+      >
+        <div className='section-label'>
+          <span className='step-num'>Reflections</span>
         </div>
-        <h2 className="section-heading">What this project taught me about research-led design</h2>
+        <h2 className='section-heading'>
+          What this project taught me about research-led design
+        </h2>
 
-        <div className="takeaways-custom">
-          <div className="takeaway-custom">
-            <div className="takeaway-letter">A</div>
+        <div className='takeaways-custom'>
+          <div className='takeaway-custom'>
+            <div className='takeaway-letter'>A</div>
             <div>
               <h4>The problem users describe is rarely the actual problem</h4>
-              <p>Users told us they "couldn't find what they wanted." What the journey map actually revealed was that they <em>found</em> options fine - they just couldn't build enough confidence to choose one. Defining the right problem is the most important design decision of a project.</p>
+              <p>
+                Users told us they "couldn't find what they wanted." What the
+                journey map actually revealed was that they <em>found</em>{' '}
+                options fine - they just couldn't build enough confidence to
+                choose one. Defining the right problem is the most important
+                design decision of a project.
+              </p>
             </div>
           </div>
-          <div className="takeaway-custom">
-            <div className="takeaway-letter">B</div>
+          <div className='takeaway-custom'>
+            <div className='takeaway-letter'>B</div>
             <div>
               <h4>Competitive analysis sets the floor, not the ceiling</h4>
-              <p>Mapping competitors showed us what the industry considers standard. It also showed us where Airbnb could leapfrog rather than match - particularly around personalised discovery, which neither VRBO nor Booking.com had invested in meaningfully.</p>
+              <p>
+                Mapping competitors showed us what the industry considers
+                standard. It also showed us where Airbnb could leapfrog rather
+                than match - particularly around personalised discovery, which
+                neither VRBO nor Booking.com had invested in meaningfully.
+              </p>
             </div>
           </div>
-          <div className="takeaway-custom">
-            <div className="takeaway-letter">C</div>
+          <div className='takeaway-custom'>
+            <div className='takeaway-letter'>C</div>
             <div>
               <h4>Journey maps make stakeholder alignment much easier</h4>
-              <p>Presenting a journey map that shows exactly where users feel "disappointed" and why is far more persuasive than a list of pain points. Visualising emotional drop-off gave the team a shared language for prioritising solutions - and a clear rationale for why the Decision phase needed the most attention.</p>
+              <p>
+                Presenting a journey map that shows exactly where users feel
+                "disappointed" and why is far more persuasive than a list of
+                pain points. Visualising emotional drop-off gave the team a
+                shared language for prioritising solutions - and a clear
+                rationale for why the Decision phase needed the most attention.
+              </p>
             </div>
           </div>
-          <div className="takeaway-custom">
-            <div className="takeaway-letter">D</div>
+          <div className='takeaway-custom'>
+            <div className='takeaway-letter'>D</div>
             <div>
               <h4>Trust is a system, not a feature</h4>
-              <p>No single intervention would have fixed the confidence gap. The verified badge, guest photos, comparison tools, and date-stamped images work together to build a coherent trust architecture. This reinforced that design solutions should be evaluated as a system - not as isolated additions.</p>
+              <p>
+                No single intervention would have fixed the confidence gap. The
+                verified badge, guest photos, comparison tools, and date-stamped
+                images work together to build a coherent trust architecture.
+                This reinforced that design solutions should be evaluated as a
+                system - not as isolated additions.
+              </p>
             </div>
           </div>
         </div>
@@ -1269,19 +1773,22 @@ const AirbnbProject = () => {
 
       {/* Navigation */}
 
-<div className="project-navigation" style={{ padding: '0 5% 5rem', maxWidth: '1200px', margin: '0 auto' }}>
-  <button onClick={handleBackToProjects} className="btn btn-secondary">
-    <i className="fas fa-arrow-left"></i>
-    <span>Back to Projects</span>
-  </button>
+      <div
+        className='project-navigation'
+        style={{ padding: '0 5% 5rem', maxWidth: '1200px', margin: '0 auto' }}
+      >
+        <button onClick={handleBackToProjects} className='btn btn-secondary'>
+          <i className='fas fa-arrow-left'></i>
+          <span>Back to Projects</span>
+        </button>
 
-  <Link to="/projects/2" className="btn btn-primary">
-    <span>Next Project: Byblos</span>
-    <i className="fas fa-arrow-right"></i>
-  </Link>
-</div>
+        <Link to='/projects/2' className='btn btn-primary'>
+          <span>Next Project: Byblos</span>
+          <i className='fas fa-arrow-right'></i>
+        </Link>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default AirbnbProject;
+export default AirbnbProject

@@ -4,6 +4,7 @@ import AirbnbProject from './projects/AirbnbProject';
 import ByblosProject from './projects/ByblosProject';
 import DocmigoProject from './projects/DocmigoProject';
 import SpendSmartProject from './projects/SpendSmartProject';
+import LocusProject from './projects/LocusProject';
 import '../components/ProjectDetail.css';
 
 const ProjectDetail = () => {
@@ -21,6 +22,9 @@ const ProjectDetail = () => {
       case '4':
       case 'spendsmart':
         return <SpendSmartProject />;
+      case '5':
+      case 'locus':
+        return <LocusProject />;
       default:
         return (
           <div className="container" style={{ padding: '8rem 5%', textAlign: 'center' }}>

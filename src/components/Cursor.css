@@ -1,0 +1,31 @@
+.cursor-dot,
+.cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  display: none;
+  transition: opacity 0.3s;
+}
+
+@media (min-width: 769px) {
+  .cursor-dot,
+  .cursor-ring {
+    display: block;
+  }
+}
+
+.cursor-dot-inner {
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--accent);
+  transition: all 0.3s;
+}
+
+.cursor-ring-inner {
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  transition: all 0.3s ease-out;
+}

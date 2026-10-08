@@ -71,6 +71,72 @@ const ByblosProject = () => {
   return (
     <div className='byblos-project'>
       <style jsx='true'>{`
+
+      /* Light mode support for Byblos project */
+[data-theme="light"] .byblos-project {
+  --project-bg: #f5f5f5;
+  --project-bg-secondary: #ffffff;
+  --project-text: #1a1a1a;
+  --project-text-secondary: #4a4a4a;
+  --project-border: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .byblos-project .body-text {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .byblos-project .body-text strong {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .byblos-project .hero-sub {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .byblos-project .meta-item p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .byblos-project .project-hero-custom h1 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .byblos-project .problem-card-simple {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .byblos-project .problem-card-simple p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .byblos-project .process-content p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .byblos-project .testing-card {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .byblos-project .testing-card p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .byblos-project .solution-card-simple {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .byblos-project .solution-card-simple p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .byblos-project .takeaway-simple {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .byblos-project .takeaway-simple p {
+  color: #4a4a4a;
+}
+
         .byblos-project {
           --project-accent: #1ba3d4;
           --project-accent-dim: rgba(77, 205, 255, 0.1);

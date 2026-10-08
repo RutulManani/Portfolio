@@ -1,0 +1,309 @@
+.skillboard {
+  --sb-background: #eef0f3;
+  --sb-foreground: #121418;
+  --sb-card: #ffffff;
+  --sb-card-foreground: #121418;
+  --sb-primary: #0b6cff;
+  --sb-primary-foreground: #ffffff;
+  --sb-secondary: #e3e6eb;
+  --sb-muted: #e3e6eb;
+  --sb-muted-foreground: #5b616b;
+  --sb-accent: #ffc93c;
+  --sb-accent-foreground: #121418;
+  --sb-border: #d5d9e0;
+  --sb-card-shadow: rgba(18, 20, 24, 0.25);
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--sb-border);
+  background: var(--sb-card);
+  box-shadow: 0 30px 60px -30px var(--sb-card-shadow);
+}
+
+/* Dark mode overrides — matches globals.css .dark */
+[data-theme="dark"] .skillboard,
+.dark .skillboard {
+  --sb-background: #0e1013;
+  --sb-foreground: #eef0f3;
+  --sb-card: #171a1f;
+  --sb-card-foreground: #eef0f3;
+  --sb-primary: #3d8bff;
+  --sb-primary-foreground: #ffffff;
+  --sb-secondary: #242830;
+  --sb-muted: #242830;
+  --sb-muted-foreground: #9aa1ac;
+  --sb-accent: #ffc93c;
+  --sb-accent-foreground: #121418;
+  --sb-border: #2b3039;
+  --sb-card-shadow: rgba(0, 0, 0, 0.7);
+}
+
+/* ---- Top bar: window dots + filename + tidy/scatter toggle ---- */
+.skillboard__topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--sb-border);
+}
+
+.skillboard__window {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skillboard__dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.skillboard__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--sb-border);
+}
+
+.skillboard__filename {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--sb-muted-foreground);
+  margin: 0;
+}
+
+.skillboard__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--sb-muted);
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.skillboard__toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--sb-muted-foreground);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.skillboard__toggle-btn:hover {
+  color: var(--sb-foreground);
+}
+
+.skillboard__toggle-btn.active {
+  background: var(--sb-card);
+  color: var(--sb-foreground);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* ---- Filter row ---- */
+.skillboard__filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--sb-border);
+}
+
+.skillboard__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--sb-border);
+  background: transparent;
+  color: var(--sb-muted-foreground);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.skillboard__filter:hover {
+  border-color: color-mix(in srgb, var(--sb-foreground) 40%, transparent);
+  color: var(--sb-foreground);
+}
+
+.skillboard__filter.active {
+  background: var(--sb-foreground);
+  border-color: var(--sb-foreground);
+  color: var(--sb-background);
+}
+
+.skillboard__filter-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px currentColor;
+}
+
+.skillboard__count {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--sb-muted-foreground);
+}
+
+/* ---- Board area ---- */
+.skillboard__board {
+  position: relative;
+  padding: 1.25rem 1.5rem 1.5rem;
+  background-image: radial-gradient(var(--sb-border) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.skillboard__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .skillboard__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- Sticky note ---- */
+.skillboard__note {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 7rem;
+  padding: 0.9rem;
+  border-radius: 6px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s, box-shadow 0.15s;
+  font-family: var(--font-body);
+  /* Every note is a card surface by default — category classes override */
+  background: var(--sb-card);
+  color: var(--sb-card-foreground);
+  border: 1px solid var(--sb-border);
+}
+
+.skillboard__note:focus-visible {
+  box-shadow: 0 0 0 2px var(--sb-primary),
+    0 0 0 4px var(--sb-background);
+}
+
+.skillboard__note.dragging {
+  cursor: grabbing;
+  transition: box-shadow 0.15s;
+  box-shadow: 0 24px 40px -12px var(--sb-card-shadow);
+}
+
+.skillboard__note.dimmed {
+  opacity: 0.25;
+}
+
+/* Research → accent yellow bg, ink text */
+.skillboard__note--research {
+  background: var(--sb-accent);
+  color: var(--sb-accent-foreground);
+  border-color: transparent;
+}
+
+/* Craft → card surface (default look, explicit for clarity) */
+.skillboard__note--craft {
+  background: var(--sb-card);
+  color: var(--sb-card-foreground);
+  border: 1px solid var(--sb-border);
+}
+
+/* Systems → primary blue bg, white text */
+.skillboard__note--systems {
+  background: var(--sb-primary);
+  color: var(--sb-primary-foreground);
+  border-color: transparent;
+}
+
+/* Tape at the top of each note */
+.skillboard__tape {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 12px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.skillboard__note--research .skillboard__tape {
+  background: rgba(18, 20, 24, 0.14);
+}
+
+.skillboard__note--systems .skillboard__tape {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Note text */
+.skillboard__cat {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+}
+
+.skillboard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.skillboard__name {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.skillboard__note-text {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+/* ---- Footer hint ---- */
+.skillboard__hint {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--sb-border);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--sb-muted-foreground);
+  margin: 0;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .skillboard__note {
+    transition: opacity 0.2s !important;
+  }
+}

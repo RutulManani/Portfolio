@@ -1,0 +1,380 @@
+/* ============================================================
+   WORK — sticky-stacked project cards with x-ray lens.
+   Uses portfolio tokens only.
+   Works in dark (default) and [data-theme="light"].
+
+   Card seam design:
+   - No box-shadow on the cards (box-shadow blur bleeds left/
+     right, causing a smear between stacked cards).
+   - The seam is drawn with a ::before linear-gradient that runs
+     top→bottom only (zero horizontal spread) plus a 1px ::after
+     hairline at the very top edge.
+   ============================================================ */
+
+.work-section {
+  position: relative;
+  border-top: 1px solid var(--border);
+  padding: 6rem 0;
+}
+
+@media (min-width: 640px) {
+  .work-section {
+    padding: 8rem 0;
+  }
+}
+
+/* The inline SVG filter is invisible but must be in the DOM */
+.work-filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.work-container {
+  margin: 0 auto;
+  max-width: 72rem; /* 1152px */
+  padding: 0 1.5rem;
+}
+
+/* ---- Header ---- */
+.work-header {
+  margin-bottom: 3rem;
+}
+
+.work-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.work-label-accent {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.work-label-line {
+  height: 1px;
+  width: 3rem;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+.work-label-muted {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
+.work-title {
+  margin: 1rem 0 0.5rem;
+  max-width: 42rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.work-title-accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.work-hint {
+  max-width: 26rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ============================================================
+   STICKY STACK
+   ============================================================ */
+
+.work-stack {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .work-stack {
+    gap: 0;
+  }
+}
+
+.work-stack__item {
+  position: relative;
+  /* Reserve vertical space so the seam above each card has room
+     to render without being clipped by the next item */
+  padding-bottom: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .work-stack__item {
+    position: sticky;
+    padding-bottom: 1rem;
+  }
+}
+
+/* ============================================================
+   PROJECT CARD
+   Solid background, hairline border, no box-shadow.
+   The seam between stacked cards is drawn by ::before (a
+   vertical-only gradient) and ::after (a 1px hairline).
+   ============================================================ */
+
+.work-card {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 18px;
+
+  /* Solid background so each card fully occludes the one beneath */
+  background: var(--secondary);
+
+  /* All four sides get the same hairline border — no side shadow
+     means no side pile-up, so a clean border is all we need */
+  border: 1px solid var(--border);
+
+  /* No box-shadow — its blur bleeds horizontally and would cause
+     the dark smear between stacked cards. The seam is drawn by
+     the ::before / ::after pseudo-elements below instead. */
+  box-shadow: none;
+
+  /* Clip any decorative overflow so nothing spills into neighbors */
+  overflow: hidden;
+}
+
+/* The seam: a vertical-only soft fade sitting above each card.
+   Because it's a linear-gradient (not a box-shadow blur), it has
+   ZERO horizontal spread — no dark smudge to the left or right. */
+.work-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18px;
+  height: 18px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
+}
+
+/* Light theme: gentler seam */
+[data-theme="light"] .work-card::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 20, 24, 0) 0%,
+    rgba(18, 20, 24, 0.09) 100%
+  );
+}
+
+/* A 1px hairline right at the top edge so the boundary between
+   two stacked cards reads crisply even on displays where the
+   gradient is too subtle */
+.work-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 1px;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+@supports not (background: color-mix(in srgb, red 50%, transparent)) {
+  .work-card::after {
+    background: var(--border);
+  }
+}
+
+@media (min-width: 768px) {
+  .work-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .work-card {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    height: min(72svh, 600px);
+  }
+}
+
+/* ============================================================
+   TEXT COLUMN
+   ============================================================ */
+
+.work-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .work-card__text {
+    padding: 0.5rem 0;
+  }
+}
+
+.work-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.work-card__index {
+  color: var(--accent);
+}
+
+.work-card__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.work-card__kind {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.work-card__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0;
+}
+
+.work-card__summary {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Footer sits at the bottom of the column */
+.work-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.work-card__metric {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.work-card__metric-value {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+.work-card__metric-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.work-card__role {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.work-card__role span {
+  color: var(--text-secondary);
+}
+
+.work-card__tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.work-card__tag {
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.work-card__cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.work-card__cta:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   LENS COLUMN
+   ============================================================ */
+
+.work-card__lens {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 220px;
+}
+
+@media (min-width: 1024px) {
+  .work-card__lens {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+}

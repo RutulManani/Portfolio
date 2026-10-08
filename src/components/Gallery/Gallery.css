@@ -1,0 +1,144 @@
+/* ============================================================
+   GALLERY — masonry column layout.
+   Every image renders at its natural aspect ratio (no crop,
+   no squish). 10 landscape + 2 portrait tile into a tight,
+   evenly balanced wall that fits one viewport on desktop.
+   Works in both dark (default) and [data-theme="light"].
+   ============================================================ */
+
+.gallery-section {
+  position: relative;
+  border-top: 1px solid var(--border);
+  padding: 5rem 0;
+}
+
+@media (min-width: 640px) {
+  .gallery-section {
+    padding: 6rem 0;
+  }
+}
+
+.gallery-container {
+  margin: 0 auto;
+  max-width: 72rem;
+  padding: 0 1.5rem;
+}
+
+/* ---- Header ---- */
+.gallery-header {
+  margin-bottom: 2.5rem;
+}
+
+.gallery-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.gallery-label-accent {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.gallery-label-line {
+  height: 1px;
+  width: 3rem;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+.gallery-label-muted {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
+.gallery-title {
+  margin: 1.25rem 0 0;
+  max-width: 42rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.gallery-title-accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* ============================================================
+   THE GRID — masonry via CSS columns.
+   Each .gallery-cell is inline-block so columns pack them
+   tightly; each image keeps its own aspect ratio.
+   ============================================================ */
+
+.gallery-masonry {
+  column-count: 2;
+  column-gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .gallery-masonry {
+    column-count: 3;
+    column-gap: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-masonry {
+    column-count: 4;
+    column-gap: 0.9rem;
+  }
+}
+
+/* Each item — prevents column break, adds bottom spacing */
+.gallery-cell {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  display: block;
+  width: 100%;
+  margin: 0 0 0.75rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--secondary);
+  line-height: 0;
+}
+
+@media (min-width: 640px) {
+  .gallery-cell {
+    margin-bottom: 0.9rem;
+  }
+}
+
+/* The image itself — natural aspect ratio, no crop, no stretch */
+.gallery-cell img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Keep the real proportions — no cover, no contain gymnastics */
+  object-fit: contain;
+  /* Subtle vertical rhythm so nothing looks glued together */
+  background: var(--primary);
+}
+
+/* Optional: fade the whole wall in once when it mounts */
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-masonry {
+    animation: galleryFadeIn 0.5s ease-out both;
+  }
+}
+
+@keyframes galleryFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

@@ -101,6 +101,103 @@ const SpendSmartProject = () => {
   return (
     <div className="airbnb-project">
       <style jsx="true">{`
+      /* Light mode support for SpendSmart project */
+[data-theme="light"] .airbnb-project {
+  --project-bg: #f5f5f5;
+  --project-bg-secondary: #ffffff;
+  --project-text: #1a1a1a;
+  --project-text-secondary: #4a4a4a;
+  --project-border: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .airbnb-project .body-text {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .body-text strong {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .hero-sub {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .meta-item p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .project-hero-custom h1 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .stat-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .stat-label-custom {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .feature-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .feature-card-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .persona-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .persona-details p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .results-table td {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .recommendation-card p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .takeaway-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .takeaway-custom h4 {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .takeaway-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .hypothesis-box {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .hypothesis-box p {
+  color: #1a1a1a;
+}
+
+[data-theme="light"] .airbnb-project .process-card-custom {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .process-card-custom p {
+  color: #4a4a4a;
+}
+
+[data-theme="light"] .airbnb-project .artifact-header {
+  background: #f5f5f5;
+}
+
+[data-theme="light"] .airbnb-project .artifact-title {
+  color: #4a4a4a;
+}
+  
         .airbnb-project {
           --project-accent: #8dbc15;
           --project-accent-dim: rgba(119, 232, 14, 0.1);
@@ -821,45 +918,6 @@ const SpendSmartProject = () => {
         </div>
       </div>
 
-            {/* User Personas Section */}
-      <div className="section-full-custom fade-section" data-section="personas" style={visibleSections.personas ? { opacity: 1, transform: 'translateY(0)' } : {}}>
-        <div className="inner">
-          <div className="section-label">
-            <span className="step-num">User Personas</span>
-          </div>
-          <h2 className="section-heading">Designing for real people</h2>
-          <p className="body-text">Understanding our users meant creating detailed personas that captured their goals, frustrations, and motivations. These stories guided every design decision.</p>
-
-          <div className="persona-grid-custom">
-            <div className="persona-card-custom">
-              <div className="persona-header">
-                <span className="persona-icon">👩‍🎓</span>
-                <div>
-                  <h3>Amira</h3>
-                  <div className="persona-role">Student</div>
-                </div>
-              </div>
-              <div className="persona-details">
-                <p>{userPersonas[0].description}</p>
-              </div>
-            </div>
-
-            <div className="persona-card-custom">
-              <div className="persona-header">
-                <span className="persona-icon">👨‍🏫</span>
-                <div>
-                  <h3>Sam</h3>
-                  <div className="persona-role">Admin</div>
-                </div>
-              </div>
-              <div className="persona-details">
-                <p>{userPersonas[1].description}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Features Section - UPDATED */}
       <section className="section-custom fade-section" data-section="features" style={visibleSections.features ? { opacity: 1, transform: 'translateY(0)' } : {}}>
         <div className="section-label">
@@ -975,6 +1033,44 @@ const SpendSmartProject = () => {
         </div>
       </section>
 
+      {/* User Personas Section */}
+      <div className="section-full-custom fade-section" data-section="personas" style={visibleSections.personas ? { opacity: 1, transform: 'translateY(0)' } : {}}>
+        <div className="inner">
+          <div className="section-label">
+            <span className="step-num">User Personas</span>
+          </div>
+          <h2 className="section-heading">Designing for real people</h2>
+          <p className="body-text">Understanding our users meant creating detailed personas that captured their goals, frustrations, and motivations. These stories guided every design decision.</p>
+
+          <div className="persona-grid-custom">
+            <div className="persona-card-custom">
+              <div className="persona-header">
+                <span className="persona-icon">👩‍🎓</span>
+                <div>
+                  <h3>Amira</h3>
+                  <div className="persona-role">Student</div>
+                </div>
+              </div>
+              <div className="persona-details">
+                <p>{userPersonas[0].description}</p>
+              </div>
+            </div>
+
+            <div className="persona-card-custom">
+              <div className="persona-header">
+                <span className="persona-icon">👨‍🏫</span>
+                <div>
+                  <h3>Sam</h3>
+                  <div className="persona-role">Admin</div>
+                </div>
+              </div>
+              <div className="persona-details">
+                <p>{userPersonas[1].description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Design Screens Section */}
       <section className="section-custom fade-section" data-section="design" style={visibleSections.design ? { opacity: 1, transform: 'translateY(0)' } : {}}>

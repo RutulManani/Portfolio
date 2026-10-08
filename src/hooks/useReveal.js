@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 
 /**
  * Reveals an element when it scrolls into view.
+ * The observer is set up once on mount — later changes to `options`
+ * are intentionally ignored (they only affect thresholds, which are
+ * not meaningful to change after mount for a reveal-once hook).
  */
 export function useReveal(options) {
   const ref = useRef(null);
@@ -23,6 +26,7 @@ export function useReveal(options) {
     );
     obs.observe(el);
     return () => obs.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { ref, inView };

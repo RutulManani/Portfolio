@@ -50,12 +50,12 @@ const PROCESS = [
 ];
 
 const GAPS = [
-  { title: 'No comparison feature', text: 'Listings cannot be compared side by side, a standard in hotel booking.' },
-  { title: 'Location hidden until booked', text: 'The exact location only appears after paying. Competitors do not do this.' },
-  { title: 'Sparse listing cards', text: 'Beds and bathrooms need a click into every listing.' },
-  { title: 'No search history', text: 'Previous searches are not saved, so users start over every visit.' },
-  { title: 'No loyalty programme', text: 'Both competitors reward bookings. Airbnb offers nothing similar.' },
-  { title: 'Icon-heavy navigation', text: 'Inconsistent labels confuse first-time users.' },
+  { icon: '⚖️', title: 'No comparison feature', text: 'Listings cannot be compared side by side, a standard in hotel booking.' },
+  { icon: '🗺️', title: 'Location hidden until booked', text: 'The exact location only appears after paying. Competitors do not do this.' },
+  { icon: '🛁', title: 'Sparse listing cards', text: 'Beds and bathrooms need a click into every listing.' },
+  { icon: '🔍', title: 'No search history', text: 'Previous searches are not saved, so users start over every visit.' },
+  { icon: '🏷️', title: 'No loyalty programme', text: 'Both competitors reward bookings. Airbnb offers nothing similar.' },
+  { icon: '📋', title: 'Icon-heavy navigation', text: 'Inconsistent labels confuse first-time users.' },
 ];
 
 const SCREENER = [
@@ -1244,6 +1244,7 @@ const AirbnbProject = () => {
             {GAPS.map((g, i) => (
               <Reveal key={g.title} delay={(i % 3) * 0.08}>
                 <div className="card hover gap-card" style={{ height: '100%' }}>
+                  <span className="ico">{g.icon}</span>
                   <div>
                     <h3>{g.title}</h3>
                     <p>{g.text}</p>

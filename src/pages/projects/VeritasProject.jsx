@@ -40,9 +40,9 @@ const BRIEF = [
 ];
 
 const AUDIENCES = [
-  { who: 'Customers', want: 'A price, proof they can trust the company, a person to talk to.', door: 'Public site', doorSub: 'veritasins.com' },
-  { who: 'Future advisors', want: 'What the role is, what they can earn, how to sign up.', door: 'Recruitment site', doorSub: 'pos.veritasins.com' },
-  { who: 'Working advisors', want: 'Their tools: statements, renewals, claims, reports. No marketing.', door: 'Behind login', doorSub: 'Internal system + app' },
+  { icon: '🛒', who: 'Customers', want: 'A price, proof they can trust the company, a person to talk to.', door: 'Public site', doorSub: 'veritasins.com' },
+  { icon: '🤝', who: 'Future advisors', want: 'What the role is, what they can earn, how to sign up.', door: 'Recruitment site', doorSub: 'pos.veritasins.com' },
+  { icon: '🧰', who: 'Working advisors', want: 'Their tools: statements, renewals, claims, reports. No marketing.', door: 'Behind login', doorSub: 'Internal system + app' },
 ];
 
 const REQUIREMENTS = [
@@ -651,6 +651,7 @@ const VeritasProject = () => {
               {AUDIENCES.map((a, i) => (
                 <Reveal key={a.who} delay={i * 0.08}>
                   <div className="card person">
+                    <span className="ico">{a.icon}</span>
                     <div>
                       <h3>{a.who}</h3>
                       <p>{a.want}</p>

@@ -55,25 +55,21 @@
 }
 
 /* Headline */
+/* Capped at 4.5rem so each line fits beside the profile card without wrapping */
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--text);
   text-align: left;
+  margin-bottom: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 480px) {
   .hero-title {
-    font-size: clamp(3rem, 7vw, 6rem);
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-title {
-    font-size: clamp(3rem, 6vw, 7rem);
+    font-size: 2.2rem;
   }
 }
 

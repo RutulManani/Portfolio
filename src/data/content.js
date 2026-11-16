@@ -104,78 +104,6 @@ export const JOURNEY = [
 ];
 
 /* ============================================================
-   PROJECTS — the landing page's Work section renders these
-   in array order. Add or reorder to change what appears.
-   ============================================================ */
-
-export const PROJECTS = [
-  {
-    id: '4',
-    title: 'SpendSmart',
-    category: 'Mood-aware gamified expense tracker for students.',
-    image: require('../assets/images/SpendSmart.png'),
-    tags: ['Full Stack', 'MERN', 'Gamification'],
-    stat: '95% task completion',
-    link: '/projects/4',
-  },
-  {
-    id: '3',
-    title: 'Docmigo Hospital App',
-    category: 'Streamlined hospital operations with a communication app',
-    image: require('../assets/images/Docmigo.png'),
-    tags: ['UX Research', 'Stakeholder Interviews', 'Healthcare'],
-    stat: '91% problem-solution fit',
-    link: '/projects/3',
-  },
-  {
-    id: '1',
-    title: 'Airbnb UX Research',
-    category: 'Improved booking experience through comprehensive UX research',
-    image: require('../assets/images/Airbnb.png'),
-    tags: ['User Interviews', 'Journey Mapping', 'Competitive Analysis'],
-    stat: '10 user interviews',
-    link: '/projects/1',
-  },
-  {
-    id: '2',
-    title: 'Byblos Restaurant',
-    category: 'Redesigned ordering experience with seamless online system',
-    image: require('../assets/images/Byblos.png'),
-    tags: ['Wireframing', 'Rapid Prototyping', 'User Testing'],
-    stat: '2.1× conversion lift',
-    link: '/projects/2',
-  },
-  {
-    id: '5',
-    title: 'Locus AI',
-    category: 'Memory layer that turns scattered team decisions into a searchable record',
-    image: require('../assets/images/Locus.png'),
-    tags: ['AI', '0→1 Product', 'Design System'],
-    stat: '17/25 early-access signups',
-    link: '/projects/5',
-  },
-];
-
-export const PRINCIPLES = [
-  {
-    title: 'Research is a posture',
-    text: 'Not a phase. I stay curious the whole way through—in interviews, in prototypes, in the fifth round of revisions.',
-  },
-  {
-    title: 'Clarity is kindness',
-    text: 'Every removed element is a small act of respect for someone\'s attention. I design toward less, relentlessly.',
-  },
-  {
-    title: 'Motion has meaning',
-    text: 'Animation isn\'t decoration. It teaches the system\'s logic and makes the invisible relationships visible.',
-  },
-  {
-    title: 'Errors in the interface become errors in care',
-    text: 'Every design pattern must be evaluated for failure mode, not just success state. This is especially true in healthcare.',
-  },
-];
-
-/* ============================================================
    SKILL BOARD DATA
    ============================================================ */
 
@@ -200,32 +128,4 @@ export const ABOUT_STATS = [
   { value: '4+', label: 'years designing' },
   { value: '20+', label: 'products shipped' },
   { value: '3',  label: 'design systems built' },
-];
-
-/* ============================================================
-   LEGACY SKILL STRINGS — Work section marquee
-   ============================================================ */
-
-export const SKILLS = [
-  'UX Research',
-  'Figma',
-  'Usability Testing',
-  'User Flows',
-  'Wireframing',
-  'Prototyping',
-  'Product Design',
-  'User Interviews',
-  'Information Architecture',
-  'Interaction Design',
-  'Design Systems',
-  'AI-Assisted Design',
-  'Accessibility (WCAG 2.1 AA)',
-  'DesignOps',
-  'Service Design',
-  'Conversational UI',
-  'Cross-Platform Design',
-  'Design Thinking',
-  'Micro-interactions',
-  'Heuristic Evaluation',
-  'Data Synthesis',
 ];

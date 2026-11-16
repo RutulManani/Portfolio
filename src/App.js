@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import './App.css';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 
 // Components
@@ -20,11 +19,16 @@ import About from './pages/About';
 import ProjectDetail from './pages/ProjectDetail';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
 
   useEffect(() => {
+    // "Back to Projects" on a case study asks to land on the Work section
+    if (pathname === '/' && state?.scrollToProjects) {
+      document.getElementById('work')?.scrollIntoView({ behavior: 'instant' });
+      return;
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, state]);
 
   return null;
 }

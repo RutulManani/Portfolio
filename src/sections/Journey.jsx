@@ -21,7 +21,7 @@ export default function Journey() {
           </div>
           <h2 className="journey-title">
             A transformation in{' '}
-            <span className="journey-title-accent">six movements</span>.
+            <span className="journey-title-accent">seven movements</span>.
           </h2>
         </div>
 

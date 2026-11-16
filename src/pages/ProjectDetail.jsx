@@ -5,6 +5,7 @@ import ByblosProject from './projects/ByblosProject';
 import DocmigoProject from './projects/DocmigoProject';
 import SpendSmartProject from './projects/SpendSmartProject';
 import LocusProject from './projects/LocusProject';
+import VeritasProject from './projects/VeritasProject';
 import '../components/ProjectDetail.css';
 
 const ProjectDetail = () => {
@@ -25,6 +26,9 @@ const ProjectDetail = () => {
       case '5':
       case 'locus':
         return <LocusProject />;
+            case '6':
+      case 'veritas':
+        return <VeritasProject />;  
       default:
         return (
           <div className="container" style={{ padding: '8rem 5%', textAlign: 'center' }}>

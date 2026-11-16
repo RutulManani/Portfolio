@@ -1698,8 +1698,8 @@ const AirbnbProject = () => {
           <i className="fas fa-arrow-left"></i>
           <span>Back to Projects</span>
         </button>
-        <Link to="/projects/2" className="btn btn-primary">
-          <span>Next Project: Byblos</span>
+        <Link to="/projects/5" className="btn btn-primary">
+          <span>Next Project: Locus</span>
           <i className="fas fa-arrow-right"></i>
         </Link>
       </div>

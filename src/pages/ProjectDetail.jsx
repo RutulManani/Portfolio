@@ -1,8 +1,6 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import AirbnbProject from './projects/AirbnbProject';
-import ByblosProject from './projects/ByblosProject';
-import DocmigoProject from './projects/DocmigoProject';
 import SpendSmartProject from './projects/SpendSmartProject';
 import LocusProject from './projects/LocusProject';
 import VeritasProject from './projects/VeritasProject';
@@ -16,10 +14,6 @@ const ProjectDetail = () => {
     switch(id) {
       case '1':
         return <AirbnbProject />;
-      case '2':
-        return <ByblosProject />;
-      case '3':
-        return <DocmigoProject />;
       case '4':
       case 'spendsmart':
         return <SpendSmartProject />;

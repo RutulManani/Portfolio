@@ -20,20 +20,6 @@ export const projects = [
     link: '/projects/4',
   },
   {
-    id: 'docmigo',
-    name: 'Docmigo',
-    kind: 'Mobile · Healthcare',
-    year: '2024',
-    role: 'UX researcher & designer, graphic designer',
-    summary:
-      'A hospital management app for small and mid-sized Indian clinics. Designed two clearly separated flows — one for doctors, one for receptionists — so a single mis-tap never touched a prescription.',
-    metric: { value: '91%', label: 'problem-solution fit from clinic surveys' },
-    tags: ['UX Research', 'Stakeholder Interviews', 'Healthcare'],
-    image: require('../assets/images/Docmigo.png'),
-    alt: 'Docmigo mobile screens showing appointment queue, patient profile and e-prescription',
-    link: '/projects/3',
-  },
-  {
     id: 'airbnb',
     name: 'Airbnb UX Research',
     kind: 'Web · Travel · Research',
@@ -46,20 +32,6 @@ export const projects = [
     image: require('../assets/images/Airbnb.png'),
     alt: 'Airbnb research artefacts including journey map, competitive analysis and verified listing mockups',
     link: '/projects/1',
-  },
-  {
-    id: 'byblos',
-    name: 'Byblos Restaurant',
-    kind: 'Web & Mobile · Hospitality',
-    year: '2022',
-    role: 'UI/UX designer',
-    summary:
-      'Turned a static menu board into a full ordering platform. Added delivery and pickup, redesigned the menu hierarchy, and streamlined checkout into one forgiving flow that works on a phone at lunchtime.',
-    metric: { value: '2.1×', label: 'conversion lift after redesign' },
-    tags: ['Wireframing', 'Rapid Prototyping', 'User Testing'],
-    image: require('../assets/images/Byblos.png'),
-    alt: 'Byblos restaurant web and mobile mockups with menu categories, item cards and checkout',
-    link: '/projects/2',
   },
   {
     id: 'locus',

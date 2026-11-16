@@ -13,7 +13,7 @@ export const projects = [
     role: 'Full-stack developer & UX/UI designer',
     summary:
       'A mood-aware, gamified expense tracker for students. Linked every purchase to an emotional state, then used daily challenges and badges to turn mindful spending into something students actually wanted to open.',
-    metric: { value: '95%', label: 'task completion across usability tests' },
+    metric: { value: '83%', label: 'average task completion in usability tests' },
     tags: ['Full Stack', 'MERN', 'Gamification'],
     image: require('../assets/images/SpendSmart.png'),
     alt: 'SpendSmart dashboard with balance, mood-tagged expenses and a daily challenge card',

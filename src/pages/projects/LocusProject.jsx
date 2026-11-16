@@ -23,8 +23,8 @@ import locusPulseImg from '../../assets/images/locus-pulse.png';
 
 const OVERVIEW = [
   { icon: '💬', label: 'Problem', text: 'Team decisions get buried in Slack, Notion and email. Days later nobody can find them.' },
-  { icon: '🧭', label: 'What I designed', text: 'Onboarding, four product surfaces and the design system behind them.' },
-  { icon: '🧩', label: 'System', text: '70 components and 180+ variants, built on shared tokens.' },
+  { icon: '🧩', label: 'My role', text: 'I owned the design system: the colors, type and components every screen is built from. I also used it to design onboarding and the main screens.' },
+  { icon: '✅', label: 'Result', text: '70+ components, one Button instead of seven, and every state designed: hover, focus, disabled, loading and error.' },
 ];
 
 const STATS = [
@@ -70,42 +70,76 @@ const JOURNEY = [
   },
 ];
 
-const TOKENS = [
-  { name: 'Brand primary', hex: '#4338CA' },
-  { name: 'Brand subtle', hex: '#DDD6FE' },
-  { name: 'Accent lime', hex: '#E0FF82' },
-  { name: 'Text primary', hex: '#18181B' },
-  { name: 'Text secondary', hex: '#6B7280' },
-  { name: 'Success', hex: '#15803D' },
-  { name: 'Warning', hex: '#B45309' },
-  { name: 'Danger', hex: '#991B1B' },
+// Before / after numbers come straight from the Figma file
+const BEFORE_AFTER = [
+  { label: 'Button styles', before: '7 one-off buttons', after: '1 Button, 6 types' },
+  { label: 'Colors', before: '44 hex codes typed by hand', after: 'Named colors with a job' },
+  { label: 'Text styles', before: '1', after: '16' },
+  { label: 'Components with every state', before: '0', after: '10' },
+  { label: 'Text that failed contrast', before: '10 pairs', after: '0' },
 ];
 
+const SYSTEM_STEPS = [
+  { t: 'Audit', d: 'Listed every color, font size and button in the file. Most of the mess was duplicates.' },
+  { t: 'Foundations', d: 'Turned colors, spacing and type into named variables, so one change updates every screen.' },
+  { t: 'Components', d: 'Merged the duplicates, cleaned up the names and added the missing states.' },
+  { t: 'Docs and handoff', d: 'Short notes on each component, plus empty, loading and error screens for developers.' },
+];
+
+const TOKENS = [
+  { name: 'Brand primary', hex: '#4338CA', job: 'Buttons, links' },
+  { name: 'Brand subtle', hex: '#DDD6FE', job: 'Decision tags' },
+  { name: 'Accent lime', hex: '#E0FF82', job: 'Confirmed, action items' },
+  { name: 'Text primary', hex: '#18181B', job: 'Main text' },
+  { name: 'Text secondary', hex: '#4E5969', job: 'Supporting text' },
+  { name: 'Success', hex: '#166534', job: 'Connected, done' },
+  { name: 'Warning', hex: '#B45309', job: 'Expiring soon' },
+  { name: 'Danger', hex: '#991B1B', job: 'Blockers, errors' },
+];
+
+// Components in the playground, grouped the same way as the Figma file
+const GROUPS = [
+  { group: 'Actions', items: ['Button', 'Flag toggle'] },
+  { group: 'Inputs', items: ['Text field', 'Switch', 'Radio'] },
+  { group: 'Decisions', items: ['Decision row', 'Type pill', 'Status pill'] },
+  { group: 'Status', items: ['Source card'] },
+];
+
+// Each component's properties. The first value is the default unless DEFAULTS says otherwise.
 const PLAYGROUND = {
-  'Decision row': ['Default', 'Expanded', 'Flagging', 'Flagged'],
-  'Type pill': ['Decision', 'Action item', 'Blocker'],
-  'Status pill': ['Current', 'Confirmed', 'Superseded'],
-  'Source card': ['Active', 'Disconnected', 'Add new'],
-  Button: ['Primary', 'Secondary', 'No border', 'Delete', 'Flag'],
+  Button: { Type: ['Primary', 'Secondary', 'Ghost', 'Link', 'Danger', 'Accent'], State: ['Default', 'Hover', 'Focus', 'Pressed', 'Disabled', 'Loading'] },
+  'Flag toggle': { Selected: ['Off', 'On'], State: ['Default', 'Hover', 'Focus', 'Disabled'] },
+  'Text field': { State: ['Default', 'Focus', 'Filled', 'Error', 'Disabled'] },
+  Switch: { Checked: ['On', 'Off'], State: ['Default', 'Focus', 'Disabled'] },
+  Radio: { Checked: ['On', 'Off'], State: ['Default', 'Focus', 'Disabled'] },
+  'Decision row': { State: ['Default', 'Expanded', 'Flagging', 'Flagged'] },
+  'Type pill': { Type: ['Decision', 'Action item', 'Blocker'] },
+  'Status pill': { Status: ['Current', 'Confirmed', 'Superseded'] },
+  'Source card': { State: ['Connected', 'Expiring', 'Disconnected', 'Add new'] },
 };
+const DEFAULTS = { 'Decision row': { State: 'Expanded' } };
 
 const PLAYGROUND_NOTES = {
+  Button: 'One Button replaced seven different ones. Pick a type and a state: every combination is designed, including focus for keyboard users and loading.',
+  'Flag toggle': 'Lets people mark a decision the AI may have got wrong. The words change too, not just the color.',
+  'Text field': 'Label, box and helper text in one piece. The error says what is wrong in words, not just in red.',
+  Switch: 'For settings that apply right away, like pausing capture.',
+  Radio: 'For picking one option from a short list, like how long to keep messages.',
   'Decision row': 'The core unit of Locus. AI made this claim, so the row shows who, where, and how confident, and lets people flag it.',
-  'Type pill': 'One colour per type, used everywhere: the feed, the log and the weekly Pulse.',
+  'Type pill': 'One color per type, used everywhere: the feed, the log and the weekly Pulse.',
   'Status pill': 'Decisions change. Superseded keeps the old answer visible instead of deleting it.',
-  'Source card': 'Connection health is always visible, because a broken source means missing memory.',
-  Button: '9 button types, each with default and hover, so every screen uses the same set.',
+  'Source card': 'Connection health is always visible. Expiring warns people before capture stops, so missing data is never a surprise.',
 };
 
 const PRINCIPLES = [
-  { t: 'Design every state', d: 'Hover, expanded, flagging, flagged, empty and disconnected, not just the happy path.' },
+  { t: 'Design every state', d: 'Hover, focus, disabled, loading, error and empty, not just the happy path.' },
   { t: 'Show the AI’s confidence', d: 'Extracted decisions carry a confidence score and a source, so people can check them.' },
   { t: 'Correct, don’t delete', d: 'Flag and Superseded keep the record honest when the AI or the team gets it wrong.' },
 ];
 
 const REFLECTION = [
   { t: 'Designing for AI changes the job', d: 'The interface has to earn trust for a claim it didn’t make itself. Confidence, sources and flagging became core, not extras.' },
-  { t: 'What I’d do next', d: 'Finish empty and error states, run usability tests on the flagging flow, and hand off with documented components.' },
+  { t: 'What I’d do next', d: 'Add a dark mode (the colors are already set up for it), move the older screens onto the new Button, and test the flagging flow with real users.' },
 ];
 
 /* =========================================================
@@ -178,18 +212,64 @@ const LcButton = ({ kind, children, onClick }) => {
 
 const SourceCard = ({ state }) => {
   if (state === 'Add new') return <div className="lc-source add">+ Add New Source</div>;
-  const active = state === 'Active';
+  const s = {
+    Connected: ['ok', 'Active', 'Synced today 9:00 am'],
+    Expiring: ['warn', 'Expiring', 'Access expires in 3 days'],
+    Disconnected: ['bad', 'Disconnected', 'Stopped capturing Nov 12'],
+  }[state];
   return (
     <div className="lc-source">
       <span className="lc-logo">#</span>
       <div>
         <strong>Slack</strong>
-        <small>Synced today 9:00 am</small>
+        <small>{s[2]}</small>
       </div>
-      <span className={`lc-dot ${active ? 'ok' : 'bad'}`}>{active ? 'Active' : 'Disconnected'}</span>
+      <span className={`lc-dot ${s[0]}`}>{s[1]}</span>
+      {state !== 'Connected' && <button className="lc-btn primary lc-source-cta" type="button">Reconnect</button>}
     </div>
   );
 };
+
+/* New components from the cleanup: Button, Flag toggle, Text field, Switch, Radio */
+
+const DsButton = ({ type, state }) => (
+  <button type="button" className={`lc-btn ${type.toLowerCase()} is-${state.toLowerCase()}`} disabled={state === 'Disabled'} tabIndex={-1}>
+    {state === 'Loading' && <span className="lc-spin" aria-hidden="true" />}
+    {state === 'Loading' ? 'Saving' : 'Save changes'}
+  </button>
+);
+
+const FlagToggle = ({ selected, state }) => (
+  <button type="button" className={`lc-btn primary is-${state.toLowerCase()}`} disabled={state === 'Disabled'} tabIndex={-1} aria-pressed={selected === 'On'}>
+    <span aria-hidden="true">{selected === 'On' ? '⚑' : '⚐'}</span>
+    {selected === 'On' ? 'Flagged' : 'Flag'}
+  </button>
+);
+
+const TextField = ({ state }) => {
+  const filled = state === 'Filled' || state === 'Error';
+  return (
+    <div className={`lc-field is-${state.toLowerCase()}`}>
+      <span className="lc-field-label">Note</span>
+      <div className="lc-field-box">{filled ? 'Weekly sync with design' : <span className="ph">Optional note</span>}</div>
+      <span className="lc-field-help">{state === 'Error' ? 'Keep it under 200 characters' : 'Only your team can see this'}</span>
+    </div>
+  );
+};
+
+const Switch = ({ checked, state }) => (
+  <div className={`lc-choice is-${state.toLowerCase()}`}>
+    <span className={`lc-switch ${checked === 'On' ? 'on' : ''}`}><span /></span>
+    Pause capture
+  </div>
+);
+
+const Radio = ({ checked, state }) => (
+  <div className={`lc-choice is-${state.toLowerCase()}`}>
+    <span className={`lc-radio ${checked === 'On' ? 'on' : ''}`}><span /></span>
+    Keep messages for 30 days
+  </div>
+);
 
 const DecisionRow = ({ state, setState }) => {
   const open = state !== 'Default';
@@ -293,9 +373,13 @@ const LocusProject = () => {
   }, []);
 
   // Playground
+  const defaultsFor = (c) => Object.fromEntries(
+    Object.entries(PLAYGROUND[c]).map(([k, opts]) => [k, (DEFAULTS[c] && DEFAULTS[c][k]) || opts[0]])
+  );
   const [comp, setComp] = useState('Decision row');
-  const [variant, setVariant] = useState('Expanded');
-  const pickComp = (c) => { setComp(c); setVariant(c === 'Decision row' ? 'Expanded' : PLAYGROUND[c][0]); };
+  const [vals, setVals] = useState(defaultsFor('Decision row'));
+  const pickComp = (c) => { setComp(c); setVals(defaultsFor(c)); };
+  const setProp = (k, v) => setVals((s) => ({ ...s, [k]: v }));
 
   // Token copy
   const [copied, setCopied] = useState(null);
@@ -309,11 +393,15 @@ const LocusProject = () => {
 
   const renderComponent = () => {
     switch (comp) {
-      case 'Decision row': return <DecisionRow state={variant} setState={setVariant} />;
-      case 'Type pill': return <TypePill type={variant} />;
-      case 'Status pill': return <StatusPill status={variant} />;
-      case 'Source card': return <SourceCard state={variant} />;
-      default: return <LcButton kind={variant} />;
+      case 'Decision row': return <DecisionRow state={vals.State} setState={(v) => setProp('State', v)} />;
+      case 'Type pill': return <TypePill type={vals.Type} />;
+      case 'Status pill': return <StatusPill status={vals.Status} />;
+      case 'Source card': return <SourceCard state={vals.State} />;
+      case 'Flag toggle': return <FlagToggle selected={vals.Selected} state={vals.State} />;
+      case 'Text field': return <TextField state={vals.State} />;
+      case 'Switch': return <Switch checked={vals.Checked} state={vals.State} />;
+      case 'Radio': return <Radio checked={vals.Checked} state={vals.State} />;
+      default: return <DsButton type={vals.Type} state={vals.State} />;
     }
   };
 
@@ -528,6 +616,98 @@ const LocusProject = () => {
         }
         .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
 
+        /* ---------- Design system intro ---------- */
+        .ds-section .section-heading { max-width: 24ch; }
+        .ds-sub { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--project-text); margin: 0 0 0.5rem; }
+        .ds-note { font-size: 0.95rem; color: var(--project-text-secondary); line-height: 1.6; max-width: 60ch; margin: 0 0 1.2rem; font-family: var(--font-body); }
+        .ds-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 1rem 0 4.5rem; }
+        .ds-steps { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; gap: 1.1rem; }
+        .ds-steps li { display: grid; grid-template-columns: 32px 1fr; gap: 0.9rem; align-items: start; }
+        .ds-steps .n {
+          width: 32px; height: 32px; border-radius: 50%;
+          border: 1px solid var(--project-border);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 0.85rem; font-weight: 600; color: var(--project-accent);
+        }
+        .ds-steps strong { display: block; color: var(--project-text); font-size: 1rem; margin-bottom: 0.2rem; }
+        .ds-steps p { font-size: 0.92rem; color: var(--project-text-secondary); line-height: 1.6; margin: 0; }
+        .ba { margin-top: 0.8rem; border-top: 1px solid var(--project-border); }
+        .ba-row {
+          display: grid; grid-template-columns: 1.2fr 1.3fr auto 1.2fr; gap: 0.8rem; align-items: center;
+          padding: 0.85rem 0; border-bottom: 1px solid var(--project-border);
+          font-size: 0.92rem; font-family: var(--font-body);
+        }
+        .ba-label { color: var(--project-text-secondary); }
+        .ba-before { color: var(--project-text-secondary); text-decoration: line-through; text-decoration-color: rgba(220, 38, 38, 0.55); }
+        .ba-arrow { color: var(--project-accent); }
+        .ba-after { color: var(--project-text); font-weight: 600; }
+        .ds-section .tokens { margin-bottom: 4.5rem; }
+        .token em { display: block; font-style: normal; font-size: 0.68rem; color: var(--project-text-secondary); margin-top: 0.2rem; opacity: 0.85; }
+        .comp-group {
+          font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase;
+          color: var(--project-text-secondary); opacity: 0.7; padding: 0.8rem 0.7rem 0.2rem;
+        }
+        .comp-group:first-child { padding-top: 0; }
+        .prop-row { margin-bottom: 1rem; }
+
+        /* ---------- New components (Button, Flag toggle, Text field, Switch, Radio) ---------- */
+        .lc-btn.link { background: transparent; color: #4338ca; padding: 8px 4px; }
+        .lc-btn.danger { background: #fff; color: #991b1b; border-color: #e5e7eb; }
+        .lc-btn.danger:hover { background: #fee2e2; border-color: #fee2e2; }
+        .lc-btn.accent { background: #aadf2e; color: #18181b; }
+        .lc-btn.accent:hover, .lc-btn.accent.is-hover { background: #84cc16; }
+        .lc-btn.accent.is-pressed { background: #65a30d; }
+        .lc-btn.accent.is-disabled { background: #f3f4f6; color: #9ca3af; }
+        .lc-btn.primary.is-hover { background: #3730a3; }
+        .lc-btn.primary.is-pressed { background: #312e81; }
+        .lc-btn.secondary.is-hover { background: #e5e7eb; }
+        .lc-btn.secondary.is-pressed { background: #d9d9d9; }
+        .lc-btn.ghost.is-hover { background: #f3f4f6; }
+        .lc-btn.ghost.is-pressed { background: #e5e7eb; }
+        .lc-btn.link.is-hover { text-decoration: underline; }
+        .lc-btn.link.is-pressed { text-decoration: underline; color: #3730a3; }
+        .lc-btn.danger.is-hover { background: #fee2e2; border-color: #fee2e2; }
+        .lc-btn.danger.is-pressed { background: #991b1b; border-color: #991b1b; color: #fff; }
+        .lc-btn.is-focus { outline: 2px solid #4338ca; outline-offset: 2px; }
+        .lc-btn.is-disabled { cursor: not-allowed; color: #9ca3af; }
+        .lc-btn.primary.is-disabled { background: #ddd6fe; color: #9ca3af; }
+        .lc-btn.secondary.is-disabled, .lc-btn.danger.is-disabled { background: #f3f4f6; color: #9ca3af; }
+        .lc-btn.is-loading { cursor: progress; }
+        .lc-spin { width: 12px; height: 12px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: lcspin 0.8s linear infinite; }
+        @keyframes lcspin { to { transform: rotate(360deg); } }
+        @media (prefers-reduced-motion: reduce) { .lc-spin { animation: none; } }
+        .lc-field { width: 320px; max-width: 100%; display: grid; gap: 6px; font-family: Inter, system-ui, sans-serif; }
+        .lc-field-label { font-size: 13px; font-weight: 500; color: #18181b; }
+        .lc-field-box {
+          height: 42px; display: flex; align-items: center; padding: 0 12px;
+          border: 1px solid #878e9b; border-radius: 14px; background: #fff;
+          font-size: 15px; color: #18181b;
+        }
+        .lc-field-box .ph { color: #5b6472; }
+        .lc-field-help { font-size: 12px; color: #4e5969; }
+        .lc-field.is-focus .lc-field-box { border-color: #4338ca; outline: 2px solid #4338ca; outline-offset: 2px; }
+        .lc-field.is-error .lc-field-box { border-color: #991b1b; }
+        .lc-field.is-error .lc-field-help { color: #991b1b; }
+        .lc-field.is-disabled .lc-field-box { background: #f3f4f6; border-color: #e5e7eb; }
+        .lc-field.is-disabled .ph, .lc-field.is-disabled .lc-field-label, .lc-field.is-disabled .lc-field-help { color: #9ca3af; }
+        .lc-choice { display: inline-flex; align-items: center; gap: 10px; font-family: Inter, system-ui, sans-serif; font-size: 14px; color: #18181b; }
+        .lc-switch { width: 36px; height: 22px; box-sizing: border-box; border-radius: 999px; border: 1px solid #4e5969; background: #fff; display: flex; align-items: center; padding: 2px; }
+        .lc-switch span { width: 16px; height: 16px; border-radius: 50%; background: #4e5969; transition: transform 0.2s ease; }
+        .lc-switch.on { background: #4338ca; border-color: #4338ca; }
+        .lc-switch.on span { background: #fff; transform: translateX(14px); }
+        .lc-radio { width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; border: 2px solid #5b6472; display: flex; align-items: center; justify-content: center; }
+        .lc-radio.on { border-color: #4338ca; }
+        .lc-radio.on span { width: 8px; height: 8px; border-radius: 50%; background: #4338ca; }
+        .lc-choice.is-focus .lc-switch, .lc-choice.is-focus .lc-radio { outline: 2px solid #4338ca; outline-offset: 2px; }
+        .lc-choice.is-disabled { color: #9ca3af; }
+        .lc-choice.is-disabled .lc-switch { background: #f3f4f6; border-color: #e5e7eb; }
+        .lc-choice.is-disabled .lc-switch span { background: #9ca3af; }
+        .lc-choice.is-disabled .lc-switch.on { background: #ddd6fe; border-color: #ddd6fe; }
+        .lc-choice.is-disabled .lc-switch.on span { background: #fff; }
+        .lc-choice.is-disabled .lc-radio { border-color: #9ca3af; }
+        .lc-choice.is-disabled .lc-radio.on span { background: #9ca3af; }
+        .lc-source-cta { grid-column: 1 / -1; justify-content: center; }
+
         /* ---------- Locus component styles (Figma tokens) ---------- */
         .lc-pill {
           display: inline-flex; align-items: center;
@@ -568,7 +748,8 @@ const LocusProject = () => {
         .lc-logo { width: 36px; height: 36px; border-radius: 10px; background: #f3f4f6; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #4a154b; }
         .lc-dot { font-size: 12px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
         .lc-dot::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-        .lc-dot.ok { color: #15803d; }
+        .lc-dot.ok { color: #166534; }
+        .lc-dot.warn { color: #b45309; }
         .lc-dot.bad { color: #991b1b; }
         .lc-row { width: 100%; max-width: 640px; background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; font-family: Inter, system-ui, sans-serif; }
         .lc-row-head {
@@ -609,6 +790,7 @@ const LocusProject = () => {
           .follow-step { min-height: 0; opacity: 1; padding: 1.5rem 0; }
           .follow-step .inline-shot { display: block; }
           .tokens { grid-template-columns: repeat(4, 1fr); }
+          .ds-intro { grid-template-columns: 1fr; gap: 2.5rem; }
           .playground { grid-template-columns: 1fr; }
           .props { border-right: none; border-bottom: 1px solid var(--project-border); }
           .canvas { padding: 2.8rem 1rem 1rem; }
@@ -620,6 +802,8 @@ const LocusProject = () => {
           .hero-content-wrapper { padding: 2rem 5% 1.5rem; }
           .overview-grid, .stats-row, .principles, .reflect-grid { grid-template-columns: 1fr; }
           .tokens { grid-template-columns: repeat(2, 1fr); }
+          .ba-row { grid-template-columns: 1fr auto 1fr; row-gap: 0.3rem; }
+          .ba-label { grid-column: 1 / -1; font-size: 0.8rem; }
           .lc-row-head { grid-template-columns: auto 1fr; }
           .lc-src, .lc-row-head .status-current { display: none; }
           .lc-row-body dl { grid-template-columns: 1fr; gap: 2px; }
@@ -644,12 +828,13 @@ const LocusProject = () => {
           <Reveal delay={0.1}>
             <p className="hero-sub">
               Locus AI reads your team’s Slack, Notion and Gmail, pulls out the decisions, action items and blockers,
-              and makes them searchable. I designed the product experience and the design system behind it.
+              and makes them searchable. My main job was the design system: the shared colors, type and components
+              that every screen is built from. I also used it to design onboarding and the core screens.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="hero-meta">
-              <div className="meta-item"><label>Role</label><p>UX/UI Designer</p></div>
+              <div className="meta-item"><label>Role</label><p>UX/UI Designer, owned the design system</p></div>
               <div className="meta-item"><label>Program</label><p>PM Accelerator, Cohort 9</p></div>
               <div className="meta-item"><label>Team</label><p>2 PMs, 2 designers</p></div>
               <div className="meta-item"><label>Stage</label><p>0→1, pre-launch</p></div>
@@ -697,9 +882,128 @@ const LocusProject = () => {
         </div>
       </div>
 
+      {/* ================= DESIGN SYSTEM (my main work) ================= */}
+      <section className="section-custom ds-section" id="design-system">
+        <Reveal><SectionLabel>02 · Design System · my main work</SectionLabel></Reveal>
+        <Reveal><h2 className="section-heading">One kit of parts behind every screen</h2></Reveal>
+        <Reveal>
+          <p className="section-lead">
+            A design system is a shared kit: the colors, text styles and building blocks like buttons and inputs
+            that every screen is made from. <strong>I built and looked after the Locus one in Figma</strong>, so the
+            team could design faster and every screen looked and behaved the same.
+          </p>
+        </Reveal>
+
+        <div className="ds-intro">
+          <Reveal>
+            <h3 className="ds-sub">How I did it</h3>
+            <ol className="ds-steps">
+              {SYSTEM_STEPS.map((s, i) => (
+                <li key={s.t}>
+                  <span className="n">{i + 1}</span>
+                  <div><strong>{s.t}</strong><p>{s.d}</p></div>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h3 className="ds-sub">Before and after</h3>
+            <div className="ba">
+              {BEFORE_AFTER.map((r) => (
+                <div className="ba-row" key={r.label}>
+                  <span className="ba-label">{r.label}</span>
+                  <span className="ba-before">{r.before}</span>
+                  <span className="ba-arrow" aria-hidden="true">→</span>
+                  <span className="ba-after">{r.after}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal>
+          <h3 className="ds-sub">Colors with a job</h3>
+          <p className="ds-note">Each color is used for one thing, so the product stays consistent. Click one to copy it.</p>
+          <div className="tokens">
+            {TOKENS.map((t) => (
+              <button key={t.hex} className="token" onClick={() => copyHex(t.hex)} aria-label={`Copy ${t.name} ${t.hex}`}>
+                <div className="sw" style={{ background: t.hex }} />
+                <div className="meta">
+                  <strong>{t.name}</strong>
+                  <small>{copied === t.hex ? 'Copied ✓' : t.hex}</small>
+                  <em>{t.job}</em>
+                </div>
+              </button>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <h3 className="ds-sub">Try the components</h3>
+          <p className="ds-note">Rebuilt from the Figma file with the same colors. Pick a component on the left, then change its properties.</p>
+          <div className="playground">
+            <div className="props">
+              <div className="props-title">Components</div>
+              <div className="comp-list">
+                {GROUPS.map((g) => (
+                  <React.Fragment key={g.group}>
+                    <div className="comp-group">{g.group}</div>
+                    {g.items.map((c) => (
+                      <button key={c} className={`comp-item ${comp === c ? 'active' : ''}`} onClick={() => pickComp(c)}>{c}</button>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </div>
+              <div className="props-title">Properties</div>
+              {Object.entries(PLAYGROUND[comp]).map(([k, opts]) => (
+                <div className="prop-row" key={k}>
+                  <label>{k}</label>
+                  <div className="seg">
+                    {opts.map((v) => (
+                      <button key={v} className={vals[k] === v ? 'on' : ''} onClick={() => setProp(k, v)}>{v}</button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="canvas">
+              <span className="canvas-tag">◆ {comp} / {Object.values(vals).join(', ')}</span>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={comp}
+                  className="canvas-stage"
+                  initial={{ opacity: 0, scale: 0.97 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  {renderComponent()}
+                </motion.div>
+              </AnimatePresence>
+              <p className="canvas-note">
+                {PLAYGROUND_NOTES[comp]}
+                {comp === 'Decision row' && ' Click the row or the Flag button to try it.'}
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="principles">
+          {PRINCIPLES.map((p, i) => (
+            <Reveal key={p.t} delay={i * 0.08}>
+              <div className="card hover" style={{ height: '100%' }}>
+                <h3>{p.t}</h3>
+                <p>{p.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* ================= HOW IT WORKS (story) ================= */}
-      <section className="section-custom">
-        <Reveal><SectionLabel>02 · How Locus Works</SectionLabel></Reveal>
+      <div className="section-full-custom">
+        <div className="inner">
+        <Reveal><SectionLabel>03 · How Locus Works</SectionLabel></Reveal>
         <Reveal><h2 className="section-heading">Three steps, zero new habits</h2></Reveal>
         <Reveal><p className="section-lead">Locus works in the background. The onboarding explains it in three steps.</p></Reveal>
         <div
@@ -739,12 +1043,13 @@ const LocusProject = () => {
             </AnimatePresence>
           </BrowserFrame>
         </div>
-      </section>
+        </div>
+      </div>
 
       {/* ================= FOLLOW ONE DECISION (scroll story) ================= */}
-      <div className="section-full-custom">
-        <div className="inner">
-          <Reveal><SectionLabel>03 · The Product</SectionLabel></Reveal>
+      <section className="section-custom">
+        <div>
+          <Reveal><SectionLabel>04 · The Product</SectionLabel></Reveal>
           <Reveal><h2 className="section-heading">One decision, four surfaces</h2></Reveal>
           <Reveal><p className="section-lead">Follow the team’s <strong>Q3 timeline decision</strong> through a normal week. Scroll to move through it.</p></Reveal>
           <div className="follow">
@@ -788,93 +1093,6 @@ const LocusProject = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* ================= DESIGN SYSTEM ================= */}
-      <section className="section-custom">
-        <Reveal><SectionLabel>04 · Design System</SectionLabel></Reveal>
-        <Reveal><h2 className="section-heading">Every state designed, not just the happy path</h2></Reveal>
-        <Reveal>
-          <p className="section-lead">
-            I built Locus as a component library in Figma, with tokens for colour, type, spacing and radius.
-            <strong> Try the components below</strong>: they are rebuilt from the Figma file with the same tokens.
-          </p>
-        </Reveal>
-
-        <Reveal>
-          <div className="sys-stats">
-            <div><strong><CountUp to={70} /></strong>components</div>
-            <div><strong><CountUp to={180} suffix="+" /></strong>variants</div>
-            <div><strong><CountUp to={9} /></strong>button types</div>
-            <div><strong><CountUp to={6} /></strong>states for a decision row</div>
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <div className="tokens">
-            {TOKENS.map((t) => (
-              <button key={t.hex} className="token" onClick={() => copyHex(t.hex)} aria-label={`Copy ${t.hex}`}>
-                <div className="sw" style={{ background: t.hex }} />
-                <div className="meta">
-                  <strong>{t.name}</strong>
-                  <small>{copied === t.hex ? 'Copied ✓' : t.hex}</small>
-                </div>
-              </button>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <div className="playground">
-            <div className="props">
-              <div className="props-title">Components</div>
-              <div className="comp-list">
-                {Object.keys(PLAYGROUND).map((c) => (
-                  <button key={c} className={`comp-item ${comp === c ? 'active' : ''}`} onClick={() => pickComp(c)}>{c}</button>
-                ))}
-              </div>
-              <div className="props-title">Properties</div>
-              <div className="prop-row">
-                <label>{comp === 'Decision row' ? 'State' : comp === 'Button' ? 'Type' : 'Variant'}</label>
-                <div className="seg">
-                  {PLAYGROUND[comp].map((v) => (
-                    <button key={v} className={variant === v ? 'on' : ''} onClick={() => setVariant(v)}>{v}</button>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="canvas">
-              <span className="canvas-tag">◆ {comp} / {variant}</span>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={comp}
-                  className="canvas-stage"
-                  initial={{ opacity: 0, scale: 0.97 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.97 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  {renderComponent()}
-                </motion.div>
-              </AnimatePresence>
-              <p className="canvas-note">
-                {PLAYGROUND_NOTES[comp]}
-                {comp === 'Decision row' && ' Click the row or the Flag button to try it.'}
-              </p>
-            </div>
-          </div>
-        </Reveal>
-
-        <div className="principles">
-          {PRINCIPLES.map((p, i) => (
-            <Reveal key={p.t} delay={i * 0.08}>
-              <div className="card hover" style={{ height: '100%' }}>
-                <h3>{p.t}</h3>
-                <p>{p.d}</p>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </section>
 

@@ -16,7 +16,7 @@ const CARD = {
   experience: '3+ yrs',
   status: 'Open to new projects',
   bio:
-    "I turn messy problems into calm, usable products. Currently shaping AI-driven tools people actually enjoy opening.",
+    "I take products from research to a working design system, and I can build the front end myself.",
   skills: ['Research', 'Interaction', 'Design Systems', 'Prototyping'],
 };
 

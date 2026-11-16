@@ -1,6 +1,6 @@
 export const DESIGNER = {
   name: 'Rutul Manani',
-  role: 'UX/UI Designer & Front-End Developer',
+  role: 'Product Designer',
   tagline: 'I turn complex problems into human-centered digital experiences.',
   location: 'Toronto, Canada',
   email: 'rutulmanani18@gmail.com',

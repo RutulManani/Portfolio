@@ -36,10 +36,10 @@ const NAV_SECTIONS = [
 ];
 
 const OVERVIEW = [
-  { icon: '🚪', label: 'Problem', text: 'New travellers explored Airbnb but left before booking. They could not trust what they saw.' },
-  { icon: '🔍', label: 'Approach', text: 'Competitive analysis, 10 user interviews, personas and a journey map.' },
-  { icon: '💡', label: 'Solution', text: 'Trust-building features: verified badges, comparison, guided matching and guest photos.' },
-  { icon: '👥', label: 'My role', text: 'UX research and UI design in a five-person academic team.' },
+  { label: 'Problem', text: 'New travellers explored Airbnb but left before booking. They could not trust what they saw.' },
+  { label: 'Approach', text: 'Competitive analysis, 10 user interviews, personas and a journey map.' },
+  { label: 'Solution', text: 'Trust-building features: verified badges, comparison, guided matching and guest photos.' },
+  { label: 'My role', text: 'UX research and UI design in a five-person academic team.' },
 ];
 
 const PROCESS = [
@@ -50,12 +50,12 @@ const PROCESS = [
 ];
 
 const GAPS = [
-  { icon: '⚖️', title: 'No comparison feature', text: 'Listings cannot be compared side by side, a standard in hotel booking.' },
-  { icon: '🗺️', title: 'Location hidden until booked', text: 'The exact location only appears after paying. Competitors do not do this.' },
-  { icon: '🛁', title: 'Sparse listing cards', text: 'Beds and bathrooms need a click into every listing.' },
-  { icon: '🔍', title: 'No search history', text: 'Previous searches are not saved, so users start over every visit.' },
-  { icon: '🏷️', title: 'No loyalty programme', text: 'Both competitors reward bookings. Airbnb offers nothing similar.' },
-  { icon: '📋', title: 'Icon-heavy navigation', text: 'Inconsistent labels confuse first-time users.' },
+  { title: 'No comparison feature', text: 'Listings cannot be compared side by side, a standard in hotel booking.' },
+  { title: 'Location hidden until booked', text: 'The exact location only appears after paying. Competitors do not do this.' },
+  { title: 'Sparse listing cards', text: 'Beds and bathrooms need a click into every listing.' },
+  { title: 'No search history', text: 'Previous searches are not saved, so users start over every visit.' },
+  { title: 'No loyalty programme', text: 'Both competitors reward bookings. Airbnb offers nothing similar.' },
+  { title: 'Icon-heavy navigation', text: 'Inconsistent labels confuse first-time users.' },
 ];
 
 const SCREENER = [
@@ -84,12 +84,12 @@ const INTERVIEW_LINKS = [
 
 // step = index of the walkthrough screen that answers this insight
 const INSIGHTS = [
-  { icon: '✅', title: 'Verification they could trust', text: 'Users stopped short of booking when a listing had no verified label.', phase: 'Decision', step: 5 },
-  { icon: '💬', title: 'Real reviews, not curated ones', text: '“I don’t trust a 4.9 from 12 reviews.” Users wanted guest photos, not just stars.', phase: 'Decision', step: 6 },
-  { icon: '💰', title: 'Price clarity and comparison', text: 'Price changes between preview and checkout sent users to competitors.', phase: 'Exploration', step: 3 },
-  { icon: '👥', title: 'Group booking clarity', text: 'Group planners could not see bed and bathroom setups upfront.', phase: 'Exploration', step: 0 },
-  { icon: '📍', title: 'Location confidence', text: 'Not knowing the area before booking was a dealbreaker for safety.', phase: 'Decision', step: 4 },
-  { icon: '🤝', title: 'Reachable help', text: 'Unanswered pre-booking questions killed trust in the stay.', phase: 'Decision', step: 5 },
+  { title: 'Verification they could trust', text: 'Users stopped short of booking when a listing had no verified label.', phase: 'Decision', step: 5 },
+  { title: 'Real reviews, not curated ones', text: '“I don’t trust a 4.9 from 12 reviews.” Users wanted guest photos, not just stars.', phase: 'Decision', step: 6 },
+  { title: 'Price clarity and comparison', text: 'Price changes between preview and checkout sent users to competitors.', phase: 'Exploration', step: 3 },
+  { title: 'Group booking clarity', text: 'Group planners could not see bed and bathroom setups upfront.', phase: 'Exploration', step: 0 },
+  { title: 'Location confidence', text: 'Not knowing the area before booking was a dealbreaker for safety.', phase: 'Decision', step: 4 },
+  { title: 'Reachable help', text: 'Unanswered pre-booking questions killed trust in the stay.', phase: 'Decision', step: 5 },
 ];
 
 const PERSONAS = [
@@ -232,12 +232,6 @@ const NEXT_STEPS = [
   { t: 'Solve group decisions', d: 'A shared shortlist with voting, since groups still decide outside the app.' },
 ];
 
-const TAKEAWAYS = [
-  { t: 'The problem users describe is rarely the real one', d: 'Users said they could not find what they wanted. In fact they found options fine; they could not trust them enough to choose.' },
-  { t: 'Competitive analysis sets the floor, not the ceiling', d: 'It showed what is standard, and where Airbnb could leap ahead with personalised discovery.' },
-  { t: 'Journey maps align teams', d: 'Showing exactly where users felt disappointed made the Decision phase the obvious priority.' },
-  { t: 'Trust is a system, not a feature', d: 'Badges, guest photos, comparison and photo dates only work together.' },
-];
 
 /* =========================================================
    SMALL BUILDING BLOCKS
@@ -1154,7 +1148,6 @@ const AirbnbProject = () => {
           {OVERVIEW.map((o, i) => (
             <Reveal key={o.label} delay={i * 0.08}>
               <div className="card hover" style={{ height: '100%' }}>
-                <span className="overview-icon">{o.icon}</span>
                 <span className="eyebrow">{o.label}</span>
                 <p>{o.text}</p>
               </div>
@@ -1251,7 +1244,6 @@ const AirbnbProject = () => {
             {GAPS.map((g, i) => (
               <Reveal key={g.title} delay={(i % 3) * 0.08}>
                 <div className="card hover gap-card" style={{ height: '100%' }}>
-                  <span className="ico">{g.icon}</span>
                   <div>
                     <h3>{g.title}</h3>
                     <p>{g.text}</p>
@@ -1366,7 +1358,6 @@ const AirbnbProject = () => {
               <Reveal key={it.title} delay={(i % 3) * 0.08}>
                 <div className="card hover insight-card" style={{ height: '100%' }}>
                   <div className="insight-top">
-                    <span className="ico">{it.icon}</span>
                     <span className="chip accent">{it.phase}</span>
                   </div>
                   <h3>{it.title}</h3>
@@ -1671,25 +1662,8 @@ const AirbnbProject = () => {
       {/* ================= REFLECTION ================= */}
       <section id="ab-reflection" className="section-custom">
         <Reveal><SectionLabel>10 · Reflection</SectionLabel></Reveal>
-        <Reveal><h2 className="section-heading">What this taught me about research-led design</h2></Reveal>
-        <Reveal>
-          <div className="takeaways-custom">
-            {TAKEAWAYS.map((t, i) => (
-              <div key={t.t} className="takeaway-custom">
-                <div className="takeaway-letter">{String.fromCharCode(65 + i)}</div>
-                <div>
-                  <h4>{t.t}</h4>
-                  <p>{t.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-        <Reveal>
-          <div className="hypothesis-box">
-            <p>People don’t need more listings. <strong>They need proof that a listing is real.</strong></p>
-          </div>
-        </Reveal>
+        <Reveal><h2 className="section-heading">What I learned</h2></Reveal>
+        <Reveal><p className="section-lead" style={{ maxWidth: '760px' }}>The problem people describe is rarely the real one. Users said they could not find what they wanted, but they found options just fine. They could not trust them enough to book. That taught me trust is a system, not a feature: badges, guest photos, comparison and photo dates only work when they work together.</p></Reveal>
       </section>
 
       {/* ================= NAVIGATION ================= */}
@@ -1698,10 +1672,16 @@ const AirbnbProject = () => {
           <i className="fas fa-arrow-left"></i>
           <span>Back to Projects</span>
         </button>
-        <Link to="/projects/5" className="btn btn-primary">
-          <span>Next Project: Locus</span>
-          <i className="fas fa-arrow-right"></i>
-        </Link>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <Link to="/projects/4" className="btn btn-secondary">
+            <i className="fas fa-arrow-left"></i>
+            <span>Previous: SpendSmart</span>
+          </Link>
+          <Link to="/projects/5" className="btn btn-primary">
+            <span>Next: Locus</span>
+            <i className="fas fa-arrow-right"></i>
+          </Link>
+        </div>
       </div>
 
       {/* ================= LIGHTBOX ================= */}

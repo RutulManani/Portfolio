@@ -28,9 +28,9 @@ const HEADLINE = [
 ];
 
 const OVERVIEW = [
-  { icon: '🏢', label: 'Context', text: 'Veritas is an Indian insurance broker selling motor, health, business and life cover from 25+ insurers, mostly through advisors.' },
-  { icon: '🧶', label: 'Problem', text: 'The website had grown feature by feature. Public pages, advisor tools and internal systems were tangled into one structure.' },
-  { icon: '🗺️', label: 'What I did', text: 'Mapped the whole site with its owners, simplified the structure, and designed the new website from that map.' },
+  { label: 'Context', text: 'Veritas is an Indian insurance broker selling motor, health, business and life cover from 25+ insurers, mostly through advisors.' },
+  { label: 'Problem', text: 'The website had grown feature by feature. Public pages, advisor tools and internal systems were tangled into one structure.' },
+  { label: 'What I did', text: 'Mapped the whole site with its owners, simplified the structure, and designed the new website from that map.' },
 ];
 
 const BRIEF = [
@@ -40,9 +40,9 @@ const BRIEF = [
 ];
 
 const AUDIENCES = [
-  { icon: '🛒', who: 'Customers', want: 'A price, proof they can trust the company, a person to talk to.', door: 'Public site', doorSub: 'veritasins.com' },
-  { icon: '🤝', who: 'Future advisors', want: 'What the role is, what they can earn, how to sign up.', door: 'Recruitment site', doorSub: 'pos.veritasins.com' },
-  { icon: '🧰', who: 'Working advisors', want: 'Their tools: statements, renewals, claims, reports. No marketing.', door: 'Behind login', doorSub: 'Internal system + app' },
+  { who: 'Customers', want: 'A price, proof they can trust the company, a person to talk to.', door: 'Public site', doorSub: 'veritasins.com' },
+  { who: 'Future advisors', want: 'What the role is, what they can earn, how to sign up.', door: 'Recruitment site', doorSub: 'pos.veritasins.com' },
+  { who: 'Working advisors', want: 'Their tools: statements, renewals, claims, reports. No marketing.', door: 'Behind login', doorSub: 'Internal system + app' },
 ];
 
 const REQUIREMENTS = [
@@ -87,11 +87,6 @@ const OUTCOME = [
   { from: 14, to: 6, label: 'steps to first price' },
 ];
 
-const NEXT = [
-  { t: 'Test the labels', d: 'Product names were agreed with stakeholders. Today I would tree-test them with real buyers first.' },
-  { t: 'Measure the gate', d: 'The lead form was fixed. I would track its drop-off so the business can decide with data.' },
-  { t: 'Draw it properly first time', d: 'My 2022 board was a working tool. The maps here were redrawn in 2026, content unchanged.' },
-];
 
 /* =========================================================
    SMALL BUILDING BLOCKS
@@ -615,7 +610,6 @@ const VeritasProject = () => {
           {OVERVIEW.map((o, i) => (
             <Reveal key={o.label} delay={i * 0.08}>
               <div className="card hover" style={{ height: '100%' }}>
-                <span className="overview-icon">{o.icon}</span>
                 <span className="eyebrow">{o.label}</span>
                 <p>{o.text}</p>
               </div>
@@ -657,7 +651,6 @@ const VeritasProject = () => {
               {AUDIENCES.map((a, i) => (
                 <Reveal key={a.who} delay={i * 0.08}>
                   <div className="card person">
-                    <span className="ico">{a.icon}</span>
                     <div>
                       <h3>{a.who}</h3>
                       <p>{a.want}</p>
@@ -709,7 +702,7 @@ const VeritasProject = () => {
           {REQUIREMENTS.map((r, i) => (
             <Reveal key={r.id} delay={(i % 4) * 0.06}>
               <div className={`card hover req ${r.fixed ? 'fixed' : ''}`} style={{ height: '100%' }}>
-                {r.fixed && <span className="lock">🔒 Fixed</span>}
+                {r.fixed && <span className="lock">Fixed</span>}
                 <span className="id">{r.id}</span>
                 <h3>{r.t}</h3>
                 <p>{r.d}</p>
@@ -935,30 +928,15 @@ const VeritasProject = () => {
         </Reveal>
       </section>
 
-      {/* ================= WHAT I'D DO NOW ================= */}
-      <div className="section-full-custom">
-        <div className="inner">
-          <Reveal><SectionLabel>09 · What I Would Do Now</SectionLabel></Reveal>
-          <div className="grid-3">
-            {NEXT.map((n, i) => (
-              <Reveal key={n.t} delay={i * 0.08}>
-                <div className="card hover" style={{ height: '100%' }}>
-                  <h3>{n.t}</h3>
-                  <p>{n.d}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal>
-            <div className="closing">
-              <p>Simplifying is not removing things. <strong>It is understanding them well enough to know what is truly necessary, and when.</strong></p>
-            </div>
-          </Reveal>
-        </div>
-      </div>
+      {/* ================= REFLECTION ================= */}
+      <section className="section-custom">
+        <Reveal><SectionLabel>09 · Reflection</SectionLabel></Reveal>
+        <Reveal><h2 className="section-heading">What I learned</h2></Reveal>
+        <Reveal><p className="section-lead" style={{ maxWidth: '760px' }}>Simplifying is not removing things. It is understanding them well enough to know what is truly needed, and when. Looking back, I would tree-test the product names with real buyers instead of only agreeing them with stakeholders, and track drop-off on the lead form so the business could decide with data.</p></Reveal>
+      </section>
 
       {/* ================= NAVIGATION ================= */}
-      <div className="project-navigation" style={{ padding: '4rem 5% 5rem', maxWidth: '1200px', margin: '0 auto' }}>
+      <div className="project-navigation" style={{ padding: '0 5% 5rem', maxWidth: '1200px', margin: '0 auto' }}>
         <button onClick={handleBackToProjects} className="btn btn-secondary">
           <i className="fas fa-arrow-left"></i>
           <span>Back to Projects</span>

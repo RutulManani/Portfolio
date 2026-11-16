@@ -22,9 +22,9 @@ import locusPulseImg from '../../assets/images/locus-pulse.png';
    ========================================================= */
 
 const OVERVIEW = [
-  { icon: '💬', label: 'Problem', text: 'Team decisions get buried in Slack, Notion and email. Days later nobody can find them.' },
-  { icon: '🧩', label: 'My role', text: 'I owned the design system: the colors, type and components every screen is built from. I also used it to design onboarding and the main screens.' },
-  { icon: '✅', label: 'Result', text: '70+ components, one Button instead of seven, and every state designed: hover, focus, disabled, loading and error.' },
+  { label: 'Problem', text: 'Team decisions get buried in Slack, Notion and email. Days later nobody can find them.' },
+  { label: 'My role', text: 'I owned the design system: the colors, type and components every screen is built from. I also used it to design onboarding and the main screens.' },
+  { label: 'Result', text: '70+ components, one Button instead of seven, and every state designed: hover, focus, disabled, loading and error.' },
 ];
 
 const STATS = [
@@ -137,10 +137,6 @@ const PRINCIPLES = [
   { t: 'Correct, don’t delete', d: 'Flag and Superseded keep the record honest when the AI or the team gets it wrong.' },
 ];
 
-const REFLECTION = [
-  { t: 'Designing for AI changes the job', d: 'The interface has to earn trust for a claim it didn’t make itself. Confidence, sources and flagging became core, not extras.' },
-  { t: 'What I’d do next', d: 'Add a dark mode (the colors are already set up for it), move the older screens onto the new Button, and test the flagging flow with real users.' },
-];
 
 /* =========================================================
    SMALL BUILDING BLOCKS
@@ -850,7 +846,6 @@ const LocusProject = () => {
           {OVERVIEW.map((o, i) => (
             <Reveal key={o.label} delay={i * 0.08}>
               <div className="card hover" style={{ height: '100%' }}>
-                <span className="overview-icon">{o.icon}</span>
                 <span className="eyebrow">{o.label}</span>
                 <p>{o.text}</p>
               </div>
@@ -1097,36 +1092,25 @@ const LocusProject = () => {
       </section>
 
       {/* ================= REFLECTION ================= */}
-      <div className="section-full-custom">
-        <div className="inner">
-          <Reveal><SectionLabel>05 · Reflection</SectionLabel></Reveal>
-          <Reveal><h2 className="section-heading">What I’m taking with me</h2></Reveal>
-          <div className="reflect-grid">
-            {REFLECTION.map((r, i) => (
-              <Reveal key={r.t} delay={i * 0.1}>
-                <div className="card" style={{ height: '100%' }}>
-                  <h3>{r.t}</h3>
-                  <p>{r.d}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
+      <section className="section-custom">
+        <Reveal><SectionLabel>05 · Reflection</SectionLabel></Reveal>
+        <Reveal><h2 className="section-heading">What I learned</h2></Reveal>
+        <Reveal><p className="section-lead" style={{ maxWidth: '760px' }}>Designing for AI changed the job. The interface has to earn trust for an answer it did not write itself, so sources, confidence and flagging became core parts of the system, not extras. Next I would add dark mode (the colors are already set up for it), move the older screens onto the new Button, and test the flagging flow with real users.</p></Reveal>
+      </section>
 
       {/* ================= NAVIGATION ================= */}
-      <div className="project-navigation" style={{ padding: '4rem 5% 5rem', maxWidth: '1200px', margin: '0 auto' }}>
+      <div className="project-navigation" style={{ padding: '0 5% 5rem', maxWidth: '1200px', margin: '0 auto' }}>
         <button onClick={handleBackToProjects} className="btn btn-secondary">
           <i className="fas fa-arrow-left"></i>
           <span>Back to Projects</span>
         </button>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <Link to="/projects/4" className="btn btn-secondary">
+          <Link to="/projects/1" className="btn btn-secondary">
             <i className="fas fa-arrow-left"></i>
-            <span>Previous: SpendSmart</span>
+            <span>Previous: Airbnb</span>
           </Link>
-          <Link to="/projects/1" className="btn btn-primary">
-            <span>Next: Airbnb</span>
+          <Link to="/projects/6" className="btn btn-primary">
+            <span>Next: Veritas</span>
             <i className="fas fa-arrow-right"></i>
           </Link>
         </div>

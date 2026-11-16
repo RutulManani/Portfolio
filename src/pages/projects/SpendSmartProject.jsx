@@ -38,10 +38,10 @@ const NAV_SECTIONS = [
 ];
 
 const OVERVIEW = [
-  { icon: '😣', label: 'Problem', text: 'Students overspend when stressed or bored. Trackers show what was spent, never why.' },
-  { icon: '💡', label: 'Solution', text: 'Tag every expense with a mood and turn better habits into a daily game.' },
-  { icon: '🛠️', label: 'My role', text: 'Research, UX/UI design, usability testing and full-stack MERN development.' },
-  { icon: '📈', label: 'Impact', text: '83% task completion and 4.0/5 ease in testing. 3 key issues fixed before coding.' },
+  { label: 'Problem', text: 'Students overspend when stressed or bored. Trackers show what was spent, never why.' },
+  { label: 'Solution', text: 'Tag every expense with a mood and turn better habits into a daily game.' },
+  { label: 'My role', text: 'Research, UX/UI design, usability testing and full-stack MERN development.' },
+  { label: 'Impact', text: '83% task completion and 4.0/5 ease in testing. 3 key issues fixed before coding.' },
 ];
 
 const PROCESS = [
@@ -161,19 +161,16 @@ const TEST_RESULTS = [
 
 const FINDINGS = [
   {
-    icon: '🔐',
     area: 'Sign-up & login',
     found: 'No "Forgot password" or "Confirm password". Testers expected both, causing 2 errors.',
     fixed: 'Added both fields to the authentication flow.',
   },
   {
-    icon: '🧭',
     area: 'Admin dashboard',
     found: 'Weakest task (60%). Admin looked too similar to the user view.',
     fixed: 'Labelled admin nav, distinct colours and one tab per content type.',
   },
   {
-    icon: '😊',
     area: 'Mood input',
     found: 'Some testers did not understand why mood mattered.',
     fixed: 'Helper text and a tooltip explaining the value, while keeping it quick.',
@@ -187,19 +184,6 @@ const IMPACT = [
   { to: 3, suffix: '', label: 'UX issues fixed before coding' },
 ];
 
-const REFLECTION = {
-  worked: [
-    { t: 'Testing before code', d: 'Five testers found three issues I had missed. Fixing them in Figma was far cheaper than in code.' },
-    { t: 'Mood as a core field', d: 'Placing mood beside amount made it part of the habit, not an extra step.' },
-    { t: 'Challenge-first logging', d: 'Tying every expense to a goal gave the data a purpose.' },
-  ],
-  next: [
-    { t: 'Reward honesty, not just happiness', d: 'Losing points for "Stressed" may push people to log a false mood. I would score on sticking to the challenge instead.' },
-    { t: 'Mood vs spending chart', d: 'Make emotional triggers obvious with one visual.' },
-    { t: 'Quick-log on mobile', d: 'Most impulse buys happen on the go.' },
-    { t: 'Longer study', d: 'Test with more users over 2+ weeks to measure real habit change.' },
-  ],
-};
 
 /* =========================================================
    SMALL BUILDING BLOCKS
@@ -1133,7 +1117,7 @@ const SpendSmartProject = () => {
           overflow: hidden;
         }
         .hypothesis-box::before {
-          content: '💰';
+          content: '';
           position: absolute;
           bottom: 1rem; right: 2rem;
           font-size: 5rem;
@@ -1255,7 +1239,6 @@ const SpendSmartProject = () => {
           {OVERVIEW.map((o, i) => (
             <Reveal key={o.label} delay={i * 0.08}>
               <div className="card hover" style={{ height: '100%' }}>
-                <span className="overview-icon">{o.icon}</span>
                 <span className="eyebrow">{o.label}</span>
                 <p>{o.text}</p>
               </div>
@@ -1725,7 +1708,6 @@ const SpendSmartProject = () => {
               <Reveal key={f.area} delay={i * 0.1}>
                 <div className="card hover finding-card" style={{ height: '100%' }}>
                   <div className="finding-top">
-                    <span className="ico">{f.icon}</span>
                     <h3 style={{ margin: 0 }}>{f.area}</h3>
                   </div>
                   <div className="finding-block found">
@@ -1752,19 +1734,16 @@ const SpendSmartProject = () => {
         <Reveal>
           <div className="arch">
             <div className="card arch-node">
-              <span className="ico">⚛️</span>
               <h3>React front end</h3>
               <p>React Router, Context API, Tailwind, charts</p>
             </div>
             <div className="arch-link"><span>REST · JWT</span></div>
             <div className="card arch-node">
-              <span className="ico">🟢</span>
               <h3>Node + Express API</h3>
               <p>Auth with bcrypt, protected routes, game logic</p>
             </div>
             <div className="arch-link"><span>Mongoose</span></div>
             <div className="card arch-node">
-              <span className="ico">🍃</span>
               <h3>MongoDB Atlas</h3>
               <div className="tech-chips">
                 {['Users', 'Expenses', 'Challenges', 'Badges', 'Categories'].map((c) => (
@@ -1798,36 +1777,8 @@ const SpendSmartProject = () => {
       {/* ================= REFLECTION ================= */}
       <section id="ss-reflection" className="section-custom">
         <Reveal><SectionLabel>10 · Reflection</SectionLabel></Reveal>
-        <Reveal><h2 className="section-heading">What I learned, and what's next</h2></Reveal>
-        <div className="reflect-grid">
-          <Reveal>
-            <div className="card reflect-col" style={{ height: '100%' }}>
-              <h3>✅ What worked</h3>
-              {REFLECTION.worked.map((r) => (
-                <div key={r.t} className="reflect-item">
-                  <h4>{r.t}</h4>
-                  <p>{r.d}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="card reflect-col" style={{ height: '100%' }}>
-              <h3>🔭 What I'd do next</h3>
-              {REFLECTION.next.map((r) => (
-                <div key={r.t} className="reflect-item">
-                  <h4>{r.t}</h4>
-                  <p>{r.d}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-        <Reveal>
-          <div className="hypothesis-box">
-            <p>Students don't need another app to track money. <strong>They need a reason to care about it.</strong></p>
-          </div>
-        </Reveal>
+        <Reveal><h2 className="section-heading">What I learned</h2></Reveal>
+        <Reveal><p className="section-lead" style={{ maxWidth: '760px' }}>Testing in Figma before writing any code paid off. Five testers caught three issues I had missed, and they were much cheaper to fix there. Putting mood right next to the amount made it part of the habit instead of an extra step. Next time I would reward sticking to the challenge rather than a happy mood, because losing points for feeling stressed may push people to log a mood they did not feel.</p></Reveal>
       </section>
 
       {/* ================= NAVIGATION ================= */}
@@ -1836,10 +1787,16 @@ const SpendSmartProject = () => {
           <i className="fas fa-arrow-left"></i>
           <span>Back to Projects</span>
         </button>
-        <Link to="/projects/1" className="btn btn-primary">
-          <span>Next Project: Airbnb</span>
-          <i className="fas fa-arrow-right"></i>
-        </Link>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <Link to="/projects/6" className="btn btn-secondary">
+            <i className="fas fa-arrow-left"></i>
+            <span>Previous: Veritas</span>
+          </Link>
+          <Link to="/projects/1" className="btn btn-primary">
+            <span>Next: Airbnb</span>
+            <i className="fas fa-arrow-right"></i>
+          </Link>
+        </div>
       </div>
 
       {/* ================= LIGHTBOX ================= */}

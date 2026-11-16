@@ -66,7 +66,6 @@ export default function Work() {
                       </span>
                       {` / ${String(projects.length).padStart(2, '0')}`}
                     </span>
-                    <span>{project.year}</span>
                   </div>
 
                   <div className="work-card__title-block">
@@ -86,26 +85,12 @@ export default function Work() {
                       </span>
                     </div>
 
-                    <p className="work-card__role">
-                      <span>Role </span>
-                      {project.role}
-                    </p>
-
-                    <ul className="work-card__tags" aria-label="Disciplines">
-                      {project.tags.map((tag) => (
-                        <li key={tag} className="work-card__tag">
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-
                     <Link
                       to={project.link}
                       className="work-card__cta"
                       data-cursor="hover"
                     >
                       View case study
-                      <span aria-hidden="true">↗</span>
                     </Link>
                   </div>
                 </div>

@@ -99,7 +99,7 @@ export default function Hero() {
             }}
           >
             <p>
-              Rutul is a product designer specializing in{' '}
+              Rutul is a Product-focused UI/UX Designer specializing in{' '}
               <strong>AI-driven applications</strong> and{' '}
               <strong>B2B SaaS</strong>, with a track record across{' '}
               <strong>Insurtech, HR tech, and early-stage startups</strong>

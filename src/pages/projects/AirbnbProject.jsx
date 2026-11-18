@@ -39,7 +39,7 @@ const OVERVIEW = [
   { label: 'Problem', text: 'New travellers explored Airbnb but left before booking. They could not trust what they saw.' },
   { label: 'Approach', text: 'Competitive analysis, 10 user interviews, personas and a journey map.' },
   { label: 'Solution', text: 'Trust-building features: verified badges, comparison, guided matching and guest photos.' },
-  { label: 'My role', text: 'UX research and UI design in a five-person academic team.' },
+  { label: 'My role', text: 'UX Researcher & Designer, UI Designer' },
 ];
 
 const PROCESS = [
@@ -1130,20 +1130,12 @@ const AirbnbProject = () => {
               they could not trust what they saw. Here is how we found that out, and what I designed to fix it.
             </p>
           </Reveal>
-          <Reveal delay={0.2}>
-            <div className="hero-meta">
-              <div className="meta-item"><label>My Role</label><p>UX Researcher & Designer, UI Designer</p></div>
-              <div className="meta-item"><label>Team</label><p>Academic project, 5 people</p></div>
-              <div className="meta-item"><label>Methods</label><p>Competitive analysis, interviews, personas, journey map</p></div>
-              <div className="meta-item"><label>Target users</label><p>Travellers 18–40 booking group or first trips</p></div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
       {/* ================= OVERVIEW ================= */}
       <section id="ab-overview" className="section-custom" style={{ paddingTop: '3rem' }}>
-        <Reveal><SectionLabel>Overview · 30-second read</SectionLabel></Reveal>
+        <Reveal><div className="section-label"><span className="step-num no-line">Overview</span></div></Reveal>
         <div className="overview-grid">
           {OVERVIEW.map((o, i) => (
             <Reveal key={o.label} delay={i * 0.08}>
@@ -1678,8 +1670,8 @@ const AirbnbProject = () => {
             <i className="fas fa-arrow-left"></i>
             <span>Previous: SpendSmart</span>
           </Link>
-          <Link to="/projects/5" className="btn btn-primary">
-            <span>Next: Locus</span>
+          <Link to="/projects/6" className="btn btn-primary">
+            <span>Next: Veritas</span>
             <i className="fas fa-arrow-right"></i>
           </Link>
         </div>

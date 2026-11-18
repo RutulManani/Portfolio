@@ -23,8 +23,9 @@ import locusPulseImg from '../../assets/images/locus-pulse.png';
 
 const OVERVIEW = [
   { label: 'Problem', text: 'Team decisions get buried in Slack, Notion and email. Days later nobody can find them.' },
-  { label: 'My role', text: 'I owned the design system: the colors, type and components every screen is built from. I also used it to design onboarding and the main screens.' },
+  { label: 'My role', text: 'Designed and built the complete Locus design system, from color and type foundations to 70+ components with every state covered. I also helped create the interactive prototypes we used for user testing.' },
   { label: 'Result', text: '70+ components, one Button instead of seven, and every state designed: hover, focus, disabled, loading and error.' },
+  { label: 'Organization', text: 'PM Accelerator · Locus team' },
 ];
 
 const STATS = [
@@ -486,7 +487,7 @@ const LocusProject = () => {
         .card p { font-size: 0.93rem; color: var(--project-text-secondary); line-height: 1.6; }
 
         /* ================= Overview + stats ================= */
-        .overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+        .overview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
         .overview-icon { font-size: 1.8rem; display: block; margin-bottom: 0.8rem; }
         .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; }
         .stat-big { font-family: var(--font-heading); font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 700; color: var(--project-accent); line-height: 1; margin-bottom: 0.6rem; }
@@ -781,6 +782,7 @@ const LocusProject = () => {
 
         /* ================= Responsive ================= */
         @media (max-width: 1024px) {
+          .overview-grid { grid-template-columns: repeat(2, 1fr); }
           .story, .follow { grid-template-columns: 1fr; }
           .follow-sticky { display: none; }
           .follow-step { min-height: 0; opacity: 1; padding: 1.5rem 0; }
@@ -828,20 +830,12 @@ const LocusProject = () => {
               that every screen is built from. I also used it to design onboarding and the core screens.
             </p>
           </Reveal>
-          <Reveal delay={0.2}>
-            <div className="hero-meta">
-              <div className="meta-item"><label>Role</label><p>UX/UI Designer, owned the design system</p></div>
-              <div className="meta-item"><label>Program</label><p>PM Accelerator, Cohort 9</p></div>
-              <div className="meta-item"><label>Team</label><p>2 PMs, 2 designers</p></div>
-              <div className="meta-item"><label>Stage</label><p>0→1, pre-launch</p></div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
       {/* ================= OVERVIEW ================= */}
       <section className="section-custom" style={{ paddingTop: '3rem' }}>
-        <Reveal><SectionLabel>Overview · 30-second read</SectionLabel></Reveal>
+        <Reveal><div className="section-label"><span className="step-num no-line">Overview</span></div></Reveal>
         <div className="overview-grid">
           {OVERVIEW.map((o, i) => (
             <Reveal key={o.label} delay={i * 0.08}>
@@ -1105,12 +1099,12 @@ const LocusProject = () => {
           <span>Back to Projects</span>
         </button>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <Link to="/projects/1" className="btn btn-secondary">
+          <Link to="/projects/6" className="btn btn-secondary">
             <i className="fas fa-arrow-left"></i>
-            <span>Previous: Airbnb</span>
+            <span>Previous: Veritas</span>
           </Link>
-          <Link to="/projects/6" className="btn btn-primary">
-            <span>Next: Veritas</span>
+          <Link to="/projects/4" className="btn btn-primary">
+            <span>Next: SpendSmart</span>
             <i className="fas fa-arrow-right"></i>
           </Link>
         </div>

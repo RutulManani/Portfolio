@@ -20,17 +20,17 @@ import motorImg from '../../assets/images/veritas-motor.jpg';
    CONTENT (edit text here, layout stays the same)
    ========================================================= */
 
-const HEADLINE = [
-  { from: 2, to: 1, label: 'headers' },
-  { from: 12, to: 0, label: 'dead ends in public navigation' },
-  { from: 25, to: 11, label: 'steps from landing to payment' },
-  { from: 14, to: 6, label: 'steps to the first price' },
-];
 
 const OVERVIEW = [
-  { label: 'Context', text: 'Veritas is an Indian insurance broker selling motor, health, business and life cover from 25+ insurers, mostly through advisors.' },
-  { label: 'Problem', text: 'The website had grown feature by feature. Public pages, advisor tools and internal systems were tangled into one structure.' },
+  { label: 'Context', text: 'Veritas is an Indian insurance broker selling motor, health, business and life cover from 25+ insurers, mostly through advisors. I was their UX/UI Design Lead for 2 years, and this was the biggest project I led there.' },
+  { label: 'Problem', text: 'The site had grown feature by feature into a messy, data-heavy workflow. Public pages, advisor tools and internal systems were tangled into one structure, so the whole site had to be simplified and rebuilt.' },
   { label: 'What I did', text: 'Mapped the whole site with its owners, simplified the structure, and designed the new website from that map.' },
+  {
+    label: 'Organization',
+    text: (
+      <>Clarion Insurance · <a href="https://veritasins.com" target="_blank" rel="noopener noreferrer">veritasins.com ↗</a></>
+    ),
+  },
 ];
 
 const BRIEF = [
@@ -376,6 +376,8 @@ const VeritasProject = () => {
         .chip { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid var(--project-border); color: var(--project-text-secondary); }
         .chip.accent { border-color: var(--project-accent); color: var(--project-accent); background: var(--project-accent-dim); }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+        .grid-4 a { color: var(--project-accent); }
         .overview-icon { font-size: 1.8rem; display: block; margin-bottom: 0.8rem; }
         .brief-num { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: var(--project-accent); opacity: 0.4; line-height: 1; display: block; margin-bottom: 0.8rem; transition: opacity 0.3s ease; }
         .card:hover .brief-num { opacity: 1; }
@@ -538,7 +540,7 @@ const VeritasProject = () => {
 
         /* ================= Responsive ================= */
         @media (max-width: 1024px) {
-          .headline-row, .req-grid { grid-template-columns: repeat(2, 1fr); }
+          .headline-row, .grid-4, .req-grid { grid-template-columns: repeat(2, 1fr); }
           .outcome-row { grid-template-columns: repeat(3, 1fr); }
           .move { grid-template-columns: 50px 1fr; }
           .move .col { grid-column: 2; }
@@ -548,7 +550,7 @@ const VeritasProject = () => {
           .section-custom, .section-full-custom { padding: 4rem 5%; }
           .hero-image-full { height: 38vh; }
           .hero-content-wrapper { padding: 2rem 5% 1.5rem; }
-          .grid-3, .surfaces, .req-grid { grid-template-columns: 1fr; }
+          .grid-3, .grid-4, .surfaces, .req-grid { grid-template-columns: 1fr; }
           .outcome-row { grid-template-columns: 1fr 1fr; }
           .router { grid-template-columns: 1fr; }
           .router-lines { display: none; }
@@ -582,31 +584,18 @@ const VeritasProject = () => {
           <Reveal><h1>Untangling <em>Veritas</em></h1></Reveal>
           <Reveal delay={0.1}>
             <p className="hero-sub">
-              I simplified an insurance broker’s website, from a 1,011-box map of everything that existed to the clear
-              structure that is live today.
+              I simplified a data-heavy insurance website by mapping every page with the teams who ran it, then
+              rebuilding the structure around what buyers actually need. Steps from landing to payment dropped from
+              25 to 11, and dead ends in the navigation from 12 to 0.
             </p>
           </Reveal>
-          <Reveal delay={0.2}>
-            <div className="hero-meta">
-              <div className="meta-item"><label>Role</label><p>UX/UI Design Lead</p></div>
-              <div className="meta-item"><label>Company</label><p>Clarion Insurance Broking (Veritas)</p></div>
-              <div className="meta-item"><label>Year</label><p>2022</p></div>
-              <div className="meta-item"><label>Tools</label><p>FigJam, Figma</p></div>
-              <div className="meta-item"><label>Live</label><p><a href="https://veritasins.com" target="_blank" rel="noopener noreferrer">veritasins.com ↗</a></p></div>
-            </div>
-          </Reveal>
-          <div className="headline-row">
-            {HEADLINE.map((h, i) => (
-              <Reveal key={h.label} delay={0.25 + i * 0.08}><BeforeAfter {...h} /></Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* ================= OVERVIEW + BRIEF ================= */}
       <section className="section-custom" style={{ paddingTop: '3rem' }}>
-        <Reveal><SectionLabel>Overview · 30-second read</SectionLabel></Reveal>
-        <div className="grid-3">
+        <Reveal><div className="section-label"><span className="step-num no-line">Overview</span></div></Reveal>
+        <div className="grid-4">
           {OVERVIEW.map((o, i) => (
             <Reveal key={o.label} delay={i * 0.08}>
               <div className="card hover" style={{ height: '100%' }}>
@@ -943,12 +932,12 @@ const VeritasProject = () => {
           <span>Back to Projects</span>
         </button>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <Link to="/projects/5" className="btn btn-secondary">
+          <Link to="/projects/1" className="btn btn-secondary">
             <i className="fas fa-arrow-left"></i>
-            <span>Previous: Locus</span>
+            <span>Previous: Airbnb</span>
           </Link>
-          <Link to="/projects/4" className="btn btn-primary">
-            <span>Next: SpendSmart</span>
+          <Link to="/projects/5" className="btn btn-primary">
+            <span>Next: Locus</span>
             <i className="fas fa-arrow-right"></i>
           </Link>
         </div>

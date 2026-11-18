@@ -6,6 +6,34 @@
 
 export const projects = [
   {
+    id: 'veritas',
+    name: 'Untangling Veritas',
+    kind: 'Web · Insurance · Information Architecture',
+    year: '2022',
+    role: 'UX/UI design lead',
+    summary:
+      'I mapped an insurance broker’s entire website with the people who ran it, then cut it down to the structure that is live today.',
+    metric: { value: '25 → 11', label: 'steps from landing to payment' },
+    tags: ['Information Architecture', 'UX Strategy', 'Web Design', 'Stakeholder Mapping'],
+    image: require('../assets/images/veritas-cover.jpg'),
+    alt: 'Untangling Veritas cover: a tangled site map simplified into a clean structure',
+    link: '/projects/6',
+  },
+  {
+    id: 'locus',
+    name: 'Locus AI',
+    kind: 'Web · AI · 0 → 1',
+    year: '2026',
+    role: 'UX/UI designer, design system',
+    summary:
+      'A memory layer for teams that turns scattered Slack, Notion and Gmail threads into a searchable record of what was decided. I owned the design system: the colors, type and 70+ components every screen is built from, with every state designed.',
+    metric: { value: '17/25', label: 'interviewees asked to join early access' },
+    tags: ['Design System', 'AI', '0 → 1 Product'],
+    image: require('../assets/images/Locus.png'),
+    alt: 'Locus AI decision log with cited rows, confidence scores and a weekly pulse summary',
+    link: '/projects/5',
+  },
+  {
     id: 'spendsmart',
     name: 'SpendSmart',
     kind: 'Web · Fintech · Full-stack',
@@ -33,32 +61,4 @@ export const projects = [
     alt: 'Airbnb research artefacts including journey map, competitive analysis and verified listing mockups',
     link: '/projects/1',
   },
-  {
-    id: 'locus',
-    name: 'Locus AI',
-    kind: 'Web · AI · 0 → 1',
-    year: '2026',
-    role: 'UX/UI designer, design system',
-    summary:
-      'A memory layer for teams that turns scattered Slack, Notion and Gmail threads into a searchable record of what was decided. I owned the design system: the colors, type and 70+ components every screen is built from, with every state designed.',
-    metric: { value: '17/25', label: 'interviewees asked to join early access' },
-    tags: ['Design System', 'AI', '0 → 1 Product'],
-    image: require('../assets/images/Locus.png'),
-    alt: 'Locus AI decision log with cited rows, confidence scores and a weekly pulse summary',
-    link: '/projects/5',
-  },
-    {
-    id: 'veritas',
-    name: 'Untangling Veritas',
-    kind: 'Web · Insurance · Information Architecture',
-    year: '2022',
-    role: 'UX/UI design lead',
-    summary:
-      'I mapped an insurance broker’s entire website with the people who ran it, then cut it down to the structure that is live today.',
-    metric: { value: '25 → 11', label: 'steps from landing to payment' },
-    tags: ['Information Architecture', 'UX Strategy', 'Web Design', 'Stakeholder Mapping'],
-    image: require('../assets/images/veritas-cover.jpg'),
-    alt: 'Untangling Veritas cover: a tangled site map simplified into a clean structure',
-    link: '/projects/6',
-  }
 ];

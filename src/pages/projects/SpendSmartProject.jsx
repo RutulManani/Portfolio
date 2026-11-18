@@ -38,9 +38,9 @@ const NAV_SECTIONS = [
 ];
 
 const OVERVIEW = [
-  { label: 'Problem', text: 'Students overspend when stressed or bored. Trackers show what was spent, never why.' },
+  { label: 'Problem', text: 'Students make small impulse buys every week, and most budgeting apps feel like homework, so they stop using them.' },
   { label: 'Solution', text: 'Tag every expense with a mood and turn better habits into a daily game.' },
-  { label: 'My role', text: 'Research, UX/UI design, usability testing and full-stack MERN development.' },
+  { label: 'My role & timeline', text: 'UX/UI Designer & Full-Stack Developer · 8 weeks' },
   { label: 'Impact', text: '83% task completion and 4.0/5 ease in testing. 3 key issues fixed before coding.' },
 ];
 
@@ -1221,20 +1221,12 @@ const SpendSmartProject = () => {
               I designed, tested and built it end to end in 8 weeks.
             </p>
           </Reveal>
-          <Reveal delay={0.2}>
-            <div className="hero-meta">
-              <div className="meta-item"><label>My Role</label><p>UX/UI Designer & Full-Stack Developer</p></div>
-              <div className="meta-item"><label>Tools</label><p>Figma, React, Node.js, Express, MongoDB</p></div>
-              <div className="meta-item"><label>Context</label><p>Capstone Project, Humber College</p></div>
-              <div className="meta-item"><label>Timeline</label><p>8 weeks · Sep – Oct 2025</p></div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
       {/* ================= OVERVIEW ================= */}
       <section id="ss-overview" className="section-custom" style={{ paddingTop: '3rem' }}>
-        <Reveal><SectionLabel>Overview · 30-second read</SectionLabel></Reveal>
+        <Reveal><div className="section-label"><span className="step-num no-line">Overview</span></div></Reveal>
         <div className="overview-grid">
           {OVERVIEW.map((o, i) => (
             <Reveal key={o.label} delay={i * 0.08}>
@@ -1788,9 +1780,9 @@ const SpendSmartProject = () => {
           <span>Back to Projects</span>
         </button>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <Link to="/projects/6" className="btn btn-secondary">
+          <Link to="/projects/5" className="btn btn-secondary">
             <i className="fas fa-arrow-left"></i>
-            <span>Previous: Veritas</span>
+            <span>Previous: Locus</span>
           </Link>
           <Link to="/projects/1" className="btn btn-primary">
             <span>Next: Airbnb</span>

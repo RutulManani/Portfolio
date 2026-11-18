@@ -678,3 +678,5 @@
 [data-theme="light"] .project-detail .persona-header {
   border-color: var(--project-border);
 }
+/* Section label without the leading accent line */
+.step-num.no-line::before { display: none; }

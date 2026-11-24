@@ -1,380 +1,195 @@
-/* ============================================================
-   WORK — sticky-stacked project cards with x-ray lens.
-   Uses portfolio tokens only.
-   Works in dark (default) and [data-theme="light"].
-
-   Card seam design:
-   - No box-shadow on the cards (box-shadow blur bleeds left/
-     right, causing a smear between stacked cards).
-   - The seam is drawn with a ::before linear-gradient that runs
-     top→bottom only (zero horizontal spread) plus a 1px ::after
-     hairline at the very top edge.
-   ============================================================ */
-
-.work-section {
-  position: relative;
-  border-top: 1px solid var(--border);
-  padding: 6rem 0;
-}
-
-@media (min-width: 640px) {
-  .work-section {
-    padding: 8rem 0;
-  }
-}
-
-/* The inline SVG filter is invisible but must be in the DOM */
-.work-filter {
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-
-.work-container {
-  margin: 0 auto;
-  max-width: 72rem; /* 1152px */
-  padding: 0 1.5rem;
-}
-
-/* ---- Header ---- */
-.work-header {
-  margin-bottom: 3rem;
-}
-
-.work-label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.work-label-accent {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-}
-
-.work-label-line {
-  height: 1px;
-  width: 3rem;
-  background: var(--accent);
-  opacity: 0.4;
-}
-
-.work-label-muted {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-secondary);
-}
-
-.work-title {
-  margin: 1rem 0 0.5rem;
-  max-width: 42rem;
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.work-title-accent {
-  color: var(--accent);
-  font-style: italic;
-}
-
-.work-hint {
-  max-width: 26rem;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-/* ============================================================
-   STICKY STACK
-   ============================================================ */
-
-.work-stack {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  .work-stack {
-    gap: 0;
-  }
-}
-
-.work-stack__item {
-  position: relative;
-  /* Reserve vertical space so the seam above each card has room
-     to render without being clipped by the next item */
-  padding-bottom: 0.75rem;
-}
-
-@media (min-width: 1024px) {
-  .work-stack__item {
-    position: sticky;
-    padding-bottom: 1rem;
-  }
-}
-
-/* ============================================================
-   PROJECT CARD
-   Solid background, hairline border, no box-shadow.
-   The seam between stacked cards is drawn by ::before (a
-   vertical-only gradient) and ::after (a 1px hairline).
-   ============================================================ */
-
-.work-card {
-  position: relative;
+/* WORK: list on the left, sticky crossfading image on the right. */
+.ws {
   display: grid;
-  gap: 1.5rem;
-  padding: 1rem;
-  border-radius: 18px;
-
-  /* Solid background so each card fully occludes the one beneath */
-  background: var(--secondary);
-
-  /* All four sides get the same hairline border — no side shadow
-     means no side pile-up, so a clean border is all we need */
-  border: 1px solid var(--border);
-
-  /* No box-shadow — its blur bleeds horizontally and would cause
-     the dark smear between stacked cards. The seam is drawn by
-     the ::before / ::after pseudo-elements below instead. */
-  box-shadow: none;
-
-  /* Clip any decorative overflow so nothing spills into neighbors */
-  overflow: hidden;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 56px;
+  align-items: start;
 }
 
-/* The seam: a vertical-only soft fade sitting above each card.
-   Because it's a linear-gradient (not a box-shadow blur), it has
-   ZERO horizontal spread — no dark smudge to the left or right. */
-.work-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -18px;
-  height: 18px;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.28) 100%
-  );
+/* ---- list ---- */
+.ws-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--hairline);
 }
-
-/* Light theme: gentler seam */
-[data-theme="light"] .work-card::before {
-  background: linear-gradient(
-    to bottom,
-    rgba(18, 20, 24, 0) 0%,
-    rgba(18, 20, 24, 0.09) 100%
-  );
-}
-
-/* A 1px hairline right at the top edge so the boundary between
-   two stacked cards reads crisply even on displays where the
-   gradient is too subtle */
-.work-card::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -1px;
-  height: 1px;
-  pointer-events: none;
-  background: color-mix(in srgb, var(--border) 70%, transparent);
-}
-
-@supports not (background: color-mix(in srgb, red 50%, transparent)) {
-  .work-card::after {
-    background: var(--border);
-  }
-}
-
-@media (min-width: 768px) {
-  .work-card {
-    padding: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .work-card {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-    height: min(72svh, 600px);
-  }
-}
-
-/* ============================================================
-   TEXT COLUMN
-   ============================================================ */
-
-.work-card__text {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-@media (min-width: 1024px) {
-  .work-card__text {
-    padding: 0.5rem 0;
-  }
-}
-
-.work-card__meta {
+.ws-item {
+  position: relative;
+  min-height: 72vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  color: var(--text-secondary);
+  padding-left: 40px;
 }
-
-.work-card__index {
-  color: var(--accent);
+.ws-item:first-child { min-height: 60vh; align-items: flex-start; padding-top: 8vh; }
+.ws-item:last-child { min-height: 60vh; }
+/* progress marker on the left rule */
+.ws-item::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  width: 2px;
+  height: 0;
+  background: var(--accent);
+  transform: translateY(-50%);
+  transition: height 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
+.ws-item:first-child::before { top: calc(8vh + 70px); }
+.ws-item.is-active::before { height: 140px; }
 
-.work-card__title-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.ws-link {
+  display: grid;
+  gap: 12px;
+  max-width: 480px;
+  text-decoration: none;
+  color: var(--text);
+  opacity: 0.38;
+  transition: opacity 0.4s;
 }
+.ws-item.is-active .ws-link { opacity: 1; }
+.ws-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: 6px; opacity: 1; }
 
-.work-card__kind {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
+.ws-org {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-secondary);
-  margin: 0;
+  color: var(--faint);
 }
-
-.work-card__title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+.ws-name {
+  font-size: var(--fs-h2);
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--text);
-  margin: 0;
+  line-height: 1.15;
 }
-
-.work-card__summary {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
+.ws-line {
+  font-size: var(--fs-body);
   line-height: 1.6;
-  color: var(--text-secondary);
-  margin: 0;
-  text-wrap: pretty;
+  color: var(--faint);
 }
-
-/* Footer sits at the bottom of the column */
-.work-card__footer {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: auto;
-}
-
-.work-card__metric {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
-}
-
-.work-card__metric-value {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--accent);
-}
-
-.work-card__metric-label {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-
-.work-card__role {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--text);
-  margin: 0;
-}
-
-.work-card__role span {
-  color: var(--text-secondary);
-}
-
-.work-card__tags {
+.ws-item.is-active .ws-line { color: var(--text); }
+.ws-tags {
   list-style: none;
+  margin: 4px 0 0;
   padding: 0;
-  margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 8px;
 }
-
-.work-card__tag {
-  padding: 0.25rem 0.65rem;
+.ws-tags li {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 11px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  font-family: var(--font-body);
-  font-size: 11px;
-  color: var(--text-secondary);
+  border: 1px solid var(--hairline);
+  color: var(--faint);
 }
-
-.work-card__cta {
-  align-self: flex-start;
+.ws-cta {
+  justify-self: start;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1rem;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px 20px;
   border-radius: 999px;
-  background: var(--accent);
-  color: var(--primary);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
+  border: 1px solid var(--text);
+  font-size: var(--fs-small);
   font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s, filter 0.2s;
+  white-space: nowrap;
+  color: var(--text);
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+}
+.ws-item.is-active .ws-cta { background: var(--text); color: var(--primary); }
+.ws-cta svg { transition: transform 0.25s; }
+.ws-link:hover .ws-cta { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ws-link:hover .ws-cta svg { transform: translate(2px, -2px); }
+
+/* ---- sticky stage ---- */
+.ws-stage {
+  position: sticky;
+  top: max(96px, calc(50vh - 250px));
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.ws-count {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  z-index: 5;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
 }
 
-.work-card__cta:hover {
-  filter: brightness(1.05);
-  transform: translateY(-1px);
+/* ---- media (shared by stage and inline) ---- */
+.ws-media {
+  --ground: var(--p-locus);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--ground);
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.6s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-
-/* ============================================================
-   LENS COLUMN
-   ============================================================ */
-
-.work-card__lens {
-  position: relative;
+.ws-media.is-active { opacity: 1; transform: none; }
+.ws--veritas { --ground: var(--p-veritas); }
+.ws--locus { --ground: var(--p-locus); }
+.ws--spend { --ground: var(--p-spend); }
+.ws--airbnb { --ground: var(--p-airbnb); }
+.ws--inset::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 100% at 0% 0%, rgba(255, 255, 255, 0.16), transparent 55%);
+}
+.ws--inset img {
+  position: absolute;
+  left: 9%;
+  top: 12%;
+  width: 104%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.ws--locus.ws--inset img { background: #fff; }
+.ws--cover img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 220px;
+  height: 100%;
+  object-fit: cover;
 }
+.ws-media--inline { display: none; }
 
-@media (min-width: 1024px) {
-  .work-card__lens {
-    aspect-ratio: auto;
-    height: 100%;
+/* ---- phones and small tablets: stacked, image inline ---- */
+@media (max-width: 860px) {
+  .ws { grid-template-columns: 1fr; gap: 0; }
+  .ws-stage { display: none; }
+  .ws-list { border-left: 0; display: grid; gap: 64px; }
+  .ws-item,
+  .ws-item:first-child,
+  .ws-item:last-child { min-height: 0; padding: 0; display: block; }
+  .ws-item::before { display: none; }
+  .ws-link { opacity: 1; max-width: none; }
+  .ws-line { color: var(--text); }
+  .ws-media--inline {
+    display: block;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    opacity: 1;
+    transform: none;
   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ws-media, .ws-link, .ws-item::before, .ws-cta svg { transition: none; }
 }

@@ -328,13 +328,13 @@ const VeritasProject = () => {
         .hero-image-full img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .hero-content-wrapper { padding: 4rem 5% 2rem; max-width: 1200px; margin: 0 auto; }
         .project-hero-custom h1 {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(2.4rem, 5vw, 4.5rem);
           font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
           color: var(--project-text); margin-bottom: 1.5rem; max-width: 900px;
         }
-        .project-hero-custom h1 em { color: var(--project-accent); font-style: italic; font-weight: 800; }
-        .hero-sub { font-size: 1.15rem; color: var(--project-text-secondary); max-width: 700px; line-height: 1.7; margin-bottom: 2.5rem; font-family: var(--font-body); }
+        .project-hero-custom h1 em { color: var(--project-accent); font-style: normal; font-weight: 700; }
+        .hero-sub { font-size: 1.15rem; color: var(--project-text-secondary); max-width: 700px; line-height: 1.7; margin-bottom: 2.5rem; font-family: var(--font-sans); }
         .hero-meta {
           display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
           gap: 1.5rem; padding: 2rem 0; border-top: 1px solid var(--project-border); border-bottom: 1px solid var(--project-border);
@@ -345,7 +345,7 @@ const VeritasProject = () => {
         .headline-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; padding-top: 2rem; }
 
         /* before -> after number */
-        .ba-nums { display: flex; align-items: baseline; gap: 0.5rem; font-family: var(--font-heading); font-weight: 700; line-height: 1; margin-bottom: 0.5rem; }
+        .ba-nums { display: flex; align-items: baseline; gap: 0.5rem; font-family: var(--font-sans); font-weight: 700; line-height: 1; margin-bottom: 0.5rem; }
         .ba-from { font-size: 1.5rem; color: var(--project-text-secondary); text-decoration: line-through; text-decoration-color: var(--project-bad); opacity: 0.7; }
         .ba-arrow { font-size: 1.2rem; color: var(--project-text-secondary); }
         .ba-to { font-size: 2.6rem; color: var(--project-accent); }
@@ -360,18 +360,18 @@ const VeritasProject = () => {
         .step-num { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--project-accent); }
         .step-num::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--project-accent); margin-right: 0.6rem; vertical-align: middle; }
         h2.section-heading {
-          font-family: var(--font-heading); font-size: clamp(1.9rem, 4vw, 3rem);
+          font-family: var(--font-sans); font-size: clamp(1.9rem, 4vw, 3rem);
           font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;
           margin-bottom: 1rem; color: var(--project-text); max-width: 22ch;
         }
-        .section-lead { font-size: 1.1rem; color: var(--project-text-secondary); line-height: 1.7; max-width: 60ch; margin-bottom: 2.5rem; font-family: var(--font-body); }
+        .section-lead { font-size: 1.1rem; color: var(--project-text-secondary); line-height: 1.7; max-width: 60ch; margin-bottom: 2.5rem; font-family: var(--font-sans); }
         .section-lead strong { color: var(--project-text); font-weight: 600; }
-        .sub-heading { font-family: var(--font-heading); font-size: 1.3rem; color: var(--project-text); margin: 3rem 0 1.2rem; }
+        .sub-heading { font-family: var(--font-sans); font-size: 1.3rem; color: var(--project-text); margin: 3rem 0 1.2rem; }
         .card { background: var(--project-bg-secondary); border: 1px solid var(--project-border); border-radius: 14px; padding: 1.5rem; transition: transform 0.3s ease, border-color 0.3s ease; }
         .section-full-custom .card { background: var(--project-bg); }
         .card.hover:hover { transform: translateY(-4px); border-color: var(--project-accent); }
         .eyebrow { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--project-accent); margin-bottom: 0.6rem; }
-        .card h3 { font-family: var(--font-heading); font-size: 1.08rem; font-weight: 600; color: var(--project-text); margin-bottom: 0.4rem; }
+        .card h3 { font-family: var(--font-sans); font-size: 1.08rem; font-weight: 600; color: var(--project-text); margin-bottom: 0.4rem; }
         .card p { font-size: 0.92rem; color: var(--project-text-secondary); line-height: 1.6; }
         .chip { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid var(--project-border); color: var(--project-text-secondary); }
         .chip.accent { border-color: var(--project-accent); color: var(--project-accent); background: var(--project-accent-dim); }
@@ -379,12 +379,12 @@ const VeritasProject = () => {
         .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
         .grid-4 a { color: var(--project-accent); }
         .overview-icon { font-size: 1.8rem; display: block; margin-bottom: 0.8rem; }
-        .brief-num { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: var(--project-accent); opacity: 0.4; line-height: 1; display: block; margin-bottom: 0.8rem; transition: opacity 0.3s ease; }
+        .brief-num { font-family: var(--font-sans); font-size: 2.2rem; font-weight: 700; color: var(--project-accent); opacity: 0.4; line-height: 1; display: block; margin-bottom: 0.8rem; transition: opacity 0.3s ease; }
         .card:hover .brief-num { opacity: 1; }
 
         /* ================= Audience router ================= */
         .router-toggle { display: inline-flex; border: 1px solid var(--project-border); border-radius: 999px; padding: 4px; margin-bottom: 2rem; position: relative; }
-        .router-toggle button { position: relative; z-index: 1; background: none; border: none; padding: 0.55rem 1.1rem; border-radius: 999px; color: var(--project-text-secondary); font-family: var(--font-body); font-size: 0.88rem; cursor: pointer; }
+        .router-toggle button { position: relative; z-index: 1; background: none; border: none; padding: 0.55rem 1.1rem; border-radius: 999px; color: var(--project-text-secondary); font-family: var(--font-sans); font-size: 0.88rem; cursor: pointer; }
         .router-toggle button.on { color: #111; }
         .router-toggle .pill { position: absolute; inset: 0; border-radius: 999px; background: var(--project-accent); z-index: -1; }
         .router { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 1rem; align-items: center; }
@@ -396,7 +396,7 @@ const VeritasProject = () => {
         .router-lines { height: 100%; min-height: 260px; }
         .router-lines path { fill: none; stroke: var(--project-accent); stroke-width: 2; }
         .door { padding: 1rem 1.2rem; border-radius: 14px; border: 1px dashed var(--project-border); }
-        .door strong { display: block; color: var(--project-text); font-family: var(--font-heading); }
+        .door strong { display: block; color: var(--project-text); font-family: var(--font-sans); }
         .door span { font-size: 0.82rem; color: var(--project-text-secondary); }
         .door.one { display: flex; flex-direction: column; justify-content: center; min-height: 260px; border-color: var(--project-bad); background: var(--project-bad-dim); }
         .door.split { border-style: solid; border-color: var(--project-good); background: var(--project-good-dim); }
@@ -404,7 +404,7 @@ const VeritasProject = () => {
         /* ================= Requirements ================= */
         .req-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; }
         .req { padding: 1.1rem 1.2rem; position: relative; }
-        .req .id { font-family: var(--font-heading); font-weight: 700; color: var(--project-accent); font-size: 0.9rem; margin-bottom: 0.4rem; display: block; }
+        .req .id { font-family: var(--font-sans); font-weight: 700; color: var(--project-accent); font-size: 0.9rem; margin-bottom: 0.4rem; display: block; }
         .req h3 { font-size: 0.98rem; }
         .req p { font-size: 0.83rem; }
         .req.fixed { border-color: var(--project-accent); background: var(--project-accent-dim); }
@@ -413,7 +413,7 @@ const VeritasProject = () => {
         /* ================= Mapping ================= */
         .map-stats { display: flex; flex-wrap: wrap; gap: 3rem; margin-bottom: 2.5rem; }
         .map-stats div { font-size: 0.88rem; color: var(--project-text-secondary); }
-        .map-stats strong { display: block; font-family: var(--font-heading); font-size: clamp(2.6rem, 5vw, 3.6rem); color: var(--project-text); line-height: 1; margin-bottom: 0.4rem; }
+        .map-stats strong { display: block; font-family: var(--font-sans); font-size: clamp(2.6rem, 5vw, 3.6rem); color: var(--project-text); line-height: 1; margin-bottom: 0.4rem; }
         .frame { background: var(--project-bg-secondary); border: 1px solid var(--project-border); border-radius: 14px; overflow: hidden; }
         .frame-bar { display: flex; align-items: center; gap: 6px; padding: 0.7rem 1rem; border-bottom: 1px solid var(--project-border); background: var(--project-bg); }
         .section-full-custom .frame-bar { background: var(--project-bg-secondary); }
@@ -434,15 +434,15 @@ const VeritasProject = () => {
 
         /* ================= Findings ================= */
         .find { display: flex; flex-direction: column; gap: 0.4rem; border-left: 3px solid var(--project-bad); }
-        .find .n { font-family: var(--font-heading); font-size: 2.6rem; font-weight: 700; color: var(--project-bad); line-height: 1; }
+        .find .n { font-family: var(--font-sans); font-size: 2.6rem; font-weight: 700; color: var(--project-bad); line-height: 1; }
         .find h3 { margin-bottom: 0.2rem; }
 
         /* ================= Moves ================= */
-        .question { font-family: var(--font-heading); font-size: clamp(1.3rem, 2.6vw, 1.8rem); font-style: italic; color: var(--project-text); border-left: 3px solid var(--project-accent); padding-left: 1.2rem; margin-bottom: 2.5rem; }
+        .question { font-family: var(--font-sans); font-size: clamp(1.3rem, 2.6vw, 1.8rem); font-style: normal; color: var(--project-text); border-left: 3px solid var(--project-accent); padding-left: 1.2rem; margin-bottom: 2.5rem; }
         .question strong { color: var(--project-accent); font-style: normal; }
         .moves { display: grid; gap: 0.9rem; }
         .move { display: grid; grid-template-columns: 60px 1.1fr 1fr 1fr; gap: 1.4rem; align-items: center; padding: 1.3rem 1.4rem; }
-        .move .num { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--project-accent); }
+        .move .num { font-family: var(--font-sans); font-size: 2rem; font-weight: 700; color: var(--project-accent); }
         .move h3 { margin-bottom: 0.5rem; }
         .move .reqs { display: flex; gap: 0.35rem; flex-wrap: wrap; }
         .move .col label { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.3rem; }
@@ -463,7 +463,7 @@ const VeritasProject = () => {
         .race { padding: 2rem; }
         .race-row + .race-row { margin-top: 2.5rem; }
         .race-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.9rem; }
-        .race-label strong { color: var(--project-text); font-family: var(--font-heading); }
+        .race-label strong { color: var(--project-text); font-family: var(--font-sans); }
         .race-label span { font-size: 0.85rem; color: var(--project-text-secondary); font-variant-numeric: tabular-nums; }
         .race-track { display: grid; grid-template-columns: repeat(25, 1fr); gap: 5px; }
         .dot { position: relative; height: 22px; border-radius: 5px; background: var(--project-border); transition: background 0.2s ease, transform 0.2s ease; }
@@ -480,13 +480,13 @@ const VeritasProject = () => {
         .dot em.show { opacity: 1; transform: translate(-50%, 0); }
         .race-key { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 2rem; font-size: 0.82rem; color: var(--project-text-secondary); align-items: center; }
         .race-key i { display: inline-block; width: 14px; height: 10px; border-radius: 3px; margin-right: 0.4rem; vertical-align: middle; }
-        .replay { margin-left: auto; background: none; border: 1px solid var(--project-border); color: var(--project-text); border-radius: 999px; padding: 0.5rem 1rem; cursor: pointer; font-family: var(--font-body); font-size: 0.85rem; transition: all 0.2s ease; }
+        .replay { margin-left: auto; background: none; border: 1px solid var(--project-border); color: var(--project-text); border-radius: 999px; padding: 0.5rem 1rem; cursor: pointer; font-family: var(--font-sans); font-size: 0.85rem; transition: all 0.2s ease; }
         .replay:hover { border-color: var(--project-accent); color: var(--project-accent); }
 
         /* ================= Screens ================= */
         .filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; align-items: center; }
         .filter span { font-size: 0.82rem; color: var(--project-text-secondary); margin-right: 0.3rem; }
-        .filter button { border: 1px solid var(--project-border); background: transparent; color: var(--project-text-secondary); border-radius: 999px; padding: 0.45rem 0.9rem; font-family: var(--font-body); font-size: 0.82rem; cursor: pointer; transition: all 0.2s ease; }
+        .filter button { border: 1px solid var(--project-border); background: transparent; color: var(--project-text-secondary); border-radius: 999px; padding: 0.45rem 0.9rem; font-family: var(--font-sans); font-size: 0.82rem; cursor: pointer; transition: all 0.2s ease; }
         .filter button:hover { border-color: var(--project-accent); color: var(--project-text); }
         .filter button.on { background: var(--project-accent); border-color: var(--project-accent); color: #111; }
         .screens { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
@@ -497,9 +497,9 @@ const VeritasProject = () => {
         .screen .cap p { font-size: 0.9rem; color: var(--project-text-secondary); line-height: 1.55; }
         .scroll-frame { height: 330px; overflow-y: auto; line-height: 0; cursor: ns-resize; scrollbar-width: thin; }
         .scroll-frame img { cursor: inherit; }
-        .scroll-hint { position: absolute; right: 0.8rem; bottom: 0.8rem; font-size: 0.72rem; line-height: 1; background: rgba(0,0,0,0.7); color: #fff; padding: 0.4rem 0.6rem; border-radius: 6px; pointer-events: none; font-family: var(--font-body); }
+        .scroll-hint { position: absolute; right: 0.8rem; bottom: 0.8rem; font-size: 0.72rem; line-height: 1; background: rgba(0,0,0,0.7); color: #fff; padding: 0.4rem 0.6rem; border-radius: 6px; pointer-events: none; font-family: var(--font-sans); }
         .form-stage { background: #fff4ee; padding: 1.6rem; display: flex; justify-content: center; min-height: 330px; align-items: center; line-height: 1.4; }
-        .vf { width: 100%; max-width: 330px; background: #fff; border-radius: 14px; padding: 1.2rem; box-shadow: 0 14px 30px rgba(226, 88, 30, 0.15); font-family: Poppins, var(--font-body), sans-serif; }
+        .vf { width: 100%; max-width: 330px; background: #fff; border-radius: 14px; padding: 1.2rem; box-shadow: 0 14px 30px rgba(226, 88, 30, 0.15); font-family: var(--font-sans); }
         .vf-head { margin-bottom: 0.9rem; }
         .vf-head strong { display: block; color: #2b2b2b; font-size: 1.05rem; }
         .vf-head span { font-size: 0.75rem; color: #e2581e; font-weight: 600; }
@@ -514,7 +514,7 @@ const VeritasProject = () => {
         .vf-check { display: inline-flex; width: 44px; height: 44px; border-radius: 50%; align-items: center; justify-content: center; background: #ffe8dd; color: #e2581e; font-size: 1.2rem; }
         .vf-link { margin-top: 0.6rem; background: none; border: none; color: #e2581e; font-weight: 600; cursor: pointer; font-family: inherit; }
         .link-card { display: flex; flex-direction: column; justify-content: center; min-height: 330px; padding: 2rem; background: linear-gradient(135deg, rgba(124, 77, 219, 0.25), rgba(124, 77, 219, 0.05)); line-height: 1.5; }
-        .link-card strong { font-family: var(--font-heading); font-size: 1.5rem; color: var(--project-text); margin-bottom: 0.6rem; }
+        .link-card strong { font-family: var(--font-sans); font-size: 1.5rem; color: var(--project-text); margin-bottom: 0.6rem; }
         .link-card p { color: var(--project-text-secondary); font-size: 0.92rem; margin-bottom: 1.2rem; }
         .link-card a { align-self: flex-start; color: var(--project-text); border: 1px solid var(--project-border); border-radius: 999px; padding: 0.55rem 1rem; text-decoration: none; font-size: 0.88rem; transition: all 0.2s ease; }
         .link-card a:hover { border-color: var(--project-accent); color: var(--project-accent); }
@@ -530,7 +530,7 @@ const VeritasProject = () => {
         .live-links a { color: var(--project-text); border: 1px solid var(--project-border); border-radius: 999px; padding: 0.55rem 1rem; text-decoration: none; font-size: 0.88rem; transition: all 0.2s ease; }
         .live-links a:hover { border-color: var(--project-accent); color: var(--project-accent); }
         .closing { background: var(--project-bg-secondary); border: 1px solid var(--project-accent); padding: 3rem 4%; border-radius: 14px; margin-top: 3rem; }
-        .closing p { font-family: var(--font-heading); font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-style: italic; line-height: 1.45; color: var(--project-text); max-width: 52ch; }
+        .closing p { font-family: var(--font-sans); font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-style: normal; line-height: 1.45; color: var(--project-text); max-width: 52ch; }
         .closing strong { color: var(--project-accent); font-style: normal; }
 
         /* ================= Lightbox ================= */

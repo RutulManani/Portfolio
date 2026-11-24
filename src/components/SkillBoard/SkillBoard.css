@@ -69,7 +69,7 @@
 }
 
 .skillboard__filename {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   color: var(--sb-muted-foreground);
   margin: 0;
@@ -93,9 +93,9 @@
   border: none;
   background: transparent;
   color: var(--sb-muted-foreground);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
@@ -129,9 +129,9 @@
   border: 1px solid var(--sb-border);
   background: transparent;
   color: var(--sb-muted-foreground);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
@@ -156,7 +156,7 @@
 
 .skillboard__count {
   margin-left: auto;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   color: var(--sb-muted-foreground);
 }
@@ -200,7 +200,7 @@
   outline: none;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.25s, box-shadow 0.15s;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   /* Every note is a card surface by default — category classes override */
   background: var(--sb-card);
   color: var(--sb-card-foreground);
@@ -279,7 +279,7 @@
 }
 
 .skillboard__name {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.2;
@@ -295,7 +295,7 @@
 .skillboard__hint {
   padding: 0.75rem 1rem;
   border-top: 1px solid var(--sb-border);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   color: var(--sb-muted-foreground);
   margin: 0;

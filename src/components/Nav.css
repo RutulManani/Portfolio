@@ -88,10 +88,8 @@
 }
 
 .nav-logo-word {
-  /* Matches the reference: Outfit 600, tight tracking.
-     Falls back to the portfolio heading font (Syne) if Outfit
-     isn't loaded — both are clean geometric sans. */
-  font-family: 'Outfit', var(--font-heading), sans-serif;
+  /* Figtree wordmark; size and weight set in the type scale below */
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 1.05rem; /* ≈17px — reads like a modest wordmark */
   letter-spacing: -0.01em;
@@ -144,7 +142,7 @@
 .nav-link {
   position: relative;
   padding: 0.5rem 0.75rem;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -247,7 +245,7 @@
 }
 
 .nav-mobile-link {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: 1.875rem;
   color: var(--text);
   background: none;
@@ -280,3 +278,42 @@
     transform: none;
   }
 }
+/* ============================================================
+   Redesign: Work, About and theme toggle, visible at every width
+   ============================================================ */
+.nav-links.nav-links--always {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.nav-link {
+  background: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  color: var(--text-secondary);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.92rem;
+}
+.nav-link:hover,
+.nav-link[aria-current='page'] {
+  color: var(--text);
+}
+.nav-logo-word { white-space: nowrap; }
+@media (max-width: 420px) {
+  .nav-header { padding-left: 1rem; padding-right: 1rem; }
+  .nav-links.nav-links--always { gap: 0; }
+  .nav-links.nav-links--always .nav-link { padding: 0.45rem 0.45rem; font-size: 0.85rem; }
+  .nav-logo-word { font-size: 1rem; }
+}
+
+/* type: match the site's display face */
+.nav-header { font-family: var(--font-sans); }
+.nav-logo-word { font-family: var(--font-sans); letter-spacing: -0.03em; }
+.nav-link { font-family: var(--font-sans); font-weight: 600; font-size: 0.95rem; }
+
+/* ---- type scale (Figtree) ---- */
+.nav-logo-word { font-size: var(--fs-body); font-weight: 700; letter-spacing: -0.01em; }
+.nav-link { font-size: var(--fs-small); font-weight: 600; letter-spacing: 0; }

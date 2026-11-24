@@ -1,0 +1,31 @@
+.threads {
+  margin: 0;
+  width: 100%;
+  cursor: crosshair;
+}
+.threads canvas {
+  display: block;
+  width: 100%;
+  height: clamp(180px, 26vh, 280px);
+}
+
+/* the three stages, under the canvas: left / centre / right */
+.threads-stages {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.threads-stages span { white-space: nowrap; }
+.threads-stages b { font-weight: 600; color: var(--accent); margin-right: 4px; }
+.threads-stages span:last-child { color: var(--text); }
+@media (max-width: 480px) {
+  .threads-stages { font-size: 11px; letter-spacing: 0.06em; }
+  .threads-stages b { display: none; }
+}

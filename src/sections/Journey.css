@@ -47,7 +47,7 @@
 }
 
 .journey-label-accent {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -62,7 +62,7 @@
 }
 
 .journey-label-muted {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -72,7 +72,7 @@
 .journey-title {
   margin-top: 1.5rem;
   max-width: 48rem;
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.1;
@@ -80,7 +80,7 @@
 }
 
 .journey-title-accent {
-  font-style: italic;
+  font-style: normal;
   color: var(--accent);
 }
 
@@ -204,7 +204,7 @@
 }
 
 .journey-card-year {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 1.5rem;
   color: var(--accent);
 }
@@ -218,7 +218,7 @@
 
 .journey-card-title {
   margin-top: 1rem;
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text);
@@ -231,7 +231,7 @@
 
 .journey-card-place {
   margin-top: 0.25rem;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;

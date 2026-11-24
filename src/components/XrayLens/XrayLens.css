@@ -78,7 +78,7 @@
 .xray__tag-top,
 .xray__tag-bottom {
   position: absolute;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -156,7 +156,7 @@
   border-radius: 3px;
   background: var(--accent);
   color: var(--primary);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 10px;
 }
 
@@ -173,7 +173,7 @@
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--secondary) 92%, transparent);
   color: var(--text);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 11px;
   cursor: pointer;
   backdrop-filter: blur(8px);

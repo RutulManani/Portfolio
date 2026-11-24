@@ -1,39 +1,33 @@
-import { ArrowUpRight } from 'lucide-react';
-import { useRevealClass } from '../hooks/useReveal';
+import { useState } from 'react';
 import { DESIGNER } from '../data/content';
 import './Contact.css';
 
-/** Contact: the invitation to start something together. */
 export default function Contact() {
-  const head = useRevealClass('reveal');
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(DESIGNER.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch (e) {
+      window.location.href = `mailto:${DESIGNER.email}`;
+    }
+  };
 
   return (
-    <section id="contact" className="contact-section">
-      <div className="contact-bg">
-        <div className="contact-bg-blob animate-float-slow" />
-      </div>
-
-      <div className="contact-container">
-        <div ref={head.ref} className={head.className}>
-          <h2 className="contact-title">
-            Let's design the{' '}
-            <span className="contact-title-accent">next chapter</span>{' '}
-            together.
-          </h2>
-        </div>
-
-        {/* Email button */}
-        <div className="contact-actions">
-          <a
-            href={`mailto:${DESIGNER.email}`}
-            data-cursor="hover"
-            className="contact-email-btn"
-          >
+    <section id="contact" className="contact">
+      <div className="lp-wrap contact-inner">
+        <h2 className="contact-title">Let's work together.</h2>
+        <div className="contact-links">
+          <a className="contact-email" href={`mailto:${DESIGNER.email}`}>
             {DESIGNER.email}
-            <ArrowUpRight
-              size={20}
-              className="contact-email-arrow"
-            />
+          </a>
+          <button type="button" className="contact-copy" onClick={copy}>
+            {copied ? 'Copied' : 'Copy'}
+          </button>
+          <a href="https://www.linkedin.com/in/rutulmanani/" target="_blank" rel="noopener noreferrer" className="contact-li">
+            LinkedIn ↗
           </a>
         </div>
       </div>

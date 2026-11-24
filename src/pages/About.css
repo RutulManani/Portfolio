@@ -1,218 +1,243 @@
 /* ============================================================
-   ABOUT — sticky left summary + right skill board
-   Uses portfolio design tokens (fonts, accent, borders).
-   Works in both dark (default) and [data-theme="light"].
+   ABOUT: intro + halftone portrait, facts, experience, toolkit,
+   sketchbook. Headings come from components/SectionHead.
    ============================================================ */
+.about-page { font-family: var(--font-sans); }
 
-.about-page {
-  min-height: 100vh;
-}
-
-/* ---- Section shell ---- */
-.about-section {
+/* ---- intro ---- */
+.ab-hero {
   position: relative;
-  border-top: 1px solid var(--border);
-  scroll-margin-top: 4rem;
+  isolation: isolate;
+  padding-top: 140px;
 }
-
-.about-grid {
-  margin: 0 auto;
-  max-width: 72rem; /* 1152px */
-  padding: 5rem 1.5rem;
+.ab-hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 64px;
   align-items: start;
 }
-
+/* like the live site: the summary stays put while the board scrolls */
 @media (min-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 5fr 7fr;
-    gap: 4rem;
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-  }
+  .ab-hero-text { position: sticky; top: 112px; }
 }
-
-/* ---- Left: sticky summary ---- */
-.about-summary {
-  width: 100%;
+.ab-board { min-width: 0; }
+.ab-kicker {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--faint);
 }
-
-@media (min-width: 1024px) {
-  .about-summary {
-    position: sticky;
-    top: 7rem;
-  }
-}
-
-.about-summary > div {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Label row */
-.about-label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.about-label-accent {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-}
-
-.about-label-line {
-  height: 1px;
-  width: 3rem;
-  background: var(--accent);
-  opacity: 0.4;
-}
-
-.about-label-muted {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-secondary);
-}
-
-/* Title */
-.about-title {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: clamp(1.875rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+.ab-title {
+  margin-top: 24px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
   color: var(--text);
   text-wrap: balance;
 }
-
-.about-title-accent {
-  color: var(--accent);
-  font-style: italic;
+.ab-title em {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.ab-lead {
+  margin-top: 32px;
+  max-width: 46ch;
+  font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+  line-height: 1.6;
+  color: var(--faint);
 }
 
-/* Description */
-.about-description {
-  max-width: 28rem;
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
+/* ---- facts ---- */
+.ab-facts {
+  margin: 56px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--hairline);
+}
+.ab-facts > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 6px;
+  padding: 28px 24px 0 0;
+}
+.ab-facts > div + div { padding-left: 24px; border-left: 1px solid var(--hairline); }
+.ab-facts dd {
   margin: 0;
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.ab-facts dt {
+  font-size: 0.95rem;
+  color: var(--faint);
 }
 
-/* Highlighted phrase with a tooltip dot */
-.about-mark {
-  position: relative;
-  display: inline;
-  cursor: help;
-  border-radius: 3px;
-  padding: 0 0.2rem;
-  background: rgba(255, 77, 77, 0.35);
+/* ---- experience ---- */
+.ab-xp {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ab-xp li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 200px;
+  gap: 8px 32px;
+  align-items: baseline;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--hairline);
+  transition: padding 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.ab-xp li:first-child { border-top: 1px solid var(--hairline); }
+.ab-xp li:hover { padding-left: 12px; }
+.ab-company {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
   color: var(--text);
+}
+.ab-role {
+  font-size: 1.02rem;
+  color: var(--text);
+}
+.ab-when {
+  justify-self: end;
+  font-size: 0.95rem;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 1023px) {
+  .ab-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 860px) {
+  .ab-hero { padding-top: 112px; }
+  .ab-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .ab-facts { grid-template-columns: 1fr; }
+  .ab-facts > div,
+  .ab-facts > div + div { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--hairline); }
+  .ab-xp li { grid-template-columns: 1fr; gap: 4px; }
+  .ab-when { justify-self: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ab-xp li { transition: none; }
+}
+
+/* ---- type scale (Figtree) ---- */
+.ab-kicker { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.ab-title {
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.ab-title em { font-weight: 700; letter-spacing: inherit; color: var(--accent); }
+.ab-lead { font-size: var(--fs-body); font-weight: 400; line-height: 1.6; max-width: 65ch; }
+.ab-lead strong { font-weight: 600; color: var(--text); }
+.ab-facts dd { font-size: var(--fs-h2); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+.ab-facts dt { font-size: var(--fs-small); font-weight: 400; }
+.ab-company { font-size: var(--fs-h3); font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+.ab-role { font-size: var(--fs-body); font-weight: 400; }
+.ab-when { font-size: var(--fs-small); font-weight: 400; }
+
+/* ---- photo: real portrait in a circle, with trait badges on a ring
+   (design, front end, music, cricket) that pair with the intro text ---- */
+.ab-avatar {
+  --size: 152px;
+  --ring: calc(var(--size) / 2 + 16px);
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  margin: 36px 0 0 18px;
+}
+.ab-avatar img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  box-shadow: 0 0 0 4px var(--primary), 0 16px 40px -18px rgba(0, 0, 0, 0.45);
+}
+.ab-ring {
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--text) 26%, transparent);
+  pointer-events: none;
+}
+/* badges sit on the ring at their angle */
+.ab-badge {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: var(--text);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.4);
+  transform: rotate(var(--a)) translate(var(--ring)) rotate(calc(-1 * var(--a)));
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s, transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  cursor: default;
   outline: none;
 }
-
-.about-mark:focus-visible {
-  box-shadow: 0 0 0 2px var(--accent);
-}
-
-.about-mark-dot {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50% 50% 50% 0;
+.ab-badge.is-on {
+  z-index: 3;
   background: var(--accent);
-  box-shadow: 0 0 0 2px var(--primary);
-  pointer-events: none;
+  border-color: var(--accent);
+  color: #fff;
+  transform: rotate(var(--a)) translate(var(--ring)) rotate(calc(-1 * var(--a))) scale(1.15);
 }
-
-.about-mark-tooltip {
+.ab-badge:focus-visible { box-shadow: 0 0 0 2px var(--primary), 0 0 0 4px var(--accent); }
+.ab-tip {
   position: absolute;
-  bottom: 100%;
-  right: 0;
-  margin-bottom: 0.5rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px 999px 0 999px;
-  background: var(--accent);
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translate(-4px, -50%);
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--text);
   color: var(--primary);
-  font-family: var(--font-body);
-  font-size: 10px;
+  font-size: var(--fs-label);
   font-weight: 600;
-  letter-spacing: 0.02em;
   white-space: nowrap;
   opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.2s, transform 0.2s;
   pointer-events: none;
-  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.35);
+  transition: opacity 0.2s, transform 0.2s;
 }
+.ab-badge.is-on .ab-tip { opacity: 1; transform: translate(0, -50%); }
 
-.about-mark:hover .about-mark-tooltip,
-.about-mark:focus-visible .about-mark-tooltip {
-  opacity: 1;
-  transform: translateY(0);
+/* the matching phrases in the intro */
+.ab-trait {
+  border-radius: 4px;
+  outline: none;
+  background-image: linear-gradient(var(--accent-tint), var(--accent-tint));
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.2s;
+  cursor: default;
 }
+.ab-trait.is-on { background-size: 100% 100%; color: var(--accent); }
 
-/* Stats */
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  border-top: 1px solid var(--border);
-  padding-top: 1.5rem;
-  margin: 0;
+@media (max-width: 600px) {
+  .ab-avatar { --size: 128px; }
 }
-
-.about-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+@media (prefers-reduced-motion: reduce) {
+  .ab-badge, .ab-tip, .ab-trait { transition: none; }
 }
-
-.about-stat-value {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: 1.875rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  line-height: 1;
-}
-
-.about-stat-label {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  line-height: 1.3;
-  color: var(--text-secondary);
-}
-
-/* ---- Right: skill board ---- */
-.about-board {
-  width: 100%;
-  min-width: 0;
-}
-
-/* Screen-reader only utility (in case it's not already global) */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+.ab-avatar + .ab-title { margin-top: 48px; }

@@ -1,0 +1,50 @@
+/* ============================================================
+   Site-wide layout + type system
+   .lp-wrap   page column
+   .lp-block  section rhythm
+   .sh        hairline, index + label, large title (serif accent)
+   ============================================================ */
+.lp-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (min-width: 720px) {
+  .lp-wrap { padding: 0 40px; }
+}
+.lp-block {
+  padding: 140px 0 0;
+  scroll-margin-top: 40px;
+}
+@media (max-width: 600px) {
+  .lp-block { padding-top: 96px; }
+}
+
+.sh {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid var(--hairline);
+  padding-top: 28px;
+  margin-bottom: 48px;
+  font-family: var(--font-sans);
+}
+.sh-title {
+  font-family: var(--font-sans);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text);
+}
+.sh-aside {
+  flex: none;
+  font-size: var(--fs-small);
+  font-weight: 400;
+  color: var(--faint);
+}
+@media (max-width: 600px) {
+  .sh { margin-bottom: 32px; padding-top: 22px; }
+  .sh-aside { display: none; }
+}

@@ -1,4 +1,4 @@
-import { useRevealClass } from '../../hooks/useReveal';
+import SectionHead from '../SectionHead/SectionHead';
 import './Gallery.css';
 
 /* ============================================================
@@ -24,22 +24,10 @@ const ITEMS = [
 ];
 
 export default function Gallery() {
-  const head = useRevealClass('reveal');
-
   return (
-    <section id="gallery" className="gallery-section">
-      <div className="gallery-container">
-        <div ref={head.ref} className={head.className + ' gallery-header'}>
-          <div className="gallery-label">
-            <span className="gallery-label-accent">From the sketchbook</span>
-            <span className="gallery-label-line" />
-            <span className="gallery-label-muted">Undergrad work</span>
-          </div>
-          <h2 className="gallery-title">
-            Where the hand{' '}
-            <span className="gallery-title-accent">learned to think.</span>
-          </h2>
-        </div>
+    <section id="gallery" className="lp-block gallery-section">
+      <div className="lp-wrap">
+        <SectionHead title="Sketchbook" aside="Industrial design, undergrad" />
 
         <div className="gallery-masonry">
           {ITEMS.map((item, i) => (

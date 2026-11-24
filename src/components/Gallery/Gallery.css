@@ -6,73 +6,7 @@
    Works in both dark (default) and [data-theme="light"].
    ============================================================ */
 
-.gallery-section {
-  position: relative;
-  border-top: 1px solid var(--border);
-  padding: 5rem 0;
-}
-
-@media (min-width: 640px) {
-  .gallery-section {
-    padding: 6rem 0;
-  }
-}
-
-.gallery-container {
-  margin: 0 auto;
-  max-width: 72rem;
-  padding: 0 1.5rem;
-}
-
-/* ---- Header ---- */
-.gallery-header {
-  margin-bottom: 2.5rem;
-}
-
-.gallery-label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.gallery-label-accent {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-}
-
-.gallery-label-line {
-  height: 1px;
-  width: 3rem;
-  background: var(--accent);
-  opacity: 0.4;
-}
-
-.gallery-label-muted {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-secondary);
-}
-
-.gallery-title {
-  margin: 1.25rem 0 0;
-  max-width: 42rem;
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.gallery-title-accent {
-  color: var(--accent);
-  font-style: italic;
-}
+/* Section shell and heading come from SectionHead.css (.lp-block, .sh) */
 
 /* ============================================================
    THE GRID — masonry via CSS columns.
@@ -107,7 +41,7 @@
   display: block;
   width: 100%;
   margin: 0 0 0.75rem;
-  border-radius: 10px;
+  border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--secondary);

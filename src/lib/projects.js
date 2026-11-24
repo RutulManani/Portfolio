@@ -1,64 +1,69 @@
 /* ============================================================
-   Project data for the Work section's x-ray card stack.
-   Shaped like the reference: id, name, kind, year, role,
-   summary, metric, tags, image, alt.
+   Projects on the home page (Selected work).
+   name  = product
+   org   = who it was for
+   title = what was done, as the headline
+   summary = one or two short sentences on what was done and its impact
+   tags  = two domain tags a recruiter can match to a job post
+   fit   = 'inset' floats a screenshot on the coloured ground,
+           'cover' fills the tile with a mockup photo
    ============================================================ */
 
 export const projects = [
   {
     id: 'veritas',
-    name: 'Untangling Veritas',
-    kind: 'Web · Insurance · Information Architecture',
-    year: '2022',
-    role: 'UX/UI design lead',
+    title: 'Simplified complex workflow',
     summary:
-      'I mapped an insurance broker’s entire website with the people who ran it, then cut it down to the structure that is live today.',
-    metric: { value: '25 → 11', label: 'steps from landing to payment' },
-    tags: ['Information Architecture', 'UX Strategy', 'Web Design', 'Stakeholder Mapping'],
-    image: require('../assets/images/veritas-cover.jpg'),
-    alt: 'Untangling Veritas cover: a tangled site map simplified into a clean structure',
+      'Rebuilt a multi-insurer broker site around one clear path to a quote, cutting checkout from 25 steps to 11.',
+    name: 'Veritas',
+    org: 'Clarion Fintech',
+    tags: ['Insurtech', 'B2B'],
+    tone: 'veritas',
+    fit: 'inset',
+    image: require('../assets/images/veritas-home-hero.jpg'),
+    alt: 'Veritas insurance homepage with product categories and a quote prompt',
     link: '/projects/6',
   },
   {
     id: 'locus',
-    name: 'Locus AI',
-    kind: 'Web · AI · 0 → 1',
-    year: '2026',
-    role: 'UX/UI designer, design system',
+    title: 'Design system for an AI decision platform',
     summary:
-      'A memory layer for teams that turns scattered Slack, Notion and Gmail threads into a searchable record of what was decided. I owned the design system: the colors, type and 70+ components every screen is built from, with every state designed.',
-    metric: { value: '17/25', label: 'interviewees asked to join early access' },
-    tags: ['Design System', 'AI', '0 → 1 Product'],
+      'A token-driven library of 70+ components behind an AI tool that turns team threads into cited decisions. 17 of 25 interviewees asked for early access.',
+    name: 'Locus AI',
+    org: 'PM Accelerator',
+    tags: ['AI', '0 → 1'],
+    tone: 'locus',
+    fit: 'inset',
     image: require('../assets/images/Locus.png'),
-    alt: 'Locus AI decision log with cited rows, confidence scores and a weekly pulse summary',
+    alt: 'Locus AI design system: buttons, inputs, pricing cards, calendar and logo',
     link: '/projects/5',
   },
   {
     id: 'spendsmart',
-    name: 'SpendSmart',
-    kind: 'Web · Fintech · Full-stack',
-    year: '2025',
-    role: 'Full-stack developer & UX/UI designer',
+    title: 'Gamified budgeting web app',
     summary:
-      'A mood-aware, gamified expense tracker for students. Linked every purchase to an emotional state, then used daily challenges and badges to turn mindful spending into something students actually wanted to open.',
-    metric: { value: '83%', label: 'average task completion in usability tests' },
-    tags: ['Full Stack', 'MERN', 'Gamification'],
+      'A mood-aware expense tracker with challenges and badges, designed and built in 8 weeks. 83% task completion in usability tests.',
+    name: 'SpendSmart',
+    org: 'Humber College',
+    tags: ['Fintech', 'MERN'],
+    tone: 'spend',
+    fit: 'cover',
     image: require('../assets/images/SpendSmart.png'),
-    alt: 'SpendSmart dashboard with balance, mood-tagged expenses and a daily challenge card',
+    alt: 'SpendSmart landing page on a tablet',
     link: '/projects/4',
   },
   {
     id: 'airbnb',
-    name: 'Airbnb UX Research',
-    kind: 'Web · Travel · Research',
-    year: '2023',
-    role: 'UX researcher & UI designer',
+    title: 'Small changes, big trust',
     summary:
-      'Rebuilt trust in the Airbnb booking journey. Ten user interviews and a full journey map revealed the real problem wasn’t navigation — it was confidence. Solutions targeted the decision phase where users were leaving.',
-    metric: { value: '10', label: 'user interviews + full journey map' },
-    tags: ['User Interviews', 'Journey Mapping', 'Competitive Analysis'],
+      '10 interviews showed guests leave right before booking because they can\'t trust listings. Verified listings and dated photos fix that, with no redesign needed.',
+    name: 'Airbnb',
+    org: 'Humber College',
+    tags: ['Research', 'Marketplace'],
+    tone: 'airbnb',
+    fit: 'cover',
     image: require('../assets/images/Airbnb.png'),
-    alt: 'Airbnb research artefacts including journey map, competitive analysis and verified listing mockups',
+    alt: 'Two phones showing Airbnb listing concepts with verified-guest details',
     link: '/projects/1',
   },
 ];

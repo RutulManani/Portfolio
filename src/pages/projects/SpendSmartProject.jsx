@@ -354,7 +354,7 @@ const SpendSmartProject = () => {
           cursor: pointer;
           color: var(--project-text-secondary);
           font-size: 0.75rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           text-align: left;
         }
         .side-nav .dot {
@@ -399,7 +399,7 @@ const SpendSmartProject = () => {
           margin: 0 auto;
         }
         .project-hero-custom h1 {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(2.4rem, 5vw, 4.5rem);
           font-weight: 700;
           line-height: 1.1;
@@ -410,8 +410,8 @@ const SpendSmartProject = () => {
         }
         .project-hero-custom h1 em {
           color: var(--project-accent);
-          font-style: italic;
-          font-weight: 800;
+          font-style: normal;
+          font-weight: 700;
         }
         .hero-sub {
           font-size: 1.15rem;
@@ -419,7 +419,7 @@ const SpendSmartProject = () => {
           max-width: 680px;
           line-height: 1.7;
           margin-bottom: 2.5rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
         }
         .hero-meta {
           display: grid;
@@ -475,7 +475,7 @@ const SpendSmartProject = () => {
           vertical-align: middle;
         }
         h2.section-heading {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.9rem, 4vw, 3rem);
           font-weight: 700;
           letter-spacing: -0.02em;
@@ -490,7 +490,7 @@ const SpendSmartProject = () => {
           line-height: 1.7;
           max-width: 60ch;
           margin-bottom: 2.5rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
         }
         .section-lead strong { color: var(--project-text); font-weight: 600; }
 
@@ -518,7 +518,7 @@ const SpendSmartProject = () => {
           margin-bottom: 0.6rem;
         }
         .card h3 {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: 1.15rem;
           font-weight: 600;
           color: var(--project-text);
@@ -559,7 +559,7 @@ const SpendSmartProject = () => {
         }
         .section-full-custom .expense-row { background: var(--project-bg-secondary); }
         .expense-row .name { display: flex; align-items: center; gap: 0.7rem; color: var(--project-text); font-weight: 600; }
-        .expense-row .amt { color: var(--project-text); font-weight: 700; font-family: var(--font-heading); }
+        .expense-row .amt { color: var(--project-text); font-weight: 700; font-family: var(--font-sans); }
         .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .chip {
           font-size: 0.78rem;
@@ -579,9 +579,9 @@ const SpendSmartProject = () => {
         }
         .compare-caption {
           margin-top: 2rem;
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.2rem, 2.4vw, 1.6rem);
-          font-style: italic;
+          font-style: normal;
           color: var(--project-text);
         }
         .compare-caption strong { color: var(--project-accent); font-style: normal; }
@@ -611,10 +611,10 @@ const SpendSmartProject = () => {
         }
         .hero-banner-text {
           color: var(--project-text);
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.2rem, 2.5vw, 2rem);
-          font-weight: 500;
-          font-style: italic;
+          font-weight: 600;
+          font-style: normal;
           line-height: 1.4;
           max-width: 42ch;
         }
@@ -644,7 +644,7 @@ const SpendSmartProject = () => {
           display: flex; align-items: center; justify-content: center;
           font-weight: 700;
           font-size: 0.85rem;
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           margin-bottom: 1.2rem;
           position: relative;
           z-index: 1;
@@ -655,7 +655,7 @@ const SpendSmartProject = () => {
           font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
           text-transform: uppercase; color: var(--project-text-secondary); margin-bottom: 0.3rem;
         }
-        .timeline-step h3 { font-family: var(--font-heading); font-size: 1.2rem; color: var(--project-text); margin-bottom: 0.4rem; }
+        .timeline-step h3 { font-family: var(--font-sans); font-size: 1.2rem; color: var(--project-text); margin-bottom: 0.4rem; }
         .timeline-step p { font-size: 0.88rem; color: var(--project-text-secondary); line-height: 1.55; }
         .timeline-output { margin-top: 0.6rem; font-size: 0.8rem !important; font-weight: 600; color: var(--project-accent) !important; }
         .timeline-output::before { content: '→ '; }
@@ -711,7 +711,7 @@ const SpendSmartProject = () => {
           text-align: center;
           padding: 0.5rem;
         }
-        .loop-center strong { font-family: var(--font-heading); color: var(--project-text); font-size: 1rem; line-height: 1.2; }
+        .loop-center strong { font-family: var(--font-sans); color: var(--project-text); font-size: 1rem; line-height: 1.2; }
         .loop-center span { font-size: 0.72rem; color: var(--project-text-secondary); margin-top: 0.2rem; }
         .loop-node {
           position: absolute;
@@ -754,7 +754,7 @@ const SpendSmartProject = () => {
           background: transparent;
           cursor: pointer;
           transition: all 0.3s ease;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
         }
         .loop-step .idx {
           width: 32px; height: 32px; border-radius: 50%;
@@ -798,7 +798,7 @@ const SpendSmartProject = () => {
           color: var(--project-text);
           font-size: 0.9rem;
           cursor: pointer;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           transition: border-color 0.2s ease, background 0.2s ease;
         }
         .section-full-custom .mood-chip { background: var(--project-bg-secondary); }
@@ -806,7 +806,7 @@ const SpendSmartProject = () => {
         .mood-chip.selected { border-color: var(--project-accent); background: var(--project-accent-dim); }
         .score-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.5rem; }
         .score-row span { font-size: 0.85rem; color: var(--project-text-secondary); }
-        .score-value { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--project-accent); }
+        .score-value { font-family: var(--font-sans); font-size: 2rem; font-weight: 700; color: var(--project-accent); }
         .score-bar { height: 10px; border-radius: 999px; background: var(--project-border); overflow: hidden; }
         .score-bar > div { height: 100%; background: var(--project-accent); border-radius: 999px; }
         .demo-toast {
@@ -843,7 +843,7 @@ const SpendSmartProject = () => {
           background: transparent;
           color: var(--project-text-secondary);
           font-size: 0.9rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           cursor: pointer;
           transition: color 0.2s ease, border-color 0.2s ease;
         }
@@ -903,7 +903,7 @@ const SpendSmartProject = () => {
           background: #ffffff;
           color: #111;
           font-size: 0.8rem;
-          font-weight: 500;
+          font-weight: 600;
           line-height: 1.4;
           text-align: left;
           opacity: 0;
@@ -929,7 +929,7 @@ const SpendSmartProject = () => {
           border: 1px solid transparent;
           background: transparent;
           cursor: pointer;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           color: var(--project-text-secondary);
           font-size: 0.88rem;
           line-height: 1.5;
@@ -955,7 +955,7 @@ const SpendSmartProject = () => {
           background: transparent;
           color: var(--project-text);
           cursor: pointer;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           font-size: 0.85rem;
           transition: all 0.2s ease;
         }
@@ -1024,7 +1024,7 @@ const SpendSmartProject = () => {
         /* ================= Testing ================= */
         .method-strip { display: grid; grid-template-columns: repeat(3, 1fr) 1.4fr; gap: 1rem; margin-bottom: 3rem; align-items: stretch; }
         .method-item { text-align: left; }
-        .method-item .big { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: var(--project-accent); line-height: 1; display: block; margin-bottom: 0.4rem; }
+        .method-item .big { font-family: var(--font-sans); font-size: 2.2rem; font-weight: 700; color: var(--project-accent); line-height: 1; display: block; margin-bottom: 0.4rem; }
         .method-shot { padding: 0; overflow: hidden; position: relative; cursor: zoom-in; }
         .method-shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
         .method-shot:hover img { transform: scale(1.05); }
@@ -1035,7 +1035,7 @@ const SpendSmartProject = () => {
           padding: 0.3rem 0.6rem; border-radius: 6px;
         }
         .sub-heading {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: 1.3rem;
           color: var(--project-text);
           margin: 0 0 1.2rem;
@@ -1047,7 +1047,7 @@ const SpendSmartProject = () => {
         .bar-track { height: 12px; border-radius: 999px; background: var(--project-border); overflow: hidden; }
         .bar-fill { height: 100%; border-radius: 999px; background: var(--project-accent); transform-origin: 0 50%; }
         .bar-fill.low { background: var(--project-danger); }
-        .bar-pct { font-family: var(--font-heading); font-weight: 700; color: var(--project-text); text-align: right; }
+        .bar-pct { font-family: var(--font-sans); font-weight: 700; color: var(--project-text); text-align: right; }
         .findings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
         .finding-card { display: flex; flex-direction: column; gap: 1rem; }
         .finding-top { display: flex; align-items: center; gap: 0.7rem; }
@@ -1091,7 +1091,7 @@ const SpendSmartProject = () => {
         .stats-grid-custom { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
         .stat-card-custom { text-align: center; padding: 2rem 1.2rem; }
         .stat-value-custom {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: 2.6rem; font-weight: 700;
           color: var(--project-accent);
           display: block; line-height: 1;
@@ -1126,10 +1126,10 @@ const SpendSmartProject = () => {
           pointer-events: none;
         }
         .hypothesis-box p {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-          font-weight: 500;
-          font-style: italic;
+          font-weight: 600;
+          font-style: normal;
           line-height: 1.45;
           max-width: 52ch;
           color: var(--project-text);
@@ -1574,7 +1574,7 @@ const SpendSmartProject = () => {
               >
                 <div className="card">
                   <span className="eyebrow">User goal</span>
-                  <p style={{ color: 'var(--project-text)', fontWeight: 500 }}>{current.goal}</p>
+                  <p style={{ color: 'var(--project-text)', fontWeight: 600 }}>{current.goal}</p>
                 </div>
                 <div className="card" style={{ borderColor: 'var(--project-accent)' }}>
                   <span className="eyebrow">Design decision</span>

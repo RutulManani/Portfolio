@@ -433,14 +433,14 @@ const LocusProject = () => {
         .hero-image-full img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
         .hero-content-wrapper { padding: 4rem 5% 2rem; max-width: 1200px; margin: 0 auto; }
         .project-hero-custom h1 {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(2.4rem, 5vw, 4.5rem);
           font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
           color: var(--project-text);
           margin-bottom: 1.5rem; max-width: 900px;
         }
-        .project-hero-custom h1 em { color: var(--project-accent); font-style: italic; font-weight: 800; }
-        .hero-sub { font-size: 1.15rem; color: var(--project-text-secondary); max-width: 680px; line-height: 1.7; margin-bottom: 2.5rem; font-family: var(--font-body); }
+        .project-hero-custom h1 em { color: var(--project-accent); font-style: normal; font-weight: 700; }
+        .hero-sub { font-size: 1.15rem; color: var(--project-text-secondary); max-width: 680px; line-height: 1.7; margin-bottom: 2.5rem; font-family: var(--font-sans); }
         .hero-meta {
           display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
           gap: 1.5rem; padding-top: 2rem; border-top: 1px solid var(--project-border);
@@ -467,12 +467,12 @@ const LocusProject = () => {
           background: var(--project-accent); margin-right: 0.6rem; vertical-align: middle;
         }
         h2.section-heading {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.9rem, 4vw, 3rem);
           font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;
           margin-bottom: 1rem; color: var(--project-text); max-width: 22ch;
         }
-        .section-lead { font-size: 1.1rem; color: var(--project-text-secondary); line-height: 1.7; max-width: 60ch; margin-bottom: 2.5rem; font-family: var(--font-body); }
+        .section-lead { font-size: 1.1rem; color: var(--project-text-secondary); line-height: 1.7; max-width: 60ch; margin-bottom: 2.5rem; font-family: var(--font-sans); }
         .section-lead strong { color: var(--project-text); font-weight: 600; }
         .card {
           background: var(--project-bg-secondary);
@@ -483,14 +483,14 @@ const LocusProject = () => {
         .section-full-custom .card { background: var(--project-bg); }
         .card.hover:hover { transform: translateY(-4px); border-color: var(--project-accent); }
         .eyebrow { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--project-accent); margin-bottom: 0.6rem; }
-        .card h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--project-text); margin-bottom: 0.4rem; }
+        .card h3 { font-family: var(--font-sans); font-size: 1.1rem; font-weight: 600; color: var(--project-text); margin-bottom: 0.4rem; }
         .card p { font-size: 0.93rem; color: var(--project-text-secondary); line-height: 1.6; }
 
         /* ================= Overview + stats ================= */
         .overview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
         .overview-icon { font-size: 1.8rem; display: block; margin-bottom: 0.8rem; }
         .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; }
-        .stat-big { font-family: var(--font-heading); font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 700; color: var(--project-accent); line-height: 1; margin-bottom: 0.6rem; }
+        .stat-big { font-family: var(--font-sans); font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 700; color: var(--project-accent); line-height: 1; margin-bottom: 0.6rem; }
         .stat-cap { font-size: 0.92rem; color: var(--project-text-secondary); line-height: 1.5; max-width: 26ch; }
         .credit { margin-top: 2rem; font-size: 0.8rem; color: var(--project-text-secondary); }
 
@@ -504,7 +504,7 @@ const LocusProject = () => {
         }
         .browser-bar { display: flex; align-items: center; gap: 6px; padding: 0.65rem 0.9rem; background: #f3f4f6; border-bottom: 1px solid #e5e7eb; }
         .browser-bar span { width: 10px; height: 10px; border-radius: 50%; background: #d1d5db; }
-        .browser-bar em { margin-left: 0.6rem; font-style: normal; font-size: 0.75rem; color: #6b7280; font-family: var(--font-body); }
+        .browser-bar em { margin-left: 0.6rem; font-style: normal; font-size: 0.75rem; color: #6b7280; font-family: var(--font-sans); }
         .browser-body { position: relative; line-height: 0; background: #fff; cursor: zoom-in; }
         .browser-body img { width: 100%; height: auto; display: block; }
 
@@ -518,7 +518,7 @@ const LocusProject = () => {
           border: 1px solid var(--project-border);
           background: transparent;
           cursor: pointer;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           transition: border-color 0.3s ease, background 0.3s ease;
         }
         .story-step strong { display: block; color: var(--project-text); font-size: 1rem; margin-bottom: 0.3rem; }
@@ -533,7 +533,7 @@ const LocusProject = () => {
         .follow-step { min-height: 62vh; display: flex; flex-direction: column; justify-content: center; padding: 1rem 0; opacity: 0.35; transition: opacity 0.4s ease; }
         .follow-step.active { opacity: 1; }
         .follow-step .when { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--project-lime); margin-bottom: 0.6rem; }
-        .follow-step h3 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--project-text); margin-bottom: 0.8rem; }
+        .follow-step h3 { font-family: var(--font-sans); font-size: 1.6rem; color: var(--project-text); margin-bottom: 0.8rem; }
         .follow-step p { font-size: 1rem; color: var(--project-text-secondary); line-height: 1.7; margin-bottom: 0.8rem; max-width: 42ch; }
         .follow-step .detail { font-size: 0.9rem; color: var(--project-text); border-left: 2px solid var(--project-accent); padding-left: 0.9rem; }
         .follow-step .inline-shot { display: none; margin-top: 1rem; }
@@ -545,14 +545,14 @@ const LocusProject = () => {
         /* ================= Design system ================= */
         .sys-stats { display: flex; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 2.5rem; }
         .sys-stats div { font-size: 0.85rem; color: var(--project-text-secondary); }
-        .sys-stats strong { display: block; font-family: var(--font-heading); font-size: 2.4rem; color: var(--project-text); line-height: 1; margin-bottom: 0.3rem; }
+        .sys-stats strong { display: block; font-family: var(--font-sans); font-size: 2.4rem; color: var(--project-text); line-height: 1; margin-bottom: 0.3rem; }
         .tokens { display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.6rem; margin-bottom: 3rem; }
         .token {
           border: 1px solid var(--project-border);
           border-radius: 12px; overflow: hidden;
           background: var(--project-bg);
           cursor: pointer; padding: 0; text-align: left;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           transition: transform 0.2s ease;
         }
         .token:hover { transform: translateY(-3px); }
@@ -573,7 +573,7 @@ const LocusProject = () => {
           display: flex; align-items: center; gap: 0.6rem;
           padding: 0.55rem 0.7rem; border-radius: 8px;
           border: none; background: transparent; cursor: pointer;
-          color: var(--project-text-secondary); font-size: 0.88rem; font-family: var(--font-body); text-align: left;
+          color: var(--project-text-secondary); font-size: 0.88rem; font-family: var(--font-sans); text-align: left;
         }
         .comp-item::before { content: '◇'; color: var(--project-accent); }
         .comp-item:hover { background: var(--project-accent-dim); color: var(--project-text); }
@@ -585,7 +585,7 @@ const LocusProject = () => {
           padding: 0.4rem 0.7rem; border-radius: 7px;
           border: 1px solid var(--project-border);
           background: transparent; color: var(--project-text-secondary);
-          font-size: 0.78rem; font-family: var(--font-body); cursor: pointer;
+          font-size: 0.78rem; font-family: var(--font-sans); cursor: pointer;
           transition: all 0.2s ease;
         }
         .seg button:hover { border-color: var(--project-accent); color: var(--project-text); }
@@ -604,19 +604,19 @@ const LocusProject = () => {
           font-size: 0.82rem; line-height: 1.5; color: #374151;
           background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
           padding: 0.65rem 0.85rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
         }
         .canvas-tag {
           position: absolute; top: 0.8rem; left: 0.9rem;
           font-size: 0.7rem; color: #4338ca; font-weight: 600;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
         }
         .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
 
         /* ---------- Design system intro ---------- */
         .ds-section .section-heading { max-width: 24ch; }
-        .ds-sub { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--project-text); margin: 0 0 0.5rem; }
-        .ds-note { font-size: 0.95rem; color: var(--project-text-secondary); line-height: 1.6; max-width: 60ch; margin: 0 0 1.2rem; font-family: var(--font-body); }
+        .ds-sub { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; color: var(--project-text); margin: 0 0 0.5rem; }
+        .ds-note { font-size: 0.95rem; color: var(--project-text-secondary); line-height: 1.6; max-width: 60ch; margin: 0 0 1.2rem; font-family: var(--font-sans); }
         .ds-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 1rem 0 4.5rem; }
         .ds-steps { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; gap: 1.1rem; }
         .ds-steps li { display: grid; grid-template-columns: 32px 1fr; gap: 0.9rem; align-items: start; }
@@ -632,7 +632,7 @@ const LocusProject = () => {
         .ba-row {
           display: grid; grid-template-columns: 1.2fr 1.3fr auto 1.2fr; gap: 0.8rem; align-items: center;
           padding: 0.85rem 0; border-bottom: 1px solid var(--project-border);
-          font-size: 0.92rem; font-family: var(--font-body);
+          font-size: 0.92rem; font-family: var(--font-sans);
         }
         .ba-label { color: var(--project-text-secondary); }
         .ba-before { color: var(--project-text-secondary); text-decoration: line-through; text-decoration-color: rgba(220, 38, 38, 0.55); }
@@ -673,8 +673,8 @@ const LocusProject = () => {
         .lc-spin { width: 12px; height: 12px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: lcspin 0.8s linear infinite; }
         @keyframes lcspin { to { transform: rotate(360deg); } }
         @media (prefers-reduced-motion: reduce) { .lc-spin { animation: none; } }
-        .lc-field { width: 320px; max-width: 100%; display: grid; gap: 6px; font-family: Inter, system-ui, sans-serif; }
-        .lc-field-label { font-size: 13px; font-weight: 500; color: #18181b; }
+        .lc-field { width: 320px; max-width: 100%; display: grid; gap: 6px; font-family: var(--font-sans); }
+        .lc-field-label { font-size: 13px; font-weight: 600; color: #18181b; }
         .lc-field-box {
           height: 42px; display: flex; align-items: center; padding: 0 12px;
           border: 1px solid #878e9b; border-radius: 14px; background: #fff;
@@ -687,7 +687,7 @@ const LocusProject = () => {
         .lc-field.is-error .lc-field-help { color: #991b1b; }
         .lc-field.is-disabled .lc-field-box { background: #f3f4f6; border-color: #e5e7eb; }
         .lc-field.is-disabled .ph, .lc-field.is-disabled .lc-field-label, .lc-field.is-disabled .lc-field-help { color: #9ca3af; }
-        .lc-choice { display: inline-flex; align-items: center; gap: 10px; font-family: Inter, system-ui, sans-serif; font-size: 14px; color: #18181b; }
+        .lc-choice { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-sans); font-size: 14px; color: #18181b; }
         .lc-switch { width: 36px; height: 22px; box-sizing: border-box; border-radius: 999px; border: 1px solid #4e5969; background: #fff; display: flex; align-items: center; padding: 2px; }
         .lc-switch span { width: 16px; height: 16px; border-radius: 50%; background: #4e5969; transition: transform 0.2s ease; }
         .lc-switch.on { background: #4338ca; border-color: #4338ca; }
@@ -709,8 +709,8 @@ const LocusProject = () => {
         .lc-pill {
           display: inline-flex; align-items: center;
           padding: 3px 10px; border-radius: 999px;
-          font-size: 12px; font-weight: 500; line-height: 17px;
-          font-family: Inter, system-ui, sans-serif; white-space: nowrap;
+          font-size: 12px; font-weight: 600; line-height: 17px;
+          font-family: var(--font-sans); white-space: nowrap;
         }
         .lc-pill.decision { background: #ddd6fe; color: #4338ca; }
         .lc-pill.action { background: #e0ff82; color: #3d4700; }
@@ -721,8 +721,8 @@ const LocusProject = () => {
         .lc-btn {
           display: inline-flex; align-items: center; gap: 6px;
           padding: 8px 16px; border-radius: 10px;
-          font-size: 13px; font-weight: 500;
-          font-family: Inter, system-ui, sans-serif;
+          font-size: 13px; font-weight: 600;
+          font-family: var(--font-sans);
           cursor: pointer; border: 1px solid transparent;
           transition: background 0.2s ease, border-color 0.2s ease;
         }
@@ -737,18 +737,18 @@ const LocusProject = () => {
         .lc-source {
           width: 300px; display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: center;
           background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 14px 16px;
-          font-family: Inter, system-ui, sans-serif;
+          font-family: var(--font-sans);
         }
         .lc-source strong { display: block; font-size: 14px; color: #18181b; }
         .lc-source small { font-size: 12px; color: #6b7280; }
-        .lc-source.add { display: block; text-align: center; color: #4338ca; font-size: 13px; font-weight: 500; border-style: dashed; }
+        .lc-source.add { display: block; text-align: center; color: #4338ca; font-size: 13px; font-weight: 600; border-style: dashed; }
         .lc-logo { width: 36px; height: 36px; border-radius: 10px; background: #f3f4f6; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #4a154b; }
-        .lc-dot { font-size: 12px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
+        .lc-dot { font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
         .lc-dot::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
         .lc-dot.ok { color: #166534; }
         .lc-dot.warn { color: #b45309; }
         .lc-dot.bad { color: #991b1b; }
-        .lc-row { width: 100%; max-width: 640px; background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; font-family: Inter, system-ui, sans-serif; }
+        .lc-row { width: 100%; max-width: 640px; background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; font-family: var(--font-sans); }
         .lc-row-head {
           width: 100%; display: grid; grid-template-columns: auto 1fr auto auto; gap: 14px; align-items: center;
           padding: 14px 16px; background: #fff; border: none; cursor: pointer; text-align: left;

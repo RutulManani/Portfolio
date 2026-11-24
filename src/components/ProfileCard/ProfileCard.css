@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -51,7 +51,7 @@
   background: var(--secondary);
   border: 1px solid var(--border);
   box-shadow: 0 20px 50px -22px rgba(0, 0, 0, 0.55);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   color: var(--text);
 }
 
@@ -123,7 +123,7 @@
 }
 
 .profile-card__name {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.2;
@@ -133,7 +133,7 @@
 }
 
 .profile-card__role {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.85rem;
   color: var(--text-secondary);
   margin: 0;
@@ -148,9 +148,9 @@
   border-radius: 999px;
   background: rgba(255, 77, 77, 0.12);
   color: var(--accent);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   width: fit-content;
 }
 
@@ -178,7 +178,7 @@
 
 /* Bio */
 .profile-card__bio {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.9rem;
   line-height: 1.6;
   color: var(--text-secondary);
@@ -196,9 +196,9 @@
 }
 
 .profile-card__skill {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.3rem 0.65rem;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.06);
@@ -226,7 +226,7 @@
   gap: 0.75rem;
   padding-top: 0.9rem;
   border-top: 1px solid var(--border);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.8rem;
   color: var(--text-secondary);
 }
@@ -251,7 +251,7 @@
   border-radius: 10px;
   background: var(--accent);
   color: var(--primary);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -287,7 +287,7 @@
 /* Annotation tags (64×64, H3/20, etc.) */
 .profile-card__annotation {
   position: absolute;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 9px;
   line-height: 1;
   padding: 0.2rem 0.4rem;
@@ -342,7 +342,7 @@
   border-radius: 4px;
   background: var(--accent);
   color: var(--primary);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 600;
   white-space: nowrap;

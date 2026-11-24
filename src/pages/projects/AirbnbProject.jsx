@@ -416,7 +416,7 @@ const AirbnbProject = () => {
           cursor: pointer;
           color: var(--project-text-secondary);
           font-size: 0.75rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           text-align: left;
         }
         .side-nav .dot {
@@ -441,7 +441,7 @@ const AirbnbProject = () => {
         .hero-image-full img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .hero-content-wrapper { padding: 4rem 5% 2rem; max-width: 1200px; margin: 0 auto; }
         .project-hero-custom h1 {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(2.4rem, 5vw, 4.5rem);
           font-weight: 700;
           line-height: 1.1;
@@ -450,14 +450,14 @@ const AirbnbProject = () => {
           margin-bottom: 1.5rem;
           max-width: 900px;
         }
-        .project-hero-custom h1 em { color: var(--project-accent); font-style: italic; font-weight: 800; }
+        .project-hero-custom h1 em { color: var(--project-accent); font-style: normal; font-weight: 700; }
         .hero-sub {
           font-size: 1.15rem;
           color: var(--project-text-secondary);
           max-width: 680px;
           line-height: 1.7;
           margin-bottom: 2.5rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
         }
         .hero-meta {
           display: grid;
@@ -498,7 +498,7 @@ const AirbnbProject = () => {
           vertical-align: middle;
         }
         h2.section-heading {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.9rem, 4vw, 3rem);
           font-weight: 700;
           letter-spacing: -0.02em;
@@ -513,10 +513,10 @@ const AirbnbProject = () => {
           line-height: 1.7;
           max-width: 60ch;
           margin-bottom: 2.5rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
         }
         .section-lead strong { color: var(--project-text); font-weight: 600; }
-        .sub-heading { font-family: var(--font-heading); font-size: 1.3rem; color: var(--project-text); margin: 0 0 1.2rem; }
+        .sub-heading { font-family: var(--font-sans); font-size: 1.3rem; color: var(--project-text); margin: 0 0 1.2rem; }
 
         /* ================= Shared card ================= */
         .card {
@@ -540,7 +540,7 @@ const AirbnbProject = () => {
         }
         .eyebrow.good { color: var(--project-good); }
         .eyebrow.muted { color: var(--project-text-secondary); }
-        .card h3 { font-family: var(--font-heading); font-size: 1.12rem; font-weight: 600; color: var(--project-text); margin-bottom: 0.5rem; }
+        .card h3 { font-family: var(--font-sans); font-size: 1.12rem; font-weight: 600; color: var(--project-text); margin-bottom: 0.5rem; }
         .card p { font-size: 0.93rem; color: var(--project-text-secondary); line-height: 1.6; }
         .chip {
           display: inline-block;
@@ -567,13 +567,13 @@ const AirbnbProject = () => {
         .score-fill { height: 100%; border-radius: 999px; transform-origin: 0 50%; }
         .score-fill.good { background: var(--project-good); }
         .score-fill.bad { background: var(--project-accent); }
-        .score-val { font-family: var(--font-heading); font-weight: 700; color: var(--project-text); text-align: right; }
+        .score-val { font-family: var(--font-sans); font-weight: 700; color: var(--project-text); text-align: right; }
         .score-note { font-size: 0.85rem; color: var(--project-text-secondary); line-height: 1.6; }
         .score-note strong { color: var(--project-text); }
         .quote-big {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.3rem, 2.6vw, 1.9rem);
-          font-style: italic;
+          font-style: normal;
           line-height: 1.4;
           color: var(--project-text);
           border-left: 3px solid var(--project-accent);
@@ -600,10 +600,10 @@ const AirbnbProject = () => {
         .airbnb-logo-wrap svg { width: 38px; height: 38px; fill: #fff; }
         .hero-banner-text {
           color: var(--project-text);
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.2rem, 2.5vw, 2rem);
-          font-weight: 500;
-          font-style: italic;
+          font-weight: 600;
+          font-style: normal;
           line-height: 1.4;
           max-width: 42ch;
         }
@@ -613,7 +613,7 @@ const AirbnbProject = () => {
         .process-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; position: relative; }
         .process-step { position: relative; display: flex; flex-direction: column; }
         .process-step .num {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: 2.6rem; font-weight: 700;
           color: var(--project-accent);
           opacity: 0.35;
@@ -622,7 +622,7 @@ const AirbnbProject = () => {
           transition: opacity 0.3s ease;
         }
         .process-step:hover .num { opacity: 1; }
-        .process-step .q { font-size: 0.92rem; color: var(--project-text); font-style: italic; line-height: 1.5; margin-bottom: 1rem; }
+        .process-step .q { font-size: 0.92rem; color: var(--project-text); font-style: normal; line-height: 1.5; margin-bottom: 1rem; }
         .process-step .m { font-size: 0.8rem; color: var(--project-text-secondary); margin-top: auto; }
         .process-step .o { font-size: 0.82rem; font-weight: 600; color: var(--project-good); margin-top: 0.3rem; }
         .process-step .o::before { content: '→ '; }
@@ -654,7 +654,7 @@ const AirbnbProject = () => {
           background: transparent;
           color: var(--project-text);
           cursor: pointer;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           font-size: 0.88rem;
           transition: all 0.2s ease;
         }
@@ -663,7 +663,7 @@ const AirbnbProject = () => {
         /* ================= Interviews ================= */
         .method-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
         .method-item .big {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: 2.2rem; font-weight: 700;
           color: var(--project-accent);
           line-height: 1;
@@ -679,7 +679,7 @@ const AirbnbProject = () => {
           padding: 1.1rem 1.3rem;
           background: transparent; border: none;
           color: var(--project-text);
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: 1.02rem; font-weight: 600;
           cursor: pointer;
           text-align: left;
@@ -736,7 +736,7 @@ const AirbnbProject = () => {
           display: inline-flex; align-items: center; gap: 0.4rem;
           background: none; border: none; padding: 0.3rem 0;
           color: var(--project-good);
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           font-size: 0.85rem; font-weight: 600;
           cursor: pointer;
         }
@@ -752,7 +752,7 @@ const AirbnbProject = () => {
           border: 1px solid var(--project-border);
           background: transparent;
           color: var(--project-text-secondary);
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           font-size: 0.9rem;
           cursor: pointer;
         }
@@ -815,7 +815,7 @@ const AirbnbProject = () => {
         .phase-labels { display: grid; grid-template-columns: repeat(5, 1fr); text-align: center; margin-bottom: 1.5rem; }
         .phase-label {
           background: none; border: none;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           cursor: pointer;
           padding: 0.4rem;
           color: var(--project-text-secondary);
@@ -850,7 +850,7 @@ const AirbnbProject = () => {
           background: transparent;
           color: var(--project-text-secondary);
           font-size: 0.9rem;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           cursor: pointer;
           transition: color 0.2s ease, border-color 0.2s ease;
         }
@@ -923,7 +923,7 @@ const AirbnbProject = () => {
           background: #fff;
           color: #111;
           font-size: 0.78rem;
-          font-weight: 500;
+          font-weight: 600;
           line-height: 1.4;
           text-align: left;
           opacity: 0;
@@ -938,7 +938,7 @@ const AirbnbProject = () => {
         .hotspot.tip-left.is-active .hotspot-tip, .hotspot.tip-right.is-active .hotspot-tip { transform: translateY(0); }
         .wt-side { display: flex; flex-direction: column; gap: 1rem; }
         .wt-side .card { padding: 1.3rem; }
-        .insight-quote { font-family: var(--font-heading); font-size: 1.15rem; font-style: italic; color: var(--project-text) !important; line-height: 1.45; }
+        .insight-quote { font-family: var(--font-sans); font-size: 1.15rem; font-style: normal; color: var(--project-text) !important; line-height: 1.45; }
         .wt-notes { display: grid; gap: 0.4rem; }
         .wt-note {
           display: grid; grid-template-columns: 26px 1fr; gap: 0.7rem;
@@ -949,7 +949,7 @@ const AirbnbProject = () => {
           border: 1px solid transparent;
           background: transparent;
           cursor: pointer;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           color: var(--project-text-secondary);
           font-size: 0.88rem;
           line-height: 1.5;
@@ -974,7 +974,7 @@ const AirbnbProject = () => {
           background: transparent;
           color: var(--project-text);
           cursor: pointer;
-          font-family: var(--font-body);
+          font-family: var(--font-sans);
           font-size: 0.85rem;
           transition: all 0.2s ease;
         }
@@ -1014,7 +1014,7 @@ const AirbnbProject = () => {
         .stats-grid-custom { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2.5rem; }
         .stat-card-custom { text-align: center; padding: 2rem 1.2rem; }
         .stat-value-custom {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: 2.8rem; font-weight: 700;
           color: var(--project-accent);
           display: block; line-height: 1;
@@ -1033,7 +1033,7 @@ const AirbnbProject = () => {
         }
         .takeaway-custom { background: var(--project-bg-secondary); padding: 1.8rem; display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; transition: background 0.3s ease; }
         .takeaway-custom:hover { background: var(--project-bg); }
-        .takeaway-letter { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--project-accent); line-height: 1; }
+        .takeaway-letter { font-family: var(--font-sans); font-size: 1.6rem; font-weight: 700; color: var(--project-accent); line-height: 1; }
         .takeaway-custom h4 { font-weight: 600; font-size: 1rem; margin-bottom: 0.4rem; color: var(--project-text); }
         .takeaway-custom p { font-size: 0.9rem; color: var(--project-text-secondary); line-height: 1.65; }
         .hypothesis-box {
@@ -1044,10 +1044,10 @@ const AirbnbProject = () => {
           margin-top: 3rem;
         }
         .hypothesis-box p {
-          font-family: var(--font-heading);
+          font-family: var(--font-sans);
           font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-          font-weight: 500;
-          font-style: italic;
+          font-weight: 600;
+          font-style: normal;
           line-height: 1.45;
           max-width: 52ch;
           color: var(--project-text);

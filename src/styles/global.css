@@ -9,8 +9,9 @@
   --text: #f0f0f0;
   --text-secondary: #b3b3b3;
   --border: rgba(255, 255, 255, 0.08);
-  --font-heading: 'Syne', sans-serif;
-  --font-body: 'Space Grotesk', sans-serif;
+  --font-sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-body: var(--font-sans);
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   --card-bg: #1a1a1a;
   --input-bg: rgba(255, 255, 255, 0.05);
@@ -31,6 +32,24 @@
   --scroll-thumb: #2a2a2a;
   --scroll-thumb-hover: #3a3a3a;
   --accent-tint: rgba(255, 77, 77, 0.12);
+
+  /* Redesign tokens */
+  --font-display: var(--font-sans);
+  --fs-hero: clamp(40px, 6vw, 72px);
+  --fs-h2: clamp(28px, 3.5vw, 40px);
+  --fs-h3: 22px;
+  --fs-body: 17px;
+  --fs-small: 14px;
+  --fs-label: 12px;
+  --font-serif: var(--font-sans);
+  --hairline: color-mix(in srgb, var(--text) 12%, transparent);
+  --faint: color-mix(in srgb, var(--text) 55%, transparent);
+  --ok: #4ad8a0;
+  --grid-dot: color-mix(in srgb, var(--text) 16%, transparent);
+  --p-locus: #2a2f6e;
+  --p-veritas: #0e4a58;
+  --p-spend: #1c5b45;
+  --p-airbnb: #8f2f3d;
 }
 
 [data-theme="light"] {
@@ -60,6 +79,7 @@
   --scroll-thumb: #c8c4ba;
   --scroll-thumb-hover: #b0aca0;
   --accent-tint: rgba(255, 77, 77, 0.15);
+  --ok: #13895a;
 }
 
 * {
@@ -81,23 +101,16 @@ html {
 body {
   background-color: var(--primary);
   color: var(--text);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   overflow-x: hidden;
-  cursor: none;
-}
-
-@media (max-width: 768px) {
-  body {
-    cursor: auto;
-  }
 }
 
 .font-serif {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
 }
 
 .font-mono {
-  font-family: 'Space Grotesk', monospace;
+  font-family: var(--font-sans);
 }
 
 ::-webkit-scrollbar {
@@ -334,4 +347,28 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 10px;
+}
+/* ============================================================
+   Typography: Figtree everywhere, weights 400 / 600 / 700 only
+   ============================================================ */
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+button, input, select, textarea, optgroup {
+  font-family: var(--font-sans);
+}
+code, kbd, pre, samp { font-family: var(--font-sans); }
+strong, b { font-weight: 600; }
+em, i:not([class*="fa"]) { font-style: normal; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-sans); }
+
+/* shared label style: tags, eyebrows, kickers */
+.type-label {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

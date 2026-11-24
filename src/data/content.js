@@ -1,7 +1,7 @@
 export const DESIGNER = {
   name: 'Rutul Manani',
   role: 'Product Designer',
-  tagline: 'I turn complex problems into human-centered digital experiences.',
+  tagline: 'I solve user and business problems through design.',
   location: 'Toronto, Canada',
   email: 'rutulmanani18@gmail.com',
   socials: [
@@ -14,7 +14,8 @@ export const DESIGNER = {
 export const TESTIMONIALS = [
   {
     quote:
-      'Rutul was essential in shaping our AI-powered home screen experience at Vosyn. He brings strong visual clarity, usability, and innovation to every project. He is Collaborative, reliable, and forward-thinking and I would gladly recommend him to any team.',
+      'Rutul was essential in shaping our AI-powered home screen experience at Vosyn. He brings strong visual clarity, usability, and innovation to every project. He is collaborative, reliable, and forward-thinking and I would gladly recommend him to any team.',
+    highlight: 'essential in shaping our AI-powered home screen experience',
     name: 'LJ Huang',
     role: 'Associate Product Director',
     company: 'Vosyn',
@@ -22,7 +23,8 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      'He consistently delivered high-quality work on time. His attention to detail and clever problem-solving stood out—he always went above and beyond, offering multiple creative directions. His proactive mindset made a significant impact on our projects.',
+      'He consistently delivered high-quality work on time. His attention to detail and clever problem-solving stood out. He always went above and beyond, offering multiple creative directions. His proactive mindset made a significant impact on our projects.',
+    highlight: 'attention to detail and clever problem-solving',
     name: 'Asma Bessayadia',
     role: 'Team Supervisor',
     company: 'Vosyn',
@@ -31,26 +33,75 @@ export const TESTIMONIALS = [
   {
     quote:
       'Rutul worked with us as a UI/UX Designer for 20 months. He is passionate, creative, and diligent, with strong communication, time management, and all required UX skills. Always ready to help and actively contributes in team meetings. I wholeheartedly recommend him.',
+    highlight: 'I wholeheartedly recommend him.',
     name: 'Maahir Shah',
     role: 'Director',
-    company: 'Clarion Insurance Broking Services',
+    company: 'Clarion Insurance',
     initials: 'MS',
   },
+];
+
+/* ============================================================
+   ABOUT: experience (from LinkedIn) and expertise
+   ============================================================ */
+
+export const EXPERIENCE = [
   {
-    quote:
-      'Rutul consistently impressed me with his dedication, creativity, and passion for user-centred design. He has strong command of Figma, Adobe Creative Suite, and Solidworks, and communicates effectively to match client needs. I enthusiastically recommend him as a top-tier UI/UX designer.',
-    name: 'Prof. Mukhtiyar Hussein Shaikh',
-    role: 'Head of Department, Product Design',
-    company: 'GLS Institute of Design',
-    initials: 'MS',
+    when: 'Jun – Aug 2026',
+    company: 'PM Accelerator',
+    title: 'AI UX/UI Designer',
+    text: 'Designed Locus AI end to end, an AI platform that turns team threads into searchable decisions.',
   },
   {
-    quote:
-      'He is the designer other designers ask for feedback. His critiques are sharp, kind, and always make the work better. The research work Rutul did for our booking flow in the academic project uncovered issues we had been missing for years.',
-    name: 'Priyank Shah',
-    role: 'Teammate',
-    company: 'Humber College',
-    initials: 'PS',
+    when: 'Oct 2025 – Feb 2026',
+    company: 'Workland',
+    title: 'UX/UI Designer',
+    text: 'Led UX/UI and built the design system for ATLAS, a recruiting platform for 30+ enterprise clients.',
+  },
+  {
+    when: 'May – Dec 2024',
+    company: 'Vosyn',
+    title: 'Product Designer',
+    text: 'Designed AI-powered interfaces, including the home screen, and tested them with users.',
+  },
+  {
+    when: 'Apr 2022 – Dec 2023',
+    company: 'Clarion Fintech',
+    title: 'UI/UX Design Lead',
+    text: 'Led design across insurance products for 10,000+ customers. Research-led redesigns raised engagement 25%.',
+  },
+  {
+    when: 'Nov 2021 – Apr 2022',
+    company: 'Codemischief',
+    title: 'UI/UX Designer',
+    text: 'Wireframes, flows and prototypes for web and mobile products.',
+  },
+  {
+    when: 'May – Jul 2021',
+    company: 'Studioworks',
+    title: 'Product Designer',
+    text: '',
+  },
+];
+
+export const COMPANIES = ['PM Accelerator', 'Workland', 'Vosyn', 'Clarion Fintech', 'Codemischief', 'Studioworks'];
+
+export const EXPERTISE = [
+  {
+    title: 'AI products',
+    text: "Turning LLM and ML output into screens people understand and trust, from Vosyn's AI interfaces to Locus's Decision Radar.",
+  },
+  {
+    title: 'Design systems',
+    text: "Systems that keep products consistent as they grow, from Workland's recruiting platform to the 70+ component library behind Locus.",
+  },
+  {
+    title: 'Complex enterprise workflows',
+    text: 'Recruiting tools for teams with 100+ open roles, insurance claims and sales apps, cut down to what people actually need.',
+  },
+  {
+    title: 'Design + front-end code',
+    text: 'I build in React, so my prototypes behave like the real product, and engineers get specs that are already realistic to build.',
   },
 ];
 

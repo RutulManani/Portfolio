@@ -1,151 +1,109 @@
-.hero-section {
-  position: relative;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  padding: 8rem 1.5rem 4rem;
-}
-
-@media (min-width: 640px) {
-  .hero-section {
-    padding: 8rem 2.5rem 4rem;
-  }
-}
-
-/* Particle background */
-.hero-bg {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-/* Content — left aligned */
-.hero-content {
-  position: relative;
-  z-index: 10;
+/* HERO: statement type on top, the knot of threads beneath it. */
+.hero {
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  max-width: 56rem;
+  justify-content: flex-end;
+  padding-top: 132px;
+  font-family: var(--font-sans);
 }
-
-/* Typing role */
-.hero-typed {
-  margin-bottom: 1.2rem;
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  color: var(--accent);
-}
-
-.hero-typed-prompt {
-  color: var(--text-secondary);
-}
-
-.hero-typed-text {
-  color: var(--accent);
-}
-
-.hero-typed-caret {
-  margin-left: 2px;
-  animation: type-caret 0.8s step-end infinite;
-  color: var(--accent);
-}
-
-/* Headline */
-/* Capped at 4.5rem so each line fits beside the profile card without wrapping */
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-}
-
-.hero-title-accent {
-  font-style: italic;
-  color: var(--accent);
-}
-
-/* Subtitle */
-.hero-subtitle {
-  margin-top: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.hero-subtitle p {
-  max-width: 32rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-/* ============================================================
-   HERO GRID — two columns: content left, profile card right
-   ============================================================ */
-.hero-grid {
-  position: relative;
-  z-index: 10;
+.hero-inner {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 48px;
+}
+.hero-kicker { grid-column: 1 / -1; justify-self: start; }
+
+.hero-kicker {
+  display: inline-flex;
   align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--faint);
+}
+.hero-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent);
+  animation: heroPulse 2.4s ease-out infinite;
+}
+@keyframes heroPulse {
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
 }
 
-/* Desktop: split into two columns */
-@media (min-width: 1024px) {
-  .hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 4rem;
-    align-items: center;
-  }
+.hero-title {
+  margin-top: 28px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(3rem, 8vw, 7.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  color: var(--text);
+  max-width: 11ch;
+  text-wrap: balance;
+}
+.hero-title em {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.03em;
 }
 
-/* The hero-content was previously z-indexed and max-width'd
-   directly on .hero-content; keep it inside the grid now. */
-.hero-grid .hero-content {
-  max-width: none;
+.hero-sub {
+  align-self: end;
+  margin-bottom: 0.6em;
+  max-width: 30ch;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  color: var(--faint);
 }
 
-/* Profile card column — centers the card vertically on desktop */
-.hero-profile-card {
-  display: flex;
-  justify-content: center;
+.hero .threads { margin-top: clamp(24px, 4vh, 48px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pulse { animation: none; }
+}
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-sub { margin: 28px 0 0; max-width: 40ch; }
+}
+@media (max-width: 600px) {
+  .hero { padding-top: 112px; min-height: 0; }
+}
+
+/* option B: proof strip instead of the threads */
+.hero-proof {
   width: 100%;
+  margin-top: clamp(48px, 8vh, 96px);
+  padding-bottom: clamp(40px, 7vh, 80px);
+}
+.hero--steps .hero-title { font-size: clamp(3rem, 7vw, 6.4rem); }
+.hero--steps .hero-proof { margin-top: clamp(40px, 6vh, 64px); padding-bottom: 48px; }
+.hero--steps .hero-proof .sc {
+  padding-top: 28px;
+  border-top: 1px solid var(--hairline);
 }
 
-@media (min-width: 1024px) {
-  .hero-profile-card {
-    justify-content: flex-end;
-  }
+/* ---- type scale (Figtree) ---- */
+.hero-kicker { font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero-title {
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 15ch;
 }
-
-/* Mobile: reduce vertical gap between content and card */
-@media (max-width: 1023px) {
-  .hero-grid {
-    gap: 2rem;
-  }
-}
-
-@media (min-width: 640px) {
-  .hero-subtitle p {
-    font-size: 1.125rem;
-  }
+.hero-title em { font-weight: 700; font-style: normal; letter-spacing: inherit; color: var(--accent); }
+.hero-sub { font-size: var(--fs-body); font-weight: 400; line-height: 1.6; max-width: 34ch; }
+.hero-sub strong { font-weight: 600; color: var(--text); }
+/* centre the statement + threads in the first screen */
+.hero { justify-content: center; padding-top: 96px; padding-bottom: 24px; }
+.hero .threads { margin-top: clamp(32px, 7vh, 72px); }
+@media (max-width: 600px) {
+  .hero { padding-top: 112px; }
 }
